@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B6638122A3C948F00F3785C /* PratoA_VistaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638112A3C948F00F3785C /* PratoA_VistaApp.swift */; };
+		4B6638142A3C948F00F3785C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638132A3C948F00F3785C /* ContentView.swift */; };
+		4B6638162A3C949100F3785C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6638152A3C949100F3785C /* Assets.xcassets */; };
+		4B6638192A3C949100F3785C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6638182A3C949100F3785C /* Preview Assets.xcassets */; };
+		4B6638232A3C949100F3785C /* PratoA_VistaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638222A3C949100F3785C /* PratoA_VistaTests.swift */; };
+		4B66382D2A3C949100F3785C /* PratoA_VistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B66382C2A3C949100F3785C /* PratoA_VistaUITests.swift */; };
+		4B66382F2A3C949100F3785C /* PratoA_VistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B66382E2A3C949100F3785C /* PratoA_VistaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B66381F2A3C949100F3785C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B6638062A3C948F00F3785C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B66380D2A3C948F00F3785C;
+			remoteInfo = "PratoÀVista";
+		};
+		4B6638292A3C949100F3785C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B6638062A3C948F00F3785C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B66380D2A3C948F00F3785C;
+			remoteInfo = "PratoÀVista";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4B66380E2A3C948F00F3785C /* PratoÀVista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PratoÀVista.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6638112A3C948F00F3785C /* PratoA_VistaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoA_VistaApp.swift; sourceTree = "<group>"; };
+		4B6638132A3C948F00F3785C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4B6638152A3C949100F3785C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B6638182A3C949100F3785C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B66381E2A3C949100F3785C /* PratoÀVistaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PratoÀVistaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6638222A3C949100F3785C /* PratoA_VistaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoA_VistaTests.swift; sourceTree = "<group>"; };
+		4B6638282A3C949100F3785C /* PratoÀVistaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PratoÀVistaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B66382C2A3C949100F3785C /* PratoA_VistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoA_VistaUITests.swift; sourceTree = "<group>"; };
+		4B66382E2A3C949100F3785C /* PratoA_VistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoA_VistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B66380B2A3C948F00F3785C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B66381B2A3C949100F3785C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6638252A3C949100F3785C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B6638052A3C948F00F3785C = {
+			isa = PBXGroup;
+			children = (
+				4B6638102A3C948F00F3785C /* PratoÀVista */,
+				4B6638212A3C949100F3785C /* PratoÀVistaTests */,
+				4B66382B2A3C949100F3785C /* PratoÀVistaUITests */,
+				4B66380F2A3C948F00F3785C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B66380F2A3C948F00F3785C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B66380E2A3C948F00F3785C /* PratoÀVista.app */,
+				4B66381E2A3C949100F3785C /* PratoÀVistaTests.xctest */,
+				4B6638282A3C949100F3785C /* PratoÀVistaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B6638102A3C948F00F3785C /* PratoÀVista */ = {
+			isa = PBXGroup;
+			children = (
+				4B6638112A3C948F00F3785C /* PratoA_VistaApp.swift */,
+				4B6638132A3C948F00F3785C /* ContentView.swift */,
+				4B6638152A3C949100F3785C /* Assets.xcassets */,
+				4B6638172A3C949100F3785C /* Preview Content */,
+			);
+			path = "PratoÀVista";
+			sourceTree = "<group>";
+		};
+		4B6638172A3C949100F3785C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4B6638182A3C949100F3785C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4B6638212A3C949100F3785C /* PratoÀVistaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B6638222A3C949100F3785C /* PratoA_VistaTests.swift */,
+			);
+			path = "PratoÀVistaTests";
+			sourceTree = "<group>";
+		};
+		4B66382B2A3C949100F3785C /* PratoÀVistaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4B66382C2A3C949100F3785C /* PratoA_VistaUITests.swift */,
+				4B66382E2A3C949100F3785C /* PratoA_VistaUITestsLaunchTests.swift */,
+			);
+			path = "PratoÀVistaUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B66380D2A3C948F00F3785C /* PratoÀVista */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B6638322A3C949100F3785C /* Build configuration list for PBXNativeTarget "PratoÀVista" */;
+			buildPhases = (
+				4B66380A2A3C948F00F3785C /* Sources */,
+				4B66380B2A3C948F00F3785C /* Frameworks */,
+				4B66380C2A3C948F00F3785C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PratoÀVista";
+			productName = "PratoÀVista";
+			productReference = 4B66380E2A3C948F00F3785C /* PratoÀVista.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B66381D2A3C949100F3785C /* PratoÀVistaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B6638352A3C949100F3785C /* Build configuration list for PBXNativeTarget "PratoÀVistaTests" */;
+			buildPhases = (
+				4B66381A2A3C949100F3785C /* Sources */,
+				4B66381B2A3C949100F3785C /* Frameworks */,
+				4B66381C2A3C949100F3785C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B6638202A3C949100F3785C /* PBXTargetDependency */,
+			);
+			name = "PratoÀVistaTests";
+			productName = "PratoÀVistaTests";
+			productReference = 4B66381E2A3C949100F3785C /* PratoÀVistaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4B6638272A3C949100F3785C /* PratoÀVistaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B6638382A3C949100F3785C /* Build configuration list for PBXNativeTarget "PratoÀVistaUITests" */;
+			buildPhases = (
+				4B6638242A3C949100F3785C /* Sources */,
+				4B6638252A3C949100F3785C /* Frameworks */,
+				4B6638262A3C949100F3785C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B66382A2A3C949100F3785C /* PBXTargetDependency */,
+			);
+			name = "PratoÀVistaUITests";
+			productName = "PratoÀVistaUITests";
+			productReference = 4B6638282A3C949100F3785C /* PratoÀVistaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B6638062A3C948F00F3785C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					4B66380D2A3C948F00F3785C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					4B66381D2A3C949100F3785C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4B66380D2A3C948F00F3785C;
+					};
+					4B6638272A3C949100F3785C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4B66380D2A3C948F00F3785C;
+					};
+				};
+			};
+			buildConfigurationList = 4B6638092A3C948F00F3785C /* Build configuration list for PBXProject "PratoÀVista" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B6638052A3C948F00F3785C;
+			productRefGroup = 4B66380F2A3C948F00F3785C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B66380D2A3C948F00F3785C /* PratoÀVista */,
+				4B66381D2A3C949100F3785C /* PratoÀVistaTests */,
+				4B6638272A3C949100F3785C /* PratoÀVistaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B66380C2A3C948F00F3785C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6638192A3C949100F3785C /* Preview Assets.xcassets in Resources */,
+				4B6638162A3C949100F3785C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B66381C2A3C949100F3785C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6638262A3C949100F3785C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B66380A2A3C948F00F3785C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6638142A3C948F00F3785C /* ContentView.swift in Sources */,
+				4B6638122A3C948F00F3785C /* PratoA_VistaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B66381A2A3C949100F3785C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B6638232A3C949100F3785C /* PratoA_VistaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6638242A3C949100F3785C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B66382D2A3C949100F3785C /* PratoA_VistaUITests.swift in Sources */,
+				4B66382F2A3C949100F3785C /* PratoA_VistaUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B6638202A3C949100F3785C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B66380D2A3C948F00F3785C /* PratoÀVista */;
+			targetProxy = 4B66381F2A3C949100F3785C /* PBXContainerItemProxy */;
+		};
+		4B66382A2A3C949100F3785C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B66380D2A3C948F00F3785C /* PratoÀVista */;
+			targetProxy = 4B6638292A3C949100F3785C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4B6638302A3C949100F3785C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B6638312A3C949100F3785C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B6638332A3C949100F3785C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PratoÀVista/Preview Content\"";
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.PratoA-Vista";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B6638342A3C949100F3785C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PratoÀVista/Preview Content\"";
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.PratoA-Vista";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4B6638362A3C949100F3785C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.PratoA-VistaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PratoÀVista.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PratoÀVista";
+			};
+			name = Debug;
+		};
+		4B6638372A3C949100F3785C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.PratoA-VistaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PratoÀVista.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PratoÀVista";
+			};
+			name = Release;
+		};
+		4B6638392A3C949100F3785C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.PratoA-VistaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "PratoÀVista";
+			};
+			name = Debug;
+		};
+		4B66383A2A3C949100F3785C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 826U5T47TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.stephanegirao.PratoA-VistaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "PratoÀVista";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B6638092A3C948F00F3785C /* Build configuration list for PBXProject "PratoÀVista" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6638302A3C949100F3785C /* Debug */,
+				4B6638312A3C949100F3785C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B6638322A3C949100F3785C /* Build configuration list for PBXNativeTarget "PratoÀVista" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6638332A3C949100F3785C /* Debug */,
+				4B6638342A3C949100F3785C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B6638352A3C949100F3785C /* Build configuration list for PBXNativeTarget "PratoÀVistaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6638362A3C949100F3785C /* Debug */,
+				4B6638372A3C949100F3785C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B6638382A3C949100F3785C /* Build configuration list for PBXNativeTarget "PratoÀVistaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B6638392A3C949100F3785C /* Debug */,
+				4B66383A2A3C949100F3785C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B6638062A3C948F00F3785C /* Project object */;
+}
