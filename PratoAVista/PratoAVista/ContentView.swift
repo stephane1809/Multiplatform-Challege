@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  PratoÀVista
+//  PratoAVista
 //
-//  Created by Stephane Girão Linhares on 16/06/23.
+//  Created by Stephane Girão Linhares on 19/06/23.
 //
 
 import SwiftUI

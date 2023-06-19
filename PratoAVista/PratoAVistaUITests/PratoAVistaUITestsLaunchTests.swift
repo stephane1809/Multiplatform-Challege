@@ -1,13 +1,13 @@
 //
-//  PratoA_VistaUITestsLaunchTests.swift
-//  PratoÀVistaUITests
+//  PratoAVistaUITestsLaunchTests.swift
+//  PratoAVistaUITests
 //
-//  Created by Stephane Girão Linhares on 16/06/23.
+//  Created by Stephane Girão Linhares on 19/06/23.
 //
 
 import XCTest
 
-final class PratoA_VistaUITestsLaunchTests: XCTestCase {
+final class PratoAVistaUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
