@@ -14,6 +14,14 @@
 		4B6638592A409C7500F3785C /* PratoAVistaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638582A409C7500F3785C /* PratoAVistaTests.swift */; };
 		4B6638632A409C7500F3785C /* PratoAVistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */; };
 		4B6638652A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */; };
+		FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */; };
+		FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC592A40A5B7002825C6 /* Location.swift */; };
+		FF8EBC5C2A40A5CD002825C6 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC5B2A40A5CD002825C6 /* LocationViewModel.swift */; };
+		FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC5F2A40A60B002825C6 /* LocationsView.swift */; };
+		FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC612A40A633002825C6 /* LocationsPreviewVIew.swift */; };
+		FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */; };
+		FF8EBC662A40A669002825C6 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC652A40A669002825C6 /* LocationDetailView.swift */; };
+		FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,15 @@
 		4B66385E2A409C7500F3785C /* PratoAVistaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PratoAVistaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITests.swift; sourceTree = "<group>"; };
 		4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
+		FF8EBC592A40A5B7002825C6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FF8EBC5B2A40A5CD002825C6 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		FF8EBC5F2A40A60B002825C6 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		FF8EBC612A40A633002825C6 /* LocationsPreviewVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsPreviewVIew.swift; sourceTree = "<group>"; };
+		FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		FF8EBC652A40A669002825C6 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
+		FFF808362A40B7540089D77E /* PratoAVistaTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PratoAVistaTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +91,7 @@
 		4B66383B2A409C7400F3785C = {
 			isa = PBXGroup;
 			children = (
+				FFF808362A40B7540089D77E /* PratoAVistaTests.xctestplan */,
 				4B6638462A409C7400F3785C /* PratoAVista */,
 				4B6638572A409C7500F3785C /* PratoAVistaTests */,
 				4B6638612A409C7500F3785C /* PratoAVistaUITests */,
@@ -95,7 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				4B6638472A409C7400F3785C /* PratoAVistaApp.swift */,
-				4B6638492A409C7400F3785C /* ContentView.swift */,
+				FF8EBC582A40A5AC002825C6 /* Model */,
+				FF8EBC5D2A40A5DE002825C6 /* View */,
+				FF8EBC572A40A5A1002825C6 /* ViewModel */,
+				FF8EBC542A40A569002825C6 /* DataService */,
 				4B66384B2A409C7500F3785C /* Assets.xcassets */,
 				4B66384D2A409C7500F3785C /* Preview Content */,
 			);
@@ -125,6 +146,51 @@
 				4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */,
 			);
 			path = PratoAVistaUITests;
+			sourceTree = "<group>";
+		};
+		FF8EBC542A40A569002825C6 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */,
+			);
+			path = DataService;
+			sourceTree = "<group>";
+		};
+		FF8EBC572A40A5A1002825C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EBC5B2A40A5CD002825C6 /* LocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FF8EBC582A40A5AC002825C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EBC592A40A5B7002825C6 /* Location.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF8EBC5D2A40A5DE002825C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EBC5E2A40A5F1002825C6 /* Locations */,
+				4B6638492A409C7400F3785C /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF8EBC5E2A40A5F1002825C6 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				FF8EBC5F2A40A60B002825C6 /* LocationsView.swift */,
+				FF8EBC612A40A633002825C6 /* LocationsPreviewVIew.swift */,
+				FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */,
+				FF8EBC652A40A669002825C6 /* LocationDetailView.swift */,
+				FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */,
+			);
+			path = Locations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +325,14 @@
 			files = (
 				4B66384A2A409C7400F3785C /* ContentView.swift in Sources */,
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
+				FF8EBC662A40A669002825C6 /* LocationDetailView.swift in Sources */,
+				FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */,
+				FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */,
+				FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */,
+				FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */,
+				FF8EBC5C2A40A5CD002825C6 /* LocationViewModel.swift in Sources */,
+				FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */,
+				FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

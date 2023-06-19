@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "84EDEBFD-20AE-409E-8187-8ADAE4449D89",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PratoAVista.xcodeproj",
+      "identifier" : "4B6638532A409C7500F3785C",
+      "name" : "PratoAVistaTests"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PratoAVista.xcodeproj",
+        "identifier" : "4B6638532A409C7500F3785C",
+        "name" : "PratoAVistaTests"
+      }
+    }
+  ],
+  "version" : 1
+}
