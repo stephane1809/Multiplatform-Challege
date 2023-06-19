@@ -1,13 +1,13 @@
 //
-//  PratoA_VistaUITests.swift
-//  PratoÀVistaUITests
+//  PratoAVistaUITests.swift
+//  PratoAVistaUITests
 //
-//  Created by Stephane Girão Linhares on 16/06/23.
+//  Created by Stephane Girão Linhares on 19/06/23.
 //
 
 import XCTest
 
-final class PratoA_VistaUITests: XCTestCase {
+final class PratoAVistaUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
