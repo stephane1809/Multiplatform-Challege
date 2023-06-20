@@ -30,6 +30,9 @@ class LocationsViewModel: ObservableObject {
     // Show location detail via sheet
     @Published var sheetLocation: Location? = nil
     
+    // Show bigger Image
+    @Published var selectedImage: Bool = false
+    
     init() {
         let locations = LocationsDataService.locations
         self.locations = locations
@@ -45,6 +48,14 @@ class LocationsViewModel: ObservableObject {
                 span: mapSpan
             )
         }
+    }
+    
+    func showSelectedImage() {
+        selectedImage = true
+    }
+    
+    func hideSelectedImage() {
+        selectedImage = false
     }
     
     func toggleLocationsList() {
