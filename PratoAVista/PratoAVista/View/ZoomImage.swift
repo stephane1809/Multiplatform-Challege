@@ -43,7 +43,6 @@ extension ZoomImage {
             Image(systemName: "xmark")
                 .resizable()
                 .scaledToFit()
-                .fontWeight(.semibold)
                 .frame(width: 25)
                 .padding()
                 .foregroundColor(.white)
