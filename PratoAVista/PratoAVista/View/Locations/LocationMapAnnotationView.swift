@@ -10,7 +10,7 @@ import MapKit
 
 struct LocationMapAnnotationView: View {
     var accentColor = Color.red
-    var systemIcon = "fork.knife.circle.fill"
+    var systemIcon = "fork.knife"
 //    map.circle.fill
 //    fork.knife.circle.fill
 //    "book.circle.fill"
@@ -20,7 +20,7 @@ struct LocationMapAnnotationView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.white)
-                .frame(width: 30, height: 30)
+                .frame(width: 25, height: 25)
                 .padding(6)
                 .background(accentColor)
                 .cornerRadius(36)
