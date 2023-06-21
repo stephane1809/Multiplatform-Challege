@@ -26,6 +26,16 @@ final class PratoAVistaTests: XCTestCase {
         let result = application.showLocationsList
         XCTAssertNotEqual(initialBool, result)
     }
+    
+    func testShowSelectedImage() {
+        application.showSelectedImage()
+        XCTAssertTrue(application.selectedImage)
+    }
+    
+    func testHideSelectedImage() {
+        application.hideSelectedImage()
+        XCTAssertFalse(application.selectedImage)
+    }
 
     func testShowNextLocation() {
         let nextLocation = Location(
