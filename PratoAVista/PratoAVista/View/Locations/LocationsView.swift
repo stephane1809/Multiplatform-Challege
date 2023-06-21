@@ -8,10 +8,13 @@
 import SwiftUI
 import MapKit
 
+struct IpadConfigurations {
+    static let maxWidthForIpad: CGFloat = 700
+}
+
 struct LocationsView: View {
     
     @EnvironmentObject private var viewModel: LocationsViewModel
-    let maxWidthForIpad: CGFloat = 700
     
     var body: some View {
         ZStack {
@@ -19,15 +22,35 @@ struct LocationsView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
-//                header
-//                 .padding()
-//                 .frame(maxWidth: maxWidthForIpad)
                 Spacer()
                 locationPreview
             }
+            
+            
         }
         .sheet(item: $viewModel.sheetLocation) { location in
             LocationDetailView(currentLocation: location)
+        }
+        .overlay {
+            if viewModel.selectedImage {
+                ZoomImage(currentLocation: viewModel.mapLocation)
+            }
+        }
+        .onAppear {
+            Task {
+                do {
+                    let restaurants = try await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
+
+                    for restaurant in restaurants {
+//                        if restaurant.kids {
+                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
+//                        }
+                    }
+                } catch {
+                    print(error)
+                }
+
+            }
         }
     }
 }
@@ -85,7 +108,7 @@ extension LocationsView {
                     LocationPreviewView(location: location)
                         .shadow(color: .black.opacity(0.3), radius: 10)
                         .padding()
-                        .frame(maxWidth: maxWidthForIpad)
+                        .frame(maxWidth: IpadConfigurations.maxWidthForIpad)
                         .frame(maxWidth: .infinity)
                         .transition(.asymmetric(
                             insertion: .move(edge: .trailing),
