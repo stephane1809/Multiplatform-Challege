@@ -13,25 +13,25 @@ struct DishTagView: View {
     
     var body: some View {
         HStack(spacing: 5) {
-            Image(systemName: tag.icon)
+            Image(tag.icon)
                 .resizable()
                 .renderingMode(.template)
                 .foregroundColor(.white)
                 .scaledToFit()
-                .frame(width: 15, height: 15)
+                .frame(width: 20, height: 20)
             Text(tag.label)
                 .foregroundColor(.white)
                 .font(.caption)
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 5)
-        .background(Color.restaurantTagBG)
+        .background(Color.dishTagBG)
         .cornerRadius(20)
     }
 }
 
 struct DishTags_Previews: PreviewProvider {
     static var previews: some View {
-        DishTags()
+        DishTagView(tag: .pig)
     }
 }

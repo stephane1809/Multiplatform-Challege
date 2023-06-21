@@ -11,4 +11,8 @@ extension Color {
     public static var restaurantTagBG: Color {
         return Color("RestaurantTagBackground")
     }
+    
+    public static var dishTagBG: Color {
+        return Color("DishTagBackground")
+    }
 }
