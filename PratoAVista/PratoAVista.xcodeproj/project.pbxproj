@@ -19,6 +19,11 @@
 		4B6638632A409C7500F3785C /* PratoAVistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */; };
 		4B6638652A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */; };
 		FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */; };
+		FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A002A431B91004AA343 /* RestaurantTagView.swift */; };
+		FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A022A431C9C004AA343 /* RestaurantTags.swift */; };
+		FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A052A4324ED004AA343 /* ColorExtension.swift */; };
+		FF216A082A432803004AA343 /* DishTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A072A432803004AA343 /* DishTagView.swift */; };
+		FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A092A43287A004AA343 /* DishTags.swift */; };
 		FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */; };
 		FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC592A40A5B7002825C6 /* Location.swift */; };
 		FF8EBC5C2A40A5CD002825C6 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC5B2A40A5CD002825C6 /* LocationViewModel.swift */; };
@@ -63,6 +68,11 @@
 		4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITests.swift; sourceTree = "<group>"; };
 		4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImage.swift; sourceTree = "<group>"; };
+		FF216A002A431B91004AA343 /* RestaurantTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTagView.swift; sourceTree = "<group>"; };
+		FF216A022A431C9C004AA343 /* RestaurantTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTags.swift; sourceTree = "<group>"; };
+		FF216A052A4324ED004AA343 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FF216A072A432803004AA343 /* DishTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTagView.swift; sourceTree = "<group>"; };
+		FF216A092A43287A004AA343 /* DishTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTags.swift; sourceTree = "<group>"; };
 		FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
 		FF8EBC592A40A5B7002825C6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FF8EBC5B2A40A5CD002825C6 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +189,23 @@
 			path = PratoAVistaUITests;
 			sourceTree = "<group>";
 		};
+		FF2169FF2A431B56004AA343 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				FF216A002A431B91004AA343 /* RestaurantTagView.swift */,
+				FF216A072A432803004AA343 /* DishTagView.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		FF216A042A4324DE004AA343 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF216A052A4324ED004AA343 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FF8EBC542A40A569002825C6 /* DataService */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +227,8 @@
 			children = (
 				FF8EBC592A40A5B7002825C6 /* Location.swift */,
 				0B7427BD2A43285500394AA3 /* RestaurantModel.swift */,
+				FF216A022A431C9C004AA343 /* RestaurantTags.swift */,
+				FF216A092A43287A004AA343 /* DishTags.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +236,8 @@
 		FF8EBC5D2A40A5DE002825C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF216A042A4324DE004AA343 /* Extensions */,
+				FF2169FF2A431B56004AA343 /* Tags */,
 				FF8EBC5E2A40A5F1002825C6 /* Locations */,
 				4B6638492A409C7400F3785C /* ContentView.swift */,
 				FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */,
@@ -361,16 +392,21 @@
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
 				0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */,
 				0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */,
+				FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */,
 				FF8EBC662A40A669002825C6 /* LocationDetailView.swift in Sources */,
+				FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */,
 				FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */,
 				FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */,
 				FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */,
+				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
+				FF216A082A432803004AA343 /* DishTagView.swift in Sources */,
 				FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */,
 				0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */,
 				FF8EBC5C2A40A5CD002825C6 /* LocationViewModel.swift in Sources */,
 				FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */,
 				FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */,
 				FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */,
+				FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
