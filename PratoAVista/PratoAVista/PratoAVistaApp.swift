@@ -13,7 +13,8 @@ struct PratoAVistaApp: App {
         WindowGroup {
 //            LocationsView()
 //                .environmentObject(LocationsViewModel())
-            ContentView()
+//            ContentView()
+            CardsFoodView()
         }
     }
 }
