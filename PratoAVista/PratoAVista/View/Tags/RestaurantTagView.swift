@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RestaurantTags: View {
+struct RestaurantTagView: View {
     
     let tag: RestaurantTag
     
@@ -32,6 +32,6 @@ struct RestaurantTags: View {
 
 struct RestaurantTags_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantTags(tag: .freeWifi)
+        RestaurantTagView(tag: .freeWifi)
     }
 }
