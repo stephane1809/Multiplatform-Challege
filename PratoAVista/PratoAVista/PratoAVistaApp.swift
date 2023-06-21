@@ -11,8 +11,9 @@ import SwiftUI
 struct PratoAVistaApp: App {
     var body: some Scene {
         WindowGroup {
-            LocationsView()
-                .environmentObject(LocationsViewModel())
+//            LocationsView()
+//                .environmentObject(LocationsViewModel())
+            ContentView()
         }
     }
 }
