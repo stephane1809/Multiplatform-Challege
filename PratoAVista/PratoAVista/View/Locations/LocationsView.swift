@@ -36,6 +36,22 @@ struct LocationsView: View {
                 ZoomImage(currentLocation: viewModel.mapLocation)
             }
         }
+        .onAppear {
+            Task {
+                do {
+                    let restaurants = try await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
+
+                    for restaurant in restaurants {
+//                        if restaurant.kids {
+                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
+//                        }
+                    }
+                } catch {
+                    print(error)
+                }
+
+            }
+        }
     }
 }
 
