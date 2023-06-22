@@ -11,6 +11,7 @@
 		0B7427BE2A43285500394AA3 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427BD2A43285500394AA3 /* RestaurantModel.swift */; };
 		0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C02A432D0B00394AA3 /* CKManager.swift */; };
 		0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */; };
+		0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C82A4344D800394AA3 /* DishModel.swift */; };
 		4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638472A409C7400F3785C /* PratoAVistaApp.swift */; };
 		4B66384A2A409C7400F3785C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638492A409C7400F3785C /* ContentView.swift */; };
 		4B66384C2A409C7500F3785C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384B2A409C7500F3785C /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		0B7427BD2A43285500394AA3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		0B7427C02A432D0B00394AA3 /* CKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKManager.swift; sourceTree = "<group>"; };
 		0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDishRepository.swift; sourceTree = "<group>"; };
+		0B7427C82A4344D800394AA3 /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
 		4B6638442A409C7400F3785C /* PratoAVista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PratoAVista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638472A409C7400F3785C /* PratoAVistaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaApp.swift; sourceTree = "<group>"; };
 		4B6638492A409C7400F3785C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				FF8EBC592A40A5B7002825C6 /* Location.swift */,
 				0B7427BD2A43285500394AA3 /* RestaurantModel.swift */,
+				0B7427C82A4344D800394AA3 /* DishModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				4B66384A2A409C7400F3785C /* ContentView.swift in Sources */,
 				0B7427BE2A43285500394AA3 /* RestaurantModel.swift in Sources */,
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
+				0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */,
 				0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */,
 				0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */,
 				FF8EBC662A40A669002825C6 /* LocationDetailView.swift in Sources */,
