@@ -28,10 +28,11 @@ struct LocationsView: View {
             
             
         }
-        .sheet(item: $viewModel.sheetLocation) { location in
-            LocationDetailView(currentLocation: location)
-        }
         .overlay {
+                if let location = viewModel.sheetLocation {
+                    RestaurantView(currentLocation: location)
+                }
+            
             if viewModel.selectedImage {
                 ZoomImage(currentLocation: viewModel.mapLocation)
             }
