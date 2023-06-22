@@ -11,7 +11,7 @@ import SwiftUI
 class MenuMockup {
 
     static func getMenu() -> [MenuModel] {
-            return [MenuModel(name: "Pasto & Pizza", image: "almoco"),
+            return [MenuModel(name: "Pasto & Pizza", image: "pastoLogo"),
             ]
         }
 }
