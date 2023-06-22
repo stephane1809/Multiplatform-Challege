@@ -24,6 +24,10 @@
 		4BBE40F72A43407B00C555F3 /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40F62A43407B00C555F3 /* FoodCard.swift */; };
 		4BBE40F92A43408A00C555F3 /* FoodMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40F82A43408A00C555F3 /* FoodMockup.swift */; };
 		4BBE40FB2A4342F800C555F3 /* CardsFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40FA2A4342F800C555F3 /* CardsFoodView.swift */; };
+		4BBE41012A43C23E00C555F3 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41002A43C23E00C555F3 /* MenuModel.swift */; };
+		4BBE41032A43C25800C555F3 /* MenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41022A43C25800C555F3 /* MenuCard.swift */; };
+		4BBE41052A43C29900C555F3 /* MenuMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41042A43C29900C555F3 /* MenuMockup.swift */; };
+		4BBE41072A43C3F000C555F3 /* CardMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41062A43C3F000C555F3 /* CardMenuView.swift */; };
 		FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A002A431B91004AA343 /* RestaurantTagView.swift */; };
 		FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A022A431C9C004AA343 /* RestaurantTags.swift */; };
 		FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A052A4324ED004AA343 /* ColorExtension.swift */; };
@@ -80,6 +84,10 @@
 		4BBE40F62A43407B00C555F3 /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
 		4BBE40F82A43408A00C555F3 /* FoodMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMockup.swift; sourceTree = "<group>"; };
 		4BBE40FA2A4342F800C555F3 /* CardsFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFoodView.swift; sourceTree = "<group>"; };
+		4BBE41002A43C23E00C555F3 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		4BBE41022A43C25800C555F3 /* MenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCard.swift; sourceTree = "<group>"; };
+		4BBE41042A43C29900C555F3 /* MenuMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMockup.swift; sourceTree = "<group>"; };
+		4BBE41062A43C3F000C555F3 /* CardMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMenuView.swift; sourceTree = "<group>"; };
 		FF216A002A431B91004AA343 /* RestaurantTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTagView.swift; sourceTree = "<group>"; };
 		FF216A022A431C9C004AA343 /* RestaurantTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTags.swift; sourceTree = "<group>"; };
 		FF216A052A4324ED004AA343 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -229,6 +237,15 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		4BBE40FF2A43C16900C555F3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4BBE41022A43C25800C555F3 /* MenuCard.swift */,
+				4BBE41042A43C29900C555F3 /* MenuMockup.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		FF2169FF2A431B56004AA343 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +287,7 @@
 				4BBE40F42A43406500C555F3 /* FoodModel.swift */,
 				FF216A022A431C9C004AA343 /* RestaurantTags.swift */,
 				FF216A092A43287A004AA343 /* DishTags.swift */,
+				4BBE41002A43C23E00C555F3 /* MenuModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +295,7 @@
 		FF8EBC5D2A40A5DE002825C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BBE40FF2A43C16900C555F3 /* Menu */,
 				4BBE40F32A43404900C555F3 /* Foods */,
 				4BBE40EC2A43363A00C555F3 /* Restaurants */,
 				FF216A042A4324DE004AA343 /* Extensions */,
@@ -297,6 +316,7 @@
 				FF8EBC652A40A669002825C6 /* LocationDetailView.swift */,
 				FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */,
 				4BBE40FA2A4342F800C555F3 /* CardsFoodView.swift */,
+				4BBE41062A43C3F000C555F3 /* CardMenuView.swift */,
 			);
 			path = Locations;
 			sourceTree = "<group>";
@@ -433,6 +453,7 @@
 			files = (
 				4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */,
 				4B66384A2A409C7400F3785C /* ContentView.swift in Sources */,
+				4BBE41012A43C23E00C555F3 /* MenuModel.swift in Sources */,
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
 				0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */,
 				0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */,
@@ -441,6 +462,7 @@
 				4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */,
 				FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */,
 				FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */,
+				4BBE41072A43C3F000C555F3 /* CardMenuView.swift in Sources */,
 				FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */,
 				FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */,
 				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
@@ -450,6 +472,8 @@
 				4BBE40FB2A4342F800C555F3 /* CardsFoodView.swift in Sources */,
 				0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */,
 				FF8EBC5C2A40A5CD002825C6 /* LocationViewModel.swift in Sources */,
+				4BBE41052A43C29900C555F3 /* MenuMockup.swift in Sources */,
+				4BBE41032A43C25800C555F3 /* MenuCard.swift in Sources */,
 				4BBE40F72A43407B00C555F3 /* FoodCard.swift in Sources */,
 				FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */,
 				FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */,
@@ -616,7 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PratoAVista/Preview Content\"";
-				DEVELOPMENT_TEAM = KDV83NBV8H;
+				DEVELOPMENT_TEAM = 826U5T47TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -647,7 +671,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PratoAVista/Preview Content\"";
-				DEVELOPMENT_TEAM = KDV83NBV8H;
+				DEVELOPMENT_TEAM = 826U5T47TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

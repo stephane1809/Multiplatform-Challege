@@ -15,6 +15,7 @@ struct RestaurantModel: Identifiable {
     var image: String
     var location: String
     var distance: Int
+    var tags: [RestaurantTag]
 }
 
 extension RestaurantModel {

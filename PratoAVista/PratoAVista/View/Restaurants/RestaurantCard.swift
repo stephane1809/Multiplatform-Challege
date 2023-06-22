@@ -15,16 +15,26 @@ struct RestaurantCard: View {
     var body: some View {
         HStack(alignment: .top) {
 
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text(restaurant.name)
                     .font(.system(size: 17))
                     .bold()
+
 
                 Text(restaurant.location)
                     .font(.system(size: 13))
 
                 Label("\(restaurant.distance.formatted()) km de distância", systemImage: "location.north.fill")
                     .font(.system(size: 13))
+
+
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(restaurant.tags, id: \.self) { tag in
+                            RestaurantTagView(tag: tag)
+                        }
+                    }
+                }
 
             }
             .foregroundColor(.black)

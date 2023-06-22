@@ -1,5 +1,5 @@
 //
-//  CardsFoodView.swift
+//  CardMenuView.swift
 //  PratoAVista
 //
 //  Created by Stephane Girão Linhares on 21/06/23.
@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI
 
-struct CardsFoodView: View {
+struct CardsMenuView: View {
 
-    private var foods = FoodMockup.getFoods()
+    private var menus = MenuMockup.getMenu()
 
         var body: some View {
             NavigationView {
                 ScrollView {
                     LazyVStack(spacing: 16) {
-                        ForEach(foods) { food in
-                            FoodCard(food: food)
+                        ForEach(menus) { menu in
+                            MenuCard(menu: menu)
                         }
                     }
                     .padding(.horizontal)
