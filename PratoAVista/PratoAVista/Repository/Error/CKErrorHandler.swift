@@ -8,20 +8,6 @@
 import Foundation
 import CloudKit
 
-struct CKErrorDescription: LocalizedError, CustomStringConvertible {
-    let localizedDescription: String
-    let recoverySuggestion: String?
-    
-    var description: String {  return
-        "\(localizedDescription) \(recoverySuggestion ?? "")"
-    }
-    
-    init(localizedDescription: String, recoverySuggestion: String? = nil) {
-        self.localizedDescription = localizedDescription
-        self.recoverySuggestion = recoverySuggestion
-    }
-}
-
 class CKErrorHandler {
     static func handleError(_ error: Error) -> Error {
         if let ckError = error as? CKError {
@@ -30,7 +16,7 @@ class CKErrorHandler {
                     .partialFailure,
                     .serviceUnavailable,
                     .operationCancelled:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "Ocorreu um problema interno!",
                     recoverySuggestion: "Reinicie o aplicativo e tente novamente. Se o problema persistir, entre em contato com o suporte em nossos canais de comunicação."
                 )
@@ -57,58 +43,58 @@ class CKErrorHandler {
                     .referenceViolation,
                     .assetNotAvailable,
                     .accountTemporarilyUnavailable:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "Ocorreu um problema interno com o acesso aos dados!",
                     recoverySuggestion: "Reinicie o aplicativo, verifique se existe alguma atualização disponível e tente novamente. Se o problema persistir, entre em contato com o suporte em nossos canais de comunicação."
                 )
                 
             case .networkUnavailable,
                     .networkFailure:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "Falha ao conectar com a Internet!",
                     recoverySuggestion: "Verifique sua conexão Wi-Fi ou dados móveis e tente novamente. Se o problema persistir, aguarde um pouco e tente novamente mais tarde."
                 )
             case .requestRateLimited:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "O limite máximo de requisições foi atingido!",
                     recoverySuggestion: "Tente novamente mais tarde"
                 )
 
             case .zoneBusy:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "O servidor apresentou problemas para lidar com a operação!",
                     recoverySuggestion: "Tente novamente em alguns segundos!"
                 )
             case .tooManyParticipants:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "A rede está muito ocupada.",
                     recoverySuggestion: "O número de usuários esxecede o número esperado, aguarde alguns instantes e tente novamente. Se o problema persistir, entre em contato com o suporte em nossos canais de comunicação."
                 )
             case .alreadyShared:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "A operação não pôde ser concluida pois o registro já foi compartilhado!"
                 )
 
             case .managedAccountRestricted:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "A solicitação foi negada devido a uma restrição a conta!"
                 )
             case .participantMayNeedVerification:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "O usuário não está autorizado a verificar o item compartilhado!"
                 )
             case .serverResponseLost:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "Conexão com o servidor foi perdida!",
                     recoverySuggestion: "Aguarde alguns minutos e tente novamente."
                 )
             case .assetFileModified:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "Os dados estão desatualizados!",
                     recoverySuggestion: "Arquivo foi alterado enquanto estava sendo obtido, atualize a página para atualizar os dados!"
                 )
             @unknown default:
-                return CKErrorDescription(
+                return ErrorDescription(
                     localizedDescription: "Erro não mapeado!",
                     recoverySuggestion: "Verifique se existe alguma atualização do aplicativo disponível e tente novamente."
                 )
