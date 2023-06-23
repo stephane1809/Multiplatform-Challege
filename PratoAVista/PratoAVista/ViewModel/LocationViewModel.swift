@@ -27,8 +27,8 @@ class LocationsViewModel: ObservableObject {
     // Show list of locations
     @Published var showLocationsList: Bool = false
     
-    // Show location detail via sheet
-    @Published var sheetLocation: Location? = nil
+    // Show back button
+    @Published var hiddeBackButton: Bool = false
     
     // Show bigger Image
     @Published var selectedImage: Bool = false
@@ -63,11 +63,13 @@ class LocationsViewModel: ObservableObject {
     }
     
     func showSelectedImage() {
+        hiddeBackButton = true
         selectedImage = true
     }
     
     func hideSelectedImage() {
         selectedImage = false
+        hiddeBackButton = false
     }
     
     func toggleLocationsList() {

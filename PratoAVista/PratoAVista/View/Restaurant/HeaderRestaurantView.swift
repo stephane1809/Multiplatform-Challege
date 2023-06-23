@@ -34,10 +34,10 @@ struct HeaderRestaurantView: View {
                 mapHeight = 300
             }
             if UIDevice.current.userInterfaceIdiom == .phone {
-                if UIDevice.current.orientation == .portrait {
-                    mapHeight = 200
+                if orientation == .landscapeLeft || orientation == .landscapeRight {
+                    mapHeight = 500
                 } else {
-                    mapHeight = 300
+                    mapHeight = 200
                 }
             }
         }

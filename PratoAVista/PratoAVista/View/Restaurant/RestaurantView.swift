@@ -14,19 +14,29 @@ struct RestaurantView: View {
     let currentLocation: Location
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 15){
-                restaurantDescriptionSection
-                menuSection
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 15){
+                    restaurantDescriptionSection
+                    menuSection
+                }
             }
+            .overlay {
+                if viewModel.selectedImage {
+                    ZoomImage(currentLocation: viewModel.mapLocation)
+                }
+            }
+            .ignoresSafeArea(.all, edges: .horizontal)
+            .background(.white)
+            .transition(.asymmetric(
+                insertion: .move(edge: .trailing),
+                removal: .move(edge: .trailing)
+            ))
         }
-        .ignoresSafeArea()
-        .background(.white)
-        .overlay(backButton, alignment: .topLeading)
-        .transition(.asymmetric(
-            insertion: .move(edge: .trailing),
-            removal: .move(edge: .trailing)
-        ))
+        .navigationTitle("Restaurante")
+        .navigationBarBackButtonHidden(viewModel.hiddeBackButton)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationViewStyle(.stack)
     }
 }
 
@@ -100,24 +110,6 @@ extension RestaurantView {
             .aspectRatio(2, contentMode: .fit)
             .cornerRadius(20)
             .allowsHitTesting(false)
-    }
-    
-    private var backButton: some View {
-        Button {
-            withAnimation{
-                viewModel.sheetLocation = nil
-            }
-        } label: {
-            Image(systemName: "chevron.backward")
-                .resizable()
-                .scaledToFit()
-                .frame(
-                    width: UIDevice.current.userInterfaceIdiom == .pad ? 22 : 18,
-                    height: UIDevice.current.userInterfaceIdiom == .pad ? 28 : 22
-                )
-                .padding()
-                .foregroundColor(.primary)
-        }
     }
 }
 
