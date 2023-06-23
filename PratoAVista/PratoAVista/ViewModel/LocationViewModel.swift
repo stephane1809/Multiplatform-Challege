@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 import SwiftUI
+import CloudKit
 
 class LocationsViewModel: ObservableObject {
     
@@ -33,12 +34,19 @@ class LocationsViewModel: ObservableObject {
     // Show bigger Image
     @Published var selectedImage: Bool = false
     
+    // Variable catching error if occour
+    @Published var localError: ErrorDescription? = nil
+    
     init() {
         let locations = LocationsDataService.locations
         self.locations = locations
         self.mapLocation = locations.first!
         
         self.updateMapRegion(location: mapLocation)
+    }
+    
+    func finishError() {
+        localError = nil
     }
     
     func fetch() async {
@@ -48,9 +56,12 @@ class LocationsViewModel: ObservableObject {
             
         }
         catch {
-            print(error)
+            if let receptedRrror = error as? CKError {
+                DispatchQueue.main.async {
+                    self.localError = CKErrorHandler.handleError(receptedRrror) as? ErrorDescription
+                }
+            }
         }
-        //                    let dishes = try await CloudKitDishRepository().getDishesBy(restaurantRecordName: "7D625F3F-F68D-2A13-F7CB-A6DA33811E65")
     }
     
     private func updateMapRegion(location: Location) {

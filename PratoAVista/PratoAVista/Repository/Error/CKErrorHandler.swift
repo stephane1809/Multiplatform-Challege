@@ -52,7 +52,7 @@ class CKErrorHandler {
                     .networkFailure:
                 return ErrorDescription(
                     localizedDescription: "Falha ao conectar com a Internet!",
-                    recoverySuggestion: "Verifique sua conexão Wi-Fi ou dados móveis e tente novamente. Se o problema persistir, aguarde um pouco e tente novamente mais tarde."
+                    recoverySuggestion: "Verifique sua conexão Wi-Fi ou dados móveis e tente novamente."
                 )
             case .requestRateLimited:
                 return ErrorDescription(

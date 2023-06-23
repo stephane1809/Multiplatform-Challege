@@ -32,36 +32,22 @@ struct LocationsView: View {
                 }
             }
             .ignoresSafeArea()
-            
         }
         .navigationTitle("")
         .navigationViewStyle(.stack)
-        
-        
-        // TODO: tirar isso aqui daqui
-//        .onAppear {
-//            Task {
-//                await viewModel.fetch()
-////                do {
-////                    let dishes = try await CloudKitDishRepository().getDishesBy(restaurantRecordName: "7D625F3F-F68D-2A13-F7CB-A6DA33811E65")
-////
-////                    for dish in dishes {
-////                        print("\(dish.dishName)")
-////                    }
-////
-//////                    let restaurants = try await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
-//////
-//////                    for restaurant in restaurants {
-////////                        if restaurant.kids {
-//////                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
-////////                        }
-//////                    }
-////                } catch {
-////                    print(error)
-////                }
-//
-//            }
-//        }
+        .onAppear {
+            Task {
+                await viewModel.fetch()
+            }
+        }
+        .alert(viewModel.localError?.localizedDescription ?? "Erro!",
+               isPresented: .constant(viewModel.localError != nil)) {
+            Button("OK") {
+                viewModel.finishError()
+            }
+        } message: {
+            Text(viewModel.localError?.recoverySuggestion ?? "Tente novamente.")
+        }
     }
 }
 

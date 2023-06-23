@@ -37,7 +37,7 @@
 		FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A092A43287A004AA343 /* DishTags.swift */; };
 		FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A0E2A4386D2004AA343 /* HeaderRestaurantView.swift */; };
 		FF216A112A4470EA004AA343 /* OrientationDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A102A4470EA004AA343 /* OrientationDetector.swift */; };
-		FF216A142A44E160004AA343 /* CKErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A132A44E160004AA343 /* CKErrors.swift */; };
+		FF216A142A44E160004AA343 /* CKErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A132A44E160004AA343 /* CKErrorHandler.swift */; };
 		FF216A162A44F2F1004AA343 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A152A44F2F1004AA343 /* TestView.swift */; };
 		FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */; };
 		FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */; };
@@ -48,6 +48,7 @@
 		FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */; };
 		FF8EBC662A40A669002825C6 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC652A40A669002825C6 /* RestaurantView.swift */; };
 		FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */; };
+		FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D593A2A46178E001F6864 /* ErrorDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +104,7 @@
 		FF216A092A43287A004AA343 /* DishTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTags.swift; sourceTree = "<group>"; };
 		FF216A0E2A4386D2004AA343 /* HeaderRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRestaurantView.swift; sourceTree = "<group>"; };
 		FF216A102A4470EA004AA343 /* OrientationDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationDetector.swift; sourceTree = "<group>"; };
-		FF216A132A44E160004AA343 /* CKErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKErrors.swift; sourceTree = "<group>"; };
+		FF216A132A44E160004AA343 /* CKErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKErrorHandler.swift; sourceTree = "<group>"; };
 		FF216A152A44F2F1004AA343 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImage.swift; sourceTree = "<group>"; };
 		FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
 		FF8EBC652A40A669002825C6 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
+		FF9D593A2A46178E001F6864 /* ErrorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDescription.swift; sourceTree = "<group>"; };
 		FFF808362A40B7540089D77E /* PratoAVistaTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PratoAVistaTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,7 +299,8 @@
 		FF216A122A44E107004AA343 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				FF216A132A44E160004AA343 /* CKErrors.swift */,
+				FF216A132A44E160004AA343 /* CKErrorHandler.swift */,
+				FF9D593A2A46178E001F6864 /* ErrorDescription.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -512,8 +515,9 @@
 				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
 				FF216A112A4470EA004AA343 /* OrientationDetector.swift in Sources */,
 				FF216A082A432803004AA343 /* DishTagView.swift in Sources */,
+				FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */,
 				FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */,
-				FF216A142A44E160004AA343 /* CKErrors.swift in Sources */,
+				FF216A142A44E160004AA343 /* CKErrorHandler.swift in Sources */,
 				FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */,
 				4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */,
 				4BBE40FB2A4342F800C555F3 /* CardsFoodView.swift in Sources */,
