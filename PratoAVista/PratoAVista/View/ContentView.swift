@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+
+    private var restaurants = RestaurantMockup.getRestaurants()
+
+        var body: some View {
+            NavigationView {
+                ScrollView {
+                    LazyVStack(spacing: 16) {
+                        ForEach(restaurants) { restaurant in
+                            RestaurantCard(restaurant: restaurant)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                .navigationTitle("Restaurantes")
+            }.navigationViewStyle(.stack)
+                .navigationBarBackButtonHidden()
         }
-        .padding()
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {

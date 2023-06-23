@@ -7,6 +7,7 @@
 
 import Foundation
 import CloudKit
+import SwiftUI
 
 struct RestaurantModel: Identifiable {
     var id = UUID()
@@ -14,6 +15,7 @@ struct RestaurantModel: Identifiable {
     var image: String
     var location: String
     var distance: Int
+    var tags: [RestaurantTag]
 }
 
 extension RestaurantModel {
