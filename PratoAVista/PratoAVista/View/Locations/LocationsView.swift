@@ -31,6 +31,7 @@ struct LocationsView: View {
                     ZoomImage(currentLocation: viewModel.mapLocation)
                 }
             }
+            .ignoresSafeArea()
             
         }
         .navigationTitle("")
