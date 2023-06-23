@@ -11,7 +11,7 @@ import CloudKit
 class CloudKitDishRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
-    func getDishesBy(restaurantRecordName: String) async -> [DishModel.cloudkit] {
+    func getDishesBy(restaurantRecordName: String) async throws -> [DishModel.cloudkit] {
         let restaurantRecordID = CKRecord.ID(recordName: restaurantRecordName)
         let predicate = NSPredicate(format: "restaurants CONTAINS %@", restaurantRecordID)
 
@@ -19,7 +19,7 @@ class CloudKitDishRepository {
             let dishes = try await getMatchingRecords(predicate: predicate)
             return dishes
         } catch {
-            fatalError()
+            throw error
         }
     }
 
@@ -44,7 +44,7 @@ class CloudKitDishRepository {
                 let restaurant = parseRecordToDish(record: value)
                 dishes.append(restaurant)
             case .failure(let error):
-                print(error)
+                throw error
             }
         }
         return dishes
