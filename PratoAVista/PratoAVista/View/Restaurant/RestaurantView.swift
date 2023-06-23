@@ -75,6 +75,7 @@ extension RestaurantView {
             Text("Horário de funcionamento: " + currentLocation.operation)
                 .font(.subheadline)
             Text("Telefone: (85) 3257-1276")
+                .font(.subheadline)
             
         }
     }

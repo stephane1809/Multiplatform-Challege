@@ -39,7 +39,8 @@ struct LocationsView: View {
         }
         // TODO: tirar isso aqui daqui
         .onAppear {
-//            Task {
+            Task {
+                await viewModel.fetch()
 //                do {
 //                    let dishes = try await CloudKitDishRepository().getDishesBy(restaurantRecordName: "7D625F3F-F68D-2A13-F7CB-A6DA33811E65")
 //
@@ -58,7 +59,7 @@ struct LocationsView: View {
 //                    print(error)
 //                }
 
-//            }
+            }
         }
     }
 }

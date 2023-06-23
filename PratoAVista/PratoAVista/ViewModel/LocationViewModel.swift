@@ -41,6 +41,18 @@ class LocationsViewModel: ObservableObject {
         self.updateMapRegion(location: mapLocation)
     }
     
+    func fetch() async {
+        do {
+            let restaurants = try await CloudKitRestaurantRepository().getRestaurants()
+            print(restaurants.first)
+            
+        }
+        catch {
+            print(error)
+        }
+        //                    let dishes = try await CloudKitDishRepository().getDishesBy(restaurantRecordName: "7D625F3F-F68D-2A13-F7CB-A6DA33811E65")
+    }
+    
     private func updateMapRegion(location: Location) {
         withAnimation(.easeInOut) {
             mapRegion = MKCoordinateRegion(
