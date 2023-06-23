@@ -9,62 +9,103 @@ import SwiftUI
 
 struct MenuItem: View {
     
-    @State private var dishName: String = "Pizza de Chocolate"
-    @State private var description: String = "Lorem ipsum magna morbi massa vel curabitur leo amet orci purus eros, diam ut vivamus nec conubia enim sollicitudin ad lectus nullam imperdiet, turpis nec sem vel bibendum nunc suspendisse sed congue erat. aenean inceptos praesent facilisis conubia quisque augue donec, tincidunt cursus nostra porttitor dolor aliquet netus adipiscing, leo nisl tortor mi egestas quam."
-    
     var body: some View {
         
-        NavigationView {
-            VStack {
-                VStack{
-                    Image("Pasto13Out")
-                        .resizable()
-                        .frame(width:393, height: 220)
-                        .clipped()
+        
+        
+        
+#if os(iOS)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            NavigationView{
+                Detalhes()
+            }
+            .navigationViewStyle(.stack)
+        }
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            NavigationView{
+                Detalhes()
+                    .navigationBarTitle("Cardápio", displayMode: .inline)
+                    .navigationBarItems(leading:
+                                            
+                                            Button(action: {
+                    }) {
+                        Image(systemName: "chevron.left")
+                    })
                 }
-                VStack(alignment: . leading){
-                    Text(dishName)
-                        .font(.largeTitle)
-                        .multilineTextAlignment(.leading)
-                }
+
+            }
+#else
+
+#endif
+        
+    }
+}
+
+
+struct Primary: View {
+    var body: some View {
+        Text("Primary")
+    }
+}
+
+struct Detalhes: View {
+    @State  var dishName: String = "Pizza de Chocolate"
+    @State  var description: String = "Lorem ipsum magna morbi massa vel curabitur leo amet orci purus eros, diam ut vivamus nec conubia enim sollicitudin ad lectus nullam imperdiet, turpis nec sem vel bibendum nunc suspendisse sed congue erat. aenean inceptos praesent facilisis conubia quisque augue donec, tincidunt cursus nostra porttitor dolor aliquet netus adipiscing, leo nisl tortor mi egestas quam."
+    
+    var body: some View {
+            VStack(alignment: .leading) {
+                Image("Pasto13Out")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 393, height: 220)
+                    .clipped()
+                
+                Text(dishName)
+                    .font(
+                        Font.custom("SF Pro", size: 24)
+                            .weight(.semibold)
+                    )
+                    .foregroundColor(.black)
+                    .padding(.leading,10)
                 
                 
-                HStack(alignment: .bottom){
+                HStack(){
                     DishTagView(tag: .castanha)
                     DishTagView(tag: .egg)
                     DishTagView(tag: .celery)
                 }
+                .padding(.leading,10)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text("Descrição")
-                        .font(.headline)
-                        .padding(5)
-                        .multilineTextAlignment(.leading)
+                    .font(
+                    Font.custom("SF Pro", size: 17)
+                    .weight(.medium)
+                    )
+                    .foregroundColor(.black)
                     
                     Text(description)
-                        .font(.footnote)
-                        .padding(5)
-                    
+                    .font(Font.custom("SF Pro", size: 12))
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, minHeight: 105, maxHeight: 105, alignment: .leading)
                 }
-                .frame(width: 366)
-                .background(Color(UIColor(red: 247/255, green: 247/255, blue: 246/255, alpha: 1)))
-                .foregroundColor(.black)
+                .padding(.horizontal, 13)
+                .padding(.vertical, 11)
+                .frame(width: 366, alignment: .topLeading)
+                .background(Color(red: 0.97, green: 0.97, blue: 0.96))
                 .cornerRadius(10)
+                .padding(.leading,10)
                 
                 Spacer()
                 
             }
-            .navigationBarTitle("Cardápio", displayMode: .inline)
-            .multilineTextAlignment(.leading)
-            .navigationBarItems(leading:
             
-            Button(action: {
-            }) {
-                Image(systemName: "chevron.left") // Ícone de seta para a esquerda
-            })
-        }
+        
     }
 }
+
+
 
 struct MenuItem_Previews: PreviewProvider {
     static var previews: some View {
