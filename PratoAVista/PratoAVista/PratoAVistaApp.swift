@@ -12,23 +12,19 @@ struct PratoAVistaApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
+                SearchView()
+                    .tabItem {
+                        Label("Pesquisar", systemImage: "magnifyingglass")
+                    }
                 CardsMenuView()
                     .tabItem {
                         Label("Salvos", systemImage: "bookmark")
-                    }
-                CardsFoodView()
-                    .tabItem {
-                        Label("Pesquisar", systemImage: "magnifyingglass")
                     }
                 LocationsView()
                     .tabItem {
                         Label("mapas", systemImage: "map")
                     }
             }
-
-//                .environmentObject(LocationsViewModel())
-//            ContentView()
-
         }
     }
 }
