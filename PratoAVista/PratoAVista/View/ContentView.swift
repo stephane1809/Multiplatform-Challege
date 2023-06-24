@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 
-    private var restaurants = RestaurantMockup.getRestaurants()
+    @State var searchText = ""
+    @State private var restaurants = RestaurantMockup.getRestaurants()
 
         var body: some View {
             NavigationView {
@@ -19,12 +20,27 @@ struct ContentView: View {
                             RestaurantCard(restaurant: restaurant)
                         }
                     }
+
                     .padding(.horizontal)
+                    .navigationTitle("Restaurantes")
                 }
-                .navigationTitle("Restaurantes")
-            }.navigationViewStyle(.stack)
-                .navigationBarBackButtonHidden()
+            }
+            .searchable(text: $searchText)
+            .navigationViewStyle(.stack)
+            .navigationBarBackButtonHidden()
+            .onChange(of: searchText, perform: { _ in
+                filterRecipes()
+            })
         }
+
+    func filterRecipes() {
+        if searchText.isEmpty {
+
+            restaurants = RestaurantMockup.getRestaurants()
+        }else {
+            restaurants = RestaurantMockup.getRestaurants().filter({$0.name.localizedCaseInsensitiveContains(searchText)})
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
