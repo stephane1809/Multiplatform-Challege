@@ -10,23 +10,31 @@ import MapKit
 import SwiftUI
 import CloudKit
 
-class LocationsViewModel: ObservableObject {
+class RestaurantsViewModel: ObservableObject {
     
-    @Published var locations: [Location] // All loaded locations
-    
-    // Currente location map
-    @Published var mapLocation: Location {
+    @Published var restaurants: [RestaurantModel] = [] {
         didSet {
-            updateMapRegion(location: mapLocation)
+            currentRestaurant = restaurants.first!
+        }
+    }
+
+    // Current Restaurant in Map
+    @Published var currentRestaurant: RestaurantModel {
+        didSet {
+            mapRestaurantCoordinate = currentRestaurant.coordinate
+        }
+    }
+    
+    // Current Map Restaurant Coordinate
+    @Published var mapRestaurantCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D() {
+        didSet {
+            updateMapRegion(coordinate: mapRestaurantCoordinate)
         }
     }
     
     // Current region on map
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    
-    // Show list of locations
-    @Published var showLocationsList: Bool = false
     
     // Show back button
     @Published var hiddeBackButton: Bool = false
@@ -38,11 +46,7 @@ class LocationsViewModel: ObservableObject {
     @Published var localError: ErrorDescription? = nil
     
     init() {
-        let locations = LocationsDataService.locations
-        self.locations = locations
-        self.mapLocation = locations.first!
-        
-        self.updateMapRegion(location: mapLocation)
+        currentRestaurant = RestaurantModel(ckRestaurant: .init(recordName: ""))
     }
     
     func finishError() {
@@ -51,9 +55,10 @@ class LocationsViewModel: ObservableObject {
     
     func fetch() async {
         do {
-            let restaurants = try await CloudKitRestaurantRepository().getRestaurants()
-            print(restaurants.first)
-            
+            let newRestaurants = try await CloudKitRestaurantRepository().getRestaurants()
+            DispatchQueue.main.async {
+                self.restaurants = self.mapCKRestaurantsForRestaurantModel(ckRestaurants: newRestaurants)
+            }
         }
         catch {
             if let receptedRrror = error as? CKError {
@@ -64,12 +69,25 @@ class LocationsViewModel: ObservableObject {
         }
     }
     
-    private func updateMapRegion(location: Location) {
+    func mapCKRestaurantsForRestaurantModel(ckRestaurants: [RestaurantModel.cloudkit]) -> [RestaurantModel] {
+        var restaurantList: [RestaurantModel] = []
+        for ckRestaurant in ckRestaurants {
+            let newRestaurant = RestaurantModel(ckRestaurant: ckRestaurant)
+            if restaurantList.contains(newRestaurant) == false {
+                restaurantList.append(newRestaurant)
+            }
+        }
+        return restaurantList
+    }
+    
+    private func updateMapRegion(coordinate: CLLocationCoordinate2D) {
         withAnimation(.easeInOut) {
-            mapRegion = MKCoordinateRegion(
-                center: location.coordinates,
-                span: mapSpan
-            )
+            DispatchQueue.main.async {
+                self.mapRegion = MKCoordinateRegion(
+                    center: coordinate,
+                    span: self.mapSpan
+                )
+            }
         }
     }
     
@@ -83,36 +101,29 @@ class LocationsViewModel: ObservableObject {
         hiddeBackButton = false
     }
     
-    func toggleLocationsList() {
+    func showNextRestaurant(newRestaurant: RestaurantModel) {
         withAnimation(.easeInOut) {
-            showLocationsList.toggle()
-        }
-    }
-    
-    func showNextLocation(location: Location) {
-        withAnimation(.easeInOut) {
-            mapLocation = location
+            currentRestaurant = newRestaurant
         }
     }
     
     func nextButtonPressed() {
-        guard locations.isEmpty == false else {
+        guard restaurants.isEmpty == false else {
             return
         }
         
-        guard let currentIndex = locations.firstIndex(where: {$0 == mapLocation}) else {
+        guard let currentIndex = restaurants.firstIndex(where: {$0 == currentRestaurant}) else {
             return
         }
         
-        //check if nextIndex is valid
         let nextIndex = currentIndex + 1
-        guard locations.indices.contains(nextIndex) else {
-            let firstLocation = locations.first!
-            showNextLocation(location: firstLocation)
+        guard restaurants.indices.contains(nextIndex) else {
+            let firstRestaurant = restaurants.first!
+            showNextRestaurant(newRestaurant: firstRestaurant)
             return
         }
         
-        let nextLocation = locations[nextIndex]
-        showNextLocation(location: nextLocation)
+        let nextRestaurant = restaurants[nextIndex]
+        showNextRestaurant(newRestaurant: nextRestaurant)
     }
 }
