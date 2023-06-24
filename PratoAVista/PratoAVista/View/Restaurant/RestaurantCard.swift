@@ -14,7 +14,6 @@ struct RestaurantCard: View {
 
     var body: some View {
         HStack(alignment: .top) {
-
             VStack(alignment: .leading, spacing: 10) {
                 Text(restaurant.name ?? "Restaurante")
                     .font(.system(size: 17))
@@ -24,17 +23,24 @@ struct RestaurantCard: View {
                 Text(restaurant.location ?? "")
                     .font(.system(size: 13))
 
-//                Label("\(restaurant.distance.formatted()) km de distância", systemImage: "location.north.fill")
-//                    .font(.system(size: 13))
+                Label("200 km de distância", systemImage: "location.north.fill")
+                    .font(.system(size: 13))
 
-
-//                ScrollView(.horizontal) {
-//                    HStack {
-//                        ForEach(restaurant.tags, id: \.self) { tag in
-//                            RestaurantTagView(tag: tag)
-//                        }
-//                    }
-//                }
+                if restaurant.wifi || restaurant.airConditioned || restaurant.petFrendly {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            if restaurant.wifi {
+                                RestaurantTagView(tag: .freeWifi)
+                            }
+                            if restaurant.airConditioned {
+                                RestaurantTagView(tag: .withAirConditioning)
+                            }
+                            if restaurant.petFrendly {
+                                RestaurantTagView(tag: .petFrendly)
+                            }
+                        }
+                    }
+                }
 
             }
             .foregroundColor(.black)
@@ -44,11 +50,9 @@ struct RestaurantCard: View {
                 if let uiImage = convertToUIImage(ckAsset: ckAsset) {
                     Image(uiImage: uiImage)
                         .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
                         .cornerRadius(10)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 81)
-                        .padding(.top, 10)
-                        .padding(.bottom, 10)
                 }
             }
 

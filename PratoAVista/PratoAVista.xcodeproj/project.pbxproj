@@ -13,7 +13,7 @@
 		0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C82A4344D800394AA3 /* DishModel.swift */; };
 		0B7427CC2A44874E00394AA3 /* JSONRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427CB2A44874E00394AA3 /* JSONRestaurantRepository.swift */; };
 		4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638472A409C7400F3785C /* PratoAVistaApp.swift */; };
-		4B66384A2A409C7400F3785C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638492A409C7400F3785C /* ContentView.swift */; };
+		4B66384A2A409C7400F3785C /* AllRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638492A409C7400F3785C /* AllRestaurantsView.swift */; };
 		4B66384C2A409C7500F3785C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384B2A409C7500F3785C /* Assets.xcassets */; };
 		4B66384F2A409C7500F3785C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384E2A409C7500F3785C /* Preview Assets.xcassets */; };
 		4B6638592A409C7500F3785C /* PratoAVistaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638582A409C7500F3785C /* PratoAVistaTests.swift */; };
@@ -47,8 +47,8 @@
 		FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC612A40A633002825C6 /* LocationsPreviewVIew.swift */; };
 		FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */; };
 		FF8EBC662A40A669002825C6 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC652A40A669002825C6 /* RestaurantView.swift */; };
-		FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */; };
 		FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D593A2A46178E001F6864 /* ErrorDescription.swift */; };
+		FF9D59402A467E8B001F6864 /* ImageConversor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9D593F2A467E8B001F6864 /* ImageConversor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +78,7 @@
 		0B7427CB2A44874E00394AA3 /* JSONRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRestaurantRepository.swift; sourceTree = "<group>"; };
 		4B6638442A409C7400F3785C /* PratoAVista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PratoAVista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638472A409C7400F3785C /* PratoAVistaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaApp.swift; sourceTree = "<group>"; };
-		4B6638492A409C7400F3785C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4B6638492A409C7400F3785C /* AllRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRestaurantsView.swift; sourceTree = "<group>"; };
 		4B66384B2A409C7500F3785C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B66384E2A409C7500F3785C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4B6638542A409C7500F3785C /* PratoAVistaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PratoAVistaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,8 +114,8 @@
 		FF8EBC612A40A633002825C6 /* LocationsPreviewVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsPreviewVIew.swift; sourceTree = "<group>"; };
 		FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
 		FF8EBC652A40A669002825C6 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
-		FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
 		FF9D593A2A46178E001F6864 /* ErrorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDescription.swift; sourceTree = "<group>"; };
+		FF9D593F2A467E8B001F6864 /* ImageConversor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConversor.swift; sourceTree = "<group>"; };
 		FFF808362A40B7540089D77E /* PratoAVistaTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PratoAVistaTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,15 +235,6 @@
 			path = PratoAVistaUITests;
 			sourceTree = "<group>";
 		};
-		4BBE40EC2A43363A00C555F3 /* Restaurants */ = {
-			isa = PBXGroup;
-			children = (
-				4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */,
-				4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */,
-			);
-			path = Restaurants;
-			sourceTree = "<group>";
-		};
 		4BBE40F32A43404900C555F3 /* Foods */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				FF216A052A4324ED004AA343 /* ColorExtension.swift */,
+				FF9D593F2A467E8B001F6864 /* ImageConversor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,6 +282,9 @@
 		FF216A0D2A438549004AA343 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				4B6638492A409C7400F3785C /* AllRestaurantsView.swift */,
+				4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */,
+				4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */,
 				FF8EBC652A40A669002825C6 /* RestaurantView.swift */,
 				FF216A0E2A4386D2004AA343 /* HeaderRestaurantView.swift */,
 			);
@@ -341,11 +336,9 @@
 				FF216A0D2A438549004AA343 /* Restaurant */,
 				4BBE40FF2A43C16900C555F3 /* Menu */,
 				4BBE40F32A43404900C555F3 /* Foods */,
-				4BBE40EC2A43363A00C555F3 /* Restaurants */,
 				FF216A042A4324DE004AA343 /* Extensions */,
 				FF2169FF2A431B56004AA343 /* Tags */,
 				FF8EBC5E2A40A5F1002825C6 /* Locations */,
-				4B6638492A409C7400F3785C /* ContentView.swift */,
 				FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */,
 				FF216A102A4470EA004AA343 /* OrientationDetector.swift */,
 				FF216A152A44F2F1004AA343 /* TestView.swift */,
@@ -359,7 +352,6 @@
 				FF8EBC5F2A40A60B002825C6 /* LocationsView.swift */,
 				FF8EBC612A40A633002825C6 /* LocationsPreviewVIew.swift */,
 				FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */,
-				FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */,
 				4BBE40FA2A4342F800C555F3 /* CardsFoodView.swift */,
 				4BBE41062A43C3F000C555F3 /* CardMenuView.swift */,
 			);
@@ -497,7 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */,
-				4B66384A2A409C7400F3785C /* ContentView.swift in Sources */,
+				4B66384A2A409C7400F3785C /* AllRestaurantsView.swift in Sources */,
 				4BBE41012A43C23E00C555F3 /* MenuModel.swift in Sources */,
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
 				0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */,
@@ -511,8 +503,8 @@
 				FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */,
 				4BBE41072A43C3F000C555F3 /* CardMenuView.swift in Sources */,
 				FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */,
-				FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */,
 				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
+				FF9D59402A467E8B001F6864 /* ImageConversor.swift in Sources */,
 				FF216A112A4470EA004AA343 /* OrientationDetector.swift in Sources */,
 				FF216A082A432803004AA343 /* DishTagView.swift in Sources */,
 				FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */,

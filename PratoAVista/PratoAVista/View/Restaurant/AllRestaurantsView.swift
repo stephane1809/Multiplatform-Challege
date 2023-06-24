@@ -7,29 +7,46 @@
 
 import SwiftUI
 
-struct A=\
- View: View {
+struct AllRestaurantsView: View {
 
-    private var restaurants = RestaurantMockup.getRestaurants()
+    @EnvironmentObject private var viewModel: RestaurantsViewModel
 
         var body: some View {
             NavigationView {
                 ScrollView {
                     LazyVStack(spacing: 16) {
-                        ForEach(restaurants) { restaurant in
-                            RestaurantCard(restaurant: restaurant)
+                        ForEach(viewModel.restaurants) { restaurant in
+                            NavigationLink {
+                                RestaurantView(currentRestaurant: restaurant)
+                            } label: {
+                                RestaurantCard(restaurant: restaurant)
+                            }
+                            
                         }
                     }
                     .padding(.horizontal)
                 }
+                .refreshable {
+                    Task {
+                        await viewModel.fetch()
+                    }
+                }
                 .navigationTitle("Restaurantes")
-            }.navigationViewStyle(.stack)
-                .navigationBarBackButtonHidden()
+            }
+            .navigationBarTitleDisplayMode(.large)
+            .navigationViewStyle(.stack)
+            .navigationBarBackButtonHidden()
+            .onAppear {
+                Task {
+                    await viewModel.fetch()
+                }
+            }
         }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AllRestaurantsView()
+            .environmentObject(RestaurantsViewModel())
     }
 }
