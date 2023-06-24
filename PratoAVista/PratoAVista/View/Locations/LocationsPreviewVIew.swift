@@ -6,22 +6,30 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct LocationPreviewView: View {
     
-    @EnvironmentObject private var viewModel: LocationsViewModel
-    let location: Location
+    @EnvironmentObject private var viewModel: RestaurantsViewModel
+    let currentRestaurant: RestaurantModel
     
     var body: some View {
-        HStack(alignment: .bottom) {
+        HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 16) {
-                imageSection
+                if let ckAsset =  currentRestaurant.picture {
+                    if let uiImage = convertToUIImage(ckAsset: ckAsset){
+                        imageSection(uiImage: uiImage)
+                    }
+                } else {
+                    emptyImageSection
+                }
                 tittleSection
             }
             VStack(spacing: 10) {
                 learnMoreButton
                 nextButton
             }
+            .offset(y: 32.5)
         }
         .padding(20)
         .background(
@@ -36,10 +44,10 @@ struct LocationPreviewView: View {
 
 extension LocationPreviewView {
     
-    private var imageSection: some View {
-        ZStack {
-            if let imageName = location.imageNames.first {
-                Image(imageName)
+    private func imageSection(uiImage: UIImage) -> some View {
+        return (
+            ZStack {
+                Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100)
@@ -49,6 +57,23 @@ extension LocationPreviewView {
                         viewModel.showSelectedImage()
                     }
             }
+            .padding(6)
+            .background(Color.white)
+            .cornerRadius(10)
+        )
+    }
+    
+    private var emptyImageSection: some View {
+        ZStack {
+            Image(systemName: "fork.knife.circle.fill")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 100, height: 100)
+                .cornerRadius(10)
+                .allowsHitTesting(true)
+                .onTapGesture {
+                    viewModel.showSelectedImage()
+                }
         }
         .padding(6)
         .background(Color.white)
@@ -57,10 +82,10 @@ extension LocationPreviewView {
     
     private var tittleSection: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(location.name)
+            Text(currentRestaurant.name ?? "")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text(location.cityName)
+            Text(currentRestaurant.location ?? "")
                 .font(.subheadline)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -68,7 +93,7 @@ extension LocationPreviewView {
     
     private var learnMoreButton: some View {
         NavigationLink {
-            RestaurantView(currentLocation: viewModel.mapLocation)
+            RestaurantView(currentRestaurant: viewModel.currentRestaurant)
         } label: {
             Text("Ler mais")
                 .foregroundColor(.white)
@@ -95,8 +120,8 @@ struct LocationPreviewView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.cyan
-            LocationPreviewView(location: LocationsDataService.locations.first!)
-                .environmentObject(LocationsViewModel())
+            LocationPreviewView(currentRestaurant: RestaurantModel())
+                .environmentObject(RestaurantsViewModel())
                 .padding()
         }
         .ignoresSafeArea()

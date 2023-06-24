@@ -14,12 +14,13 @@ struct IpadConfigurations {
 
 struct LocationsView: View {
     
-    @EnvironmentObject private var viewModel: LocationsViewModel
+    @EnvironmentObject private var viewModel: RestaurantsViewModel
     
     var body: some View {
         NavigationView {
             ZStack {
                 mapLayer
+                    .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
                     Spacer()
@@ -28,12 +29,12 @@ struct LocationsView: View {
             }
             .overlay {
                 if viewModel.selectedImage {
-                    ZoomImage(currentLocation: viewModel.mapLocation)
+                    ZoomImage(currentRestaurant: viewModel.currentRestaurant)
                 }
             }
-            .ignoresSafeArea()
         }
         .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationViewStyle(.stack)
         .onAppear {
             Task {
@@ -53,44 +54,16 @@ struct LocationsView: View {
 
 extension LocationsView {
     
-    private var header: some View {
-        VStack {
-            Text(viewModel.mapLocation.name + ", " + viewModel.mapLocation.cityName)
-                .font(.title2)
-                .fontWeight(.black)
-                .foregroundColor(.primary)
-                .frame(height: 65)
-                .frame(maxWidth: .infinity)
-                .animation(.none, value: viewModel.mapLocation)
-                .overlay(alignment: .leading) {
-                    Image(systemName: "arrow.down")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding()
-                        .rotationEffect(Angle(degrees: viewModel.showLocationsList ? 180 : 0))
-                }
-            if viewModel.showLocationsList {
-                LocationsListView()
-            }
-        }
-        .background(.thickMaterial)
-        .cornerRadius(10)
-        .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y:15)
-        .onTapGesture {
-            viewModel.toggleLocationsList()
-        }
-    }
-    
     private var mapLayer: some View {
         Map(coordinateRegion: $viewModel.mapRegion,
-            annotationItems: viewModel.locations,
-            annotationContent: { location in
-            MapAnnotation(coordinate: location.coordinates) {
+            annotationItems: viewModel.restaurants,
+            annotationContent: { restaurant in
+            MapAnnotation(coordinate: restaurant.coordinate) {
                 LocationMapAnnotationView()
-                    .scaleEffect(viewModel.mapLocation == location ? 1.1 : 0.7)
+                    .scaleEffect(viewModel.currentRestaurant == restaurant ? 1.1 : 0.7)
                     .shadow(radius: 10)
                     .onTapGesture {
-                        viewModel.showNextLocation(location: location)
+                        viewModel.showNextRestaurant(newRestaurant: restaurant)
                     }
             }
             
@@ -99,9 +72,9 @@ extension LocationsView {
     
     private var locationPreview: some View {
         ZStack {
-            ForEach(viewModel.locations) { location in
-                if viewModel.mapLocation == location {
-                    LocationPreviewView(location: location)
+            ForEach(viewModel.restaurants) { restaurant in
+                if viewModel.currentRestaurant == restaurant {
+                    LocationPreviewView(currentRestaurant: restaurant)
                         .shadow(color: .black.opacity(0.3), radius: 10)
                         .padding()
                         .frame(maxWidth: IpadConfigurations.maxWidthForIpad)
@@ -119,7 +92,7 @@ extension LocationsView {
 struct LocationsView_Previews: PreviewProvider {
     static var previews: some View {
         LocationsView()
-            .environmentObject(LocationsViewModel())
+            .environmentObject(RestaurantsViewModel())
     }
 }
 
