@@ -31,6 +31,7 @@
 		4BBE41052A43C29900C555F3 /* MenuMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41042A43C29900C555F3 /* MenuMockup.swift */; };
 		4BBE41072A43C3F000C555F3 /* CardMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41062A43C3F000C555F3 /* CardMenuView.swift */; };
 		4BBE410A2A45231200C555F3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41092A45231200C555F3 /* SearchView.swift */; };
+		4BBE410D2A47649600C555F3 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE410C2A47649600C555F3 /* SavedView.swift */; };
 		FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A002A431B91004AA343 /* RestaurantTagView.swift */; };
 		FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A022A431C9C004AA343 /* RestaurantTags.swift */; };
 		FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A052A4324ED004AA343 /* ColorExtension.swift */; };
@@ -94,6 +95,7 @@
 		4BBE41042A43C29900C555F3 /* MenuMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMockup.swift; sourceTree = "<group>"; };
 		4BBE41062A43C3F000C555F3 /* CardMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMenuView.swift; sourceTree = "<group>"; };
 		4BBE41092A45231200C555F3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4BBE410C2A47649600C555F3 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		FF216A002A431B91004AA343 /* RestaurantTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTagView.swift; sourceTree = "<group>"; };
 		FF216A022A431C9C004AA343 /* RestaurantTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTags.swift; sourceTree = "<group>"; };
 		FF216A052A4324ED004AA343 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -269,6 +271,14 @@
 			path = SearchView;
 			sourceTree = "<group>";
 		};
+		4BBE410B2A4763A100C555F3 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				4BBE410C2A47649600C555F3 /* SavedView.swift */,
+			);
+			path = Saved;
+			sourceTree = "<group>";
+		};
 		FF2169FF2A431B56004AA343 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +329,7 @@
 		FF8EBC5D2A40A5DE002825C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BBE410B2A4763A100C555F3 /* Saved */,
 				4BBE41082A4522F500C555F3 /* SearchView */,
 				4BBE40FF2A43C16900C555F3 /* Menu */,
 				4BBE40F32A43404900C555F3 /* Foods */,
@@ -327,6 +338,8 @@
 				FF2169FF2A431B56004AA343 /* Tags */,
 				FF8EBC5E2A40A5F1002825C6 /* Locations */,
 				4B6638492A409C7400F3785C /* ContentView.swift */,
+				4BBE41062A43C3F000C555F3 /* CardMenuView.swift */,
+				4BBE40FA2A4342F800C555F3 /* CardsFoodView.swift */,
 				FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */,
 			);
 			path = View;
@@ -340,8 +353,6 @@
 				FF8EBC632A40A653002825C6 /* LocationMapAnnotationView.swift */,
 				FF8EBC652A40A669002825C6 /* LocationDetailView.swift */,
 				FF8EBC672A40A6BF002825C6 /* LocationsListView.swift */,
-				4BBE40FA2A4342F800C555F3 /* CardsFoodView.swift */,
-				4BBE41062A43C3F000C555F3 /* CardMenuView.swift */,
 			);
 			path = Locations;
 			sourceTree = "<group>";
@@ -486,6 +497,7 @@
 				0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */,
 				FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */,
 				FF8EBC662A40A669002825C6 /* LocationDetailView.swift in Sources */,
+				4BBE410D2A47649600C555F3 /* SavedView.swift in Sources */,
 				4BBE410A2A45231200C555F3 /* SearchView.swift in Sources */,
 				4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */,
 				FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */,
