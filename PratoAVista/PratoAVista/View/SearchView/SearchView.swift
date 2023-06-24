@@ -7,9 +7,10 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 struct SearchView: View {
-    
+
     @State var searchText = ""
     @State private var restaurants = RestaurantMockup.getRestaurants()
 
@@ -45,9 +46,9 @@ struct SearchView: View {
         }
     }
 }
-//
-//struct SearchView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchView()
-//    }
-//}
+
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchView()
+    }
+}

@@ -19,6 +19,7 @@ struct RestaurantModel: Identifiable {
 }
 
 extension RestaurantModel {
+    // swiftlint:disable: type_name
     class cloudkit {
         static let identifier = "Restaurant"
         var recordName: String
@@ -40,7 +41,24 @@ extension RestaurantModel {
         var petFriendly: Bool
         var airConditioned: Bool
 
-        init(recordName: String, fantasyName: String? = nil, city: String? = nil, latitude: String? = nil, longitude: String? = nil, neighborhood: String? = nil, number: String? = nil, state: String? = nil, streetName: String? = nil, storeCategories: [CKRecord.Reference] = [], operationDaysAndTime: String? = nil, instagram: String? = nil, picture: CKAsset? = nil, whatsapp: String? = nil, website: String? = nil, kids: String? = nil, petFriendly: String? = nil, airConditioned: String? = nil) {
+        init(recordName: String,
+             fantasyName: String? = nil,
+             city: String? = nil,
+             latitude: String? = nil,
+             longitude: String? = nil,
+             neighborhood: String? = nil,
+             number: String? = nil,
+             state: String? = nil,
+             streetName: String? = nil,
+             storeCategories: [CKRecord.Reference] = [],
+             operationDaysAndTime: String? = nil,
+             instagram: String? = nil,
+             picture: CKAsset? = nil,
+             whatsapp: String? = nil,
+             website: String? = nil,
+             kids: String? = nil,
+             petFriendly: String? = nil,
+             airConditioned: String? = nil) {
             self.recordName = recordName
             self.fantasyName = fantasyName
             self.city = city
