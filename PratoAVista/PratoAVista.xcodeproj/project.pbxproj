@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427BB2A43276300394AA3 /* CloudKitRestaurantRepository.swift */; };
-		0B7427BE2A43285500394AA3 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427BD2A43285500394AA3 /* RestaurantModel.swift */; };
+		0B7427BE2A43285500394AA3 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427BD2A43285500394AA3 /* Restaurant.swift */; };
 		0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C02A432D0B00394AA3 /* CKManager.swift */; };
 		0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */; };
 		0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C82A4344D800394AA3 /* DishModel.swift */; };
@@ -56,7 +56,7 @@
 /* Begin PBXFileReference section */
 		0B7427B92A40B84600394AA3 /* PratoAVista.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PratoAVista.entitlements; sourceTree = "<group>"; };
 		0B7427BB2A43276300394AA3 /* CloudKitRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRestaurantRepository.swift; sourceTree = "<group>"; };
-		0B7427BD2A43285500394AA3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		0B7427BD2A43285500394AA3 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		0B7427C02A432D0B00394AA3 /* CKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKManager.swift; sourceTree = "<group>"; };
 		0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDishRepository.swift; sourceTree = "<group>"; };
 		0B7427C82A4344D800394AA3 /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8EBC592A40A5B7002825C6 /* Location.swift */,
-				0B7427BD2A43285500394AA3 /* RestaurantModel.swift */,
+				0B7427BD2A43285500394AA3 /* Restaurant.swift */,
 				FF216A022A431C9C004AA343 /* RestaurantTags.swift */,
 				FF216A092A43287A004AA343 /* DishTags.swift */,
 				0B7427C82A4344D800394AA3 /* DishModel.swift */,
@@ -402,7 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B66384A2A409C7400F3785C /* ContentView.swift in Sources */,
-				0B7427BE2A43285500394AA3 /* RestaurantModel.swift in Sources */,
+				0B7427BE2A43285500394AA3 /* Restaurant.swift in Sources */,
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
 				0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */,
 				0B7427CC2A44874E00394AA3 /* JSONRestaurantRepository.swift in Sources */,

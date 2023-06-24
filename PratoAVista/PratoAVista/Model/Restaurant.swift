@@ -1,5 +1,5 @@
 //
-//  RestaurantModel.swift
+//  Restaurant.swift
 //  PratoAVista
 //
 //  Created by Lais Godinho on 21/06/23.
@@ -8,15 +8,11 @@
 import Foundation
 import CloudKit
 
-struct RestaurantModel: Identifiable {
+struct Restaurant: Identifiable {
     var id = UUID()
-    var name: String
-    var image: String
-    var location: String
-    var distance: Int
 }
 
-extension RestaurantModel {
+extension Restaurant {
     class cloudkit {
         static let identifier = "Restaurant"
         var recordName: String
@@ -88,15 +84,16 @@ extension RestaurantModel {
     }
 }
 
+extension Restaurant {
+    class JSON: Codable {
+        var recordName: String
+        var fantasyName: String
+        var picturePath: String?
 
+        init(recordName: String, fantasyName: String) {
+            self.recordName = recordName
+            self.fantasyName = fantasyName
+        }
 
-struct Address {
-    var city: String
-    var latitude: String
-    var longitude: String
-    var neighborhood: String
-    var number: String
-    var state: String
-    var streetName: String
-    var zipcode: String
+    }
 }

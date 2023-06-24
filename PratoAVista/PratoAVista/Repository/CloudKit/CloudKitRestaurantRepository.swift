@@ -11,7 +11,7 @@ import CloudKit
 class CloudKitRestaurantRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
-    func getRestaurants() async -> [RestaurantModel.cloudkit]{
+    func getRestaurants() async -> [Restaurant.cloudkit]{
         let predicate = NSPredicate(value: true)
 
         do {
@@ -22,7 +22,7 @@ class CloudKitRestaurantRepository {
         }
     }
 
-    func getRestaurantBy(recordName: String) async -> [RestaurantModel.cloudkit]{
+    func getRestaurantBy(recordName: String) async -> [Restaurant.cloudkit]{
         let recordID = CKRecord.ID(recordName: recordName)
         let predicate = NSPredicate(format: "recordID == %@", recordID)
 
@@ -34,11 +34,11 @@ class CloudKitRestaurantRepository {
         }
     }
     
-    private func getMatchingRecords(predicate: NSPredicate) async throws -> [RestaurantModel.cloudkit] {
+    private func getMatchingRecords(predicate: NSPredicate) async throws -> [Restaurant.cloudkit] {
 
-        let query = CKQuery(recordType: RestaurantModel.cloudkit.identifier, predicate: predicate)
+        let query = CKQuery(recordType: Restaurant.cloudkit.identifier, predicate: predicate)
 
-        var restaurants: [RestaurantModel.cloudkit] = []
+        var restaurants: [Restaurant.cloudkit] = []
         let records = try await publicDatabase.records(matching: query)
 
         for item in records.matchResults {
@@ -53,8 +53,8 @@ class CloudKitRestaurantRepository {
         return restaurants
     }
 
-    private func parseRecordToRestaurant(record: CKRecord) -> RestaurantModel.cloudkit {
-        let restaurant = RestaurantModel.cloudkit(
+    private func parseRecordToRestaurant(record: CKRecord) -> Restaurant.cloudkit {
+        let restaurant = Restaurant.cloudkit(
             recordName: record.recordID.recordName,
             fantasyName: record["fantasyName"],
             city: record["city"],

@@ -38,26 +38,34 @@ struct LocationsView: View {
         }
         // TODO: tirar isso aqui daqui
         .onAppear {
-//            Task {
+            Task {
 //                do {
 //                    let dishes = try await CloudKitDishRepository().getDishesBy(restaurantRecordName: "7D625F3F-F68D-2A13-F7CB-A6DA33811E65")
 //
 //                    for dish in dishes {
 //                        print("\(dish.dishName)")
 //                    }
+
+//                    let restaurants = await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
 //
-////                    let restaurants = try await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
-////
-////                    for restaurant in restaurants {
-//////                        if restaurant.kids {
-////                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
-//////                        }
-////                    }
+//                    for restaurant in restaurants {
+//                        let jsonRestaurant = Restaurant.JSON(recordName: restaurant.recordName, fantasyName: restaurant.fantasyName!)
+//                        JSONRestaurantRepository.shared.saveRestaurant(jsonRestaurant)
+////                        if restaurant.kids {
+//                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
+////                        }
+//                    }
+
+                let savedRestaurants = JSONRestaurantRepository.shared.loadRestaurants()
+
+                for restaurant in savedRestaurants {
+                    print(restaurant.fantasyName)
+                }
 //                } catch {
 //                    print(error)
 //                }
 
-//            }
+            }
         }
     }
 }
