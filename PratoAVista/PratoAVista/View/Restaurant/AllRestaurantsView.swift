@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct A=\
+ View: View {
 
     private var restaurants = RestaurantMockup.getRestaurants()
 
