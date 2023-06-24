@@ -11,18 +11,18 @@ import CloudKit
 class CloudKitRestaurantRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
-    func getRestaurants() async -> [RestaurantModel.cloudkit]{
+    func getRestaurants() async throws -> [RestaurantModel.cloudkit] {
         let predicate = NSPredicate(value: true)
 
         do {
             let restaurants = try await getMatchingRecords(predicate: predicate)
             return restaurants
         } catch {
-            fatalError()
+            throw error
         }
     }
 
-    func getRestaurantBy(recordName: String) async -> [RestaurantModel.cloudkit]{
+    func getRestaurantBy(recordName: String) async throws -> [RestaurantModel.cloudkit]{
         let recordID = CKRecord.ID(recordName: recordName)
         let predicate = NSPredicate(format: "recordID == %@", recordID)
 
@@ -30,11 +30,11 @@ class CloudKitRestaurantRepository {
             let restaurants = try await getMatchingRecords(predicate: predicate)
             return restaurants
         } catch {
-            fatalError()
+            throw error
         }
     }
     
-    func getMatchingRecords(predicate: NSPredicate) async throws -> [RestaurantModel.cloudkit] {
+    private func getMatchingRecords(predicate: NSPredicate) async throws -> [RestaurantModel.cloudkit] {
 
         let query = CKQuery(recordType: RestaurantModel.cloudkit.identifier, predicate: predicate)
 
@@ -47,31 +47,31 @@ class CloudKitRestaurantRepository {
                 let restaurant = parseRecordToRestaurant(record: value)
                 restaurants.append(restaurant)
             case .failure(let error):
-                print(error)
+                throw error
             }
         }
         return restaurants
     }
 
-    func parseRecordToRestaurant(record: CKRecord) -> RestaurantModel.cloudkit {
+    private func parseRecordToRestaurant(record: CKRecord) -> RestaurantModel.cloudkit {
         let restaurant = RestaurantModel.cloudkit(
-            id: record.recordID.recordName,
-            fantasyName: record.object(forKey: "fantasyName")?.description,
-            city: record.object(forKey: "city")?.description,
-            latitude: record.object(forKey: "latitude")?.description,
-            longitude: record.object(forKey: "longitude")?.description,
-            neighborhood: record.object(forKey: "neighborhood")?.description,
-            number: record.object(forKey: "number")?.description,
-            state: record.object(forKey: "state")?.description,
-            streetName: record.object(forKey: "streetName")?.description,
-            operationDaysAndTime: record.object(forKey: "operationDaysAndTime")?.description,
-            instagram: record.object(forKey: "instagram")?.description,
-//            picture: record.object(forKey: "picture")?.description
-            whatsapp: record.object(forKey: "whatsapp")?.description,
-            website: record.object(forKey: "website")?.description,
-            kids: record.object(forKey: "kids")?.description,
-            petFriendly: record.object(forKey: "petFrinedly")?.description,
-            airConditioned: record.object(forKey: "aitConditioned")?.description
+            recordName: record.recordID.recordName,
+            fantasyName: record["fantasyName"],
+            city: record["city"],
+            latitude: record["latitude"],
+            longitude: record["longitude"],
+            neighborhood: record["neighborhood"],
+            number: record["number"],
+            state: record["state"],
+            streetName: record["streetName"],
+            operationDaysAndTime: record["operationDaysAndTime"],
+            instagram: record["instagram"],
+            picture: record["picture"],
+            whatsapp: record["whatsapp"],
+            website: record["website"],
+            kids: record["kids"],
+            petFriendly: record["petFrinedly"],
+            airConditioned: record["aitConditioned"]
         )
 
         return restaurant

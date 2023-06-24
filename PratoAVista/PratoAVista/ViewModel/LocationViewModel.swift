@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 import SwiftUI
+import CloudKit
 
 class LocationsViewModel: ObservableObject {
     
@@ -27,11 +28,14 @@ class LocationsViewModel: ObservableObject {
     // Show list of locations
     @Published var showLocationsList: Bool = false
     
-    // Show location detail via sheet
-    @Published var sheetLocation: Location? = nil
+    // Show back button
+    @Published var hiddeBackButton: Bool = false
     
     // Show bigger Image
     @Published var selectedImage: Bool = false
+    
+    // Variable catching error if occour
+    @Published var localError: ErrorDescription? = nil
     
     init() {
         let locations = LocationsDataService.locations
@@ -39,6 +43,25 @@ class LocationsViewModel: ObservableObject {
         self.mapLocation = locations.first!
         
         self.updateMapRegion(location: mapLocation)
+    }
+    
+    func finishError() {
+        localError = nil
+    }
+    
+    func fetch() async {
+        do {
+            let restaurants = try await CloudKitRestaurantRepository().getRestaurants()
+            print(restaurants.first)
+            
+        }
+        catch {
+            if let receptedRrror = error as? CKError {
+                DispatchQueue.main.async {
+                    self.localError = CKErrorHandler.handleError(receptedRrror) as? ErrorDescription
+                }
+            }
+        }
     }
     
     private func updateMapRegion(location: Location) {
@@ -51,11 +74,13 @@ class LocationsViewModel: ObservableObject {
     }
     
     func showSelectedImage() {
+        hiddeBackButton = true
         selectedImage = true
     }
     
     func hideSelectedImage() {
         selectedImage = false
+        hiddeBackButton = false
     }
     
     func toggleLocationsList() {

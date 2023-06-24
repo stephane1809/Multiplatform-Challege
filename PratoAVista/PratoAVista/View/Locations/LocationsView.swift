@@ -17,40 +17,36 @@ struct LocationsView: View {
     @EnvironmentObject private var viewModel: LocationsViewModel
     
     var body: some View {
-        ZStack {
-            mapLayer
-                .ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                Spacer()
-                locationPreview
+        NavigationView {
+            ZStack {
+                mapLayer
+                
+                VStack(spacing: 0) {
+                    Spacer()
+                    locationPreview
+                }
             }
-            
-            
-        }
-        .sheet(item: $viewModel.sheetLocation) { location in
-            LocationDetailView(currentLocation: location)
-        }
-        .overlay {
-            if viewModel.selectedImage {
-                ZoomImage(currentLocation: viewModel.mapLocation)
+            .overlay {
+                if viewModel.selectedImage {
+                    ZoomImage(currentLocation: viewModel.mapLocation)
+                }
             }
+            .ignoresSafeArea()
         }
+        .navigationTitle("")
+        .navigationViewStyle(.stack)
         .onAppear {
             Task {
-                do {
-                    let restaurants = try await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
-
-                    for restaurant in restaurants {
-//                        if restaurant.kids {
-                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
-//                        }
-                    }
-                } catch {
-                    print(error)
-                }
-
+                await viewModel.fetch()
             }
+        }
+        .alert(viewModel.localError?.localizedDescription ?? "Erro!",
+               isPresented: .constant(viewModel.localError != nil)) {
+            Button("OK") {
+                viewModel.finishError()
+            }
+        } message: {
+            Text(viewModel.localError?.recoverySuggestion ?? "Tente novamente.")
         }
     }
 }
