@@ -14,7 +14,7 @@ class RestaurantsViewModel: ObservableObject {
     
     @Published var restaurants: [RestaurantModel] = [] {
         didSet {
-            currentRestaurant = restaurants.first!
+            currentRestaurant = restaurants.first ?? RestaurantModel()
         }
     }
 

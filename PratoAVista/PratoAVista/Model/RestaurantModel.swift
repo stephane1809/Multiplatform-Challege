@@ -11,15 +11,18 @@ import SwiftUI
 
 struct RestaurantModel: Identifiable, Equatable {
     static func == (lhs: RestaurantModel, rhs: RestaurantModel) -> Bool {
-        lhs.ckRestaurant.recordName == rhs.ckRestaurant.recordName
+        if lhs.ckRestaurant.recordName == rhs.ckRestaurant.recordName {
+            return lhs.id == rhs.id
+        }
+        return false
     }
     
     var id = UUID()
     var name: String? { get { ckRestaurant.fantasyName } }
     var image: String?
     var coordinate: CLLocationCoordinate2D {
-        let latitude = ckRestaurant.latitude!
-        let longitude = ckRestaurant.longitude!
+        let latitude = ckRestaurant.latitude ?? "0"
+        let longitude = ckRestaurant.longitude ?? "0"
         return convertLatitudeLogitudeStringToCoordinate(latitude: latitude, longitude: longitude)
     }
     
@@ -90,6 +93,10 @@ struct RestaurantModel: Identifiable, Equatable {
     var distance: Int?
     var tags: [RestaurantTag]?
     private var ckRestaurant: cloudkit
+    
+    func getCkRestaurant() -> cloudkit {
+        return ckRestaurant
+    }
     
     init(id: UUID = UUID(), image: String? = nil, distance: Int? = nil, tags: [RestaurantTag]? = nil, ckRestaurant: cloudkit = cloudkit(recordName: "")) {
         self.id = id
