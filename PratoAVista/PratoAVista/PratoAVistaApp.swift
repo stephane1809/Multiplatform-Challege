@@ -21,6 +21,7 @@ struct PratoAVistaApp: App {
                         Label("Salvos", systemImage: "bookmark")
                     }
                 LocationsView()
+                    .environmentObject(LocationsViewModel())
                     .tabItem {
                         Label("mapas", systemImage: "map")
                     }
