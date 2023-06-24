@@ -30,6 +30,7 @@ struct LocationPreviewView: View {
                 .offset(y: 65)
         )
         .cornerRadius(10)
+        .navigationTitle("")
     }
 }
 
@@ -66,14 +67,16 @@ extension LocationPreviewView {
     }
     
     private var learnMoreButton: some View {
-        Button {
-            viewModel.sheetLocation = location
+        NavigationLink {
+            RestaurantView(currentLocation: viewModel.mapLocation)
         } label: {
             Text("Ler mais")
+                .foregroundColor(.white)
                 .font(.headline)
-                .frame(width: 125, height: 35)
+                .frame(width: 150, height: 50)
+                .background(Color.blue)
+                .cornerRadius(8)
         }
-        .buttonStyle(.borderedProminent)
     }
     
     private var nextButton: some View {

@@ -11,18 +11,18 @@ import CloudKit
 class CloudKitRestaurantRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
-    func getRestaurants() async -> [RestaurantModel.cloudkit]{
+    func getRestaurants() async throws -> [RestaurantModel.cloudkit] {
         let predicate = NSPredicate(value: true)
 
         do {
             let restaurants = try await getMatchingRecords(predicate: predicate)
             return restaurants
         } catch {
-            fatalError()
+            throw error
         }
     }
 
-    func getRestaurantBy(recordName: String) async -> [RestaurantModel.cloudkit]{
+    func getRestaurantBy(recordName: String) async throws -> [RestaurantModel.cloudkit]{
         let recordID = CKRecord.ID(recordName: recordName)
         let predicate = NSPredicate(format: "recordID == %@", recordID)
 
@@ -30,7 +30,7 @@ class CloudKitRestaurantRepository {
             let restaurants = try await getMatchingRecords(predicate: predicate)
             return restaurants
         } catch {
-            fatalError()
+            throw error
         }
     }
     
@@ -47,7 +47,7 @@ class CloudKitRestaurantRepository {
                 let restaurant = parseRecordToRestaurant(record: value)
                 restaurants.append(restaurant)
             case .failure(let error):
-                print(error)
+                throw error
             }
         }
         return restaurants
