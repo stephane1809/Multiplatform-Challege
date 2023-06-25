@@ -8,9 +8,17 @@
 import Foundation
 import CloudKit
 
-struct DishModel: Identifiable, Equatable {
+struct DishModel: Hashable, Identifiable, Equatable {
 
-    private var ckDish: cloudkit = cloudkit(recordName: "")
+    private var ckDish: cloudkit
+
+    init(ckDish: cloudkit) {
+        self.ckDish = ckDish
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(id.uuidString)
+    }
 
     let id = UUID()
 

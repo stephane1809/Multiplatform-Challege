@@ -11,7 +11,7 @@ import SwiftUI
 import CloudKit
 
 class RestaurantsViewModel: ObservableObject {
-    
+
     @Published var restaurants: [RestaurantModel] = [] {
         didSet {
             currentRestaurant = restaurants.first ?? RestaurantModel()
@@ -22,16 +22,19 @@ class RestaurantsViewModel: ObservableObject {
     @Published var currentRestaurant: RestaurantModel {
         didSet {
             mapRestaurantCoordinate = currentRestaurant.coordinate
+            Task {
+                await fetchDishes()
+            }
         }
     }
-    
+
     // Current Map Restaurant Coordinate
     @Published var mapRestaurantCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D() {
         didSet {
             updateMapRegion(coordinate: mapRestaurantCoordinate)
         }
     }
-    
+
     // Current region on map
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
@@ -41,24 +44,26 @@ class RestaurantsViewModel: ObservableObject {
         span: MKCoordinateSpan(latitudeDelta: 0.01,
                                longitudeDelta: 0.01))
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    
+
     // Show back button
     @Published var hiddeBackButton: Bool = false
-    
+
     // Show bigger Image
     @Published var selectedImage: Bool = false
-    
+
     // Variable catching error if occour
-    @Published var localError: ErrorDescription? = nil
-    
+    @Published var localError: ErrorDescription?
+
+    var currentRestaurantDishes: [DishModel]?
+
     init() {
         currentRestaurant = RestaurantModel(ckRestaurant: .init(recordName: ""))
     }
-    
+
     func finishError() {
         localError = nil
     }
-    
+
     func fetch() async {
         do {
             let newRestaurants = try await CloudKitRestaurantRepository().getRestaurants()
@@ -74,7 +79,7 @@ class RestaurantsViewModel: ObservableObject {
             }
         }
     }
-    
+
     func mapCKRestaurantsForRestaurantModel(ckRestaurants: [RestaurantModel.cloudkit]) -> [RestaurantModel] {
         var restaurantList: [RestaurantModel] = []
         for ckRestaurant in ckRestaurants {
@@ -85,7 +90,35 @@ class RestaurantsViewModel: ObservableObject {
         }
         return restaurantList
     }
-    
+
+    private func fetchDishes() async {
+        do {
+            let restaurantDishes = try await CloudKitDishRepository().getDishesBy(
+                restaurantRecordName: currentRestaurant.recordName)
+            DispatchQueue.main.async {
+                self.currentRestaurantDishes = self.mapCKDishesForDishModel(ckDishes: restaurantDishes)
+            }
+        }
+        catch {
+            if let receptedRrror = error as? CKError {
+                DispatchQueue.main.async {
+                    self.localError = CKErrorHandler.handleError(receptedRrror) as? ErrorDescription
+                }
+            }
+        }
+    }
+
+    private func mapCKDishesForDishModel(ckDishes: [DishModel.cloudkit]) -> [DishModel] {
+        var dishList: [DishModel] = []
+        for ckDish in ckDishes {
+            let newDish = DishModel(ckDish: ckDish)
+            if dishList.contains(newDish) == false {
+                dishList.append(newDish)
+            }
+        }
+        return dishList
+    }
+
     private func updateMapRegion(coordinate: CLLocationCoordinate2D) {
         withAnimation(.easeInOut) {
             DispatchQueue.main.async {
@@ -96,39 +129,43 @@ class RestaurantsViewModel: ObservableObject {
             }
         }
     }
-    
+
     func showSelectedImage() {
         hiddeBackButton = true
         selectedImage = true
     }
-    
+
     func hideSelectedImage() {
         selectedImage = false
         hiddeBackButton = false
     }
-    
+
     func showNextRestaurant(newRestaurant: RestaurantModel) {
         withAnimation(.easeInOut) {
-            currentRestaurant = newRestaurant
+            DispatchQueue.main.async {
+                withAnimation {
+                    self.currentRestaurant = newRestaurant                    
+                }
+            }
         }
     }
-    
+
     func nextButtonPressed() {
         guard restaurants.isEmpty == false else {
             return
         }
-        
+
         guard let currentIndex = restaurants.firstIndex(where: {$0 == currentRestaurant}) else {
             return
         }
-        
+
         let nextIndex = currentIndex + 1
         guard restaurants.indices.contains(nextIndex) else {
             let firstRestaurant = restaurants.first!
             showNextRestaurant(newRestaurant: firstRestaurant)
             return
         }
-        
+
         let nextRestaurant = restaurants[nextIndex]
         showNextRestaurant(newRestaurant: nextRestaurant)
     }

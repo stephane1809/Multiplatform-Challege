@@ -1,50 +1,147 @@
 //
-//  CardsFoodView.swift
+//  MenuView.swift
 //  PratoAVista
 //
-//  Created by Stephane Girão Linhares on 21/06/23.
+//  Created by Beatriz Leonel da Silva on 25/06/23.
 //
 
-import Foundation
 import SwiftUI
 
 struct MenuView: View {
 
-    private var foods = FoodMockup.getFoods()
+    @EnvironmentObject var viewModel: MenuViewModel
+    @State var insertionAnimation: Edge = .trailing
+    @State var removeAnimation: Edge = .leading
 
-        var body: some View {
-            NavigationView {
-               dishList
-            }
-            .navigationTitle("Cardápio")
-            .navigationViewStyle(.stack)
-            .navigationBarTitleDisplayMode(.inline)
+    var body: some View {
+        VStack(alignment: .leading) {
+            filterCategorySection
+                .ignoresSafeArea(.all, edges: .horizontal)
+            menuListSection
+            Spacer()
         }
+        .onAppear {
+            viewModel.getAllCategorys()
+        }
+        .navigationTitle(viewModel.restaurant.name!)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationViewStyle(.stack)
+        .background(Color.white)
+        .sheet(isPresented: $viewModel.showDish) {
+            MenuItem()
+        }
+    }
+
+    func updateTransition(_ nextCategory: String) {
+        guard let nextIndex = viewModel.categorys.firstIndex(of: nextCategory) else { return }
+        guard let currentIndex = viewModel.categorys.firstIndex(
+            of: viewModel.currentCategory) else { return }
+        if currentIndex < nextIndex {
+            removeAnimation = .leading
+            insertionAnimation = .trailing
+        }
+        if currentIndex > nextIndex {
+            removeAnimation = .trailing
+            insertionAnimation = .leading
+        }
+    }
 }
 
 extension MenuView {
 
-    private var dishList: some View {
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(foods) { food in
-                    FoodCard(food: food)
+    private var filterCategorySection: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(viewModel.categorys, id: \.self) { item in
+                    filterItem(filterCategory: item)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 20)
+                        .onTapGesture {
+                            updateTransition(item)
+                            withAnimation {
+                                viewModel.updateCategory(item)
+                            }
+                        }
                 }
             }
-            .padding(.horizontal)
         }
     }
 
+    private func filterItem(filterCategory: String) -> some View {
+        if filterCategory == viewModel.currentCategory {
+            return(
+                Text(filterCategory)
+                    .font(.callout)
+                    .fontWeight(.bold)
+                    .foregroundColor(.dishTagBG)
+            )
+        } else {
+            return(
+                Text(filterCategory)
+                    .font(.callout)
+                    .foregroundColor(.black)
+            )
+        }
+    }
+
+    private var menuListSection: some View {
+        ScrollView {
+            ForEach(viewModel.currentDishes, id: \.self) { dish in
+                NavigationLink {
+                    MenuItem()
+                        .environmentObject(viewModel)
+                        .onAppear {
+                            viewModel.selectedDish = dish
+                        }
+                } label: {
+                    FoodCard(dish: dish)
+                        .transition(
+                            .asymmetric(
+                                insertion: .move(edge: insertionAnimation),
+                                removal: .move(edge: removeAnimation)
+                            ))
+                }
+            }
+        }
+        .gesture(
+            DragGesture(minimumDistance: -3, coordinateSpace: .local)
+                .onEnded { drag in
+                    if drag.startLocation.x > drag.location.x {
+                        let nextCategory = viewModel.returnNextCategory()
+                        updateTransition(nextCategory)
+                        withAnimation {
+                            viewModel.updateCategory(nextCategory)
+                        }
+                    }
+                    if drag.startLocation.x < drag.location.x {
+                        let backCategory = viewModel.returnBackCategory()
+                        updateTransition(backCategory)
+                        withAnimation {
+                            viewModel.updateCategory(backCategory)
+                        }
+                    }
+                })
+    }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
-            .previewDevice(.init(rawValue: "iPhone 14"))
+            .environmentObject(MenuViewModel(
+                restaurant: .init(),
+                dishes: [
+                    .init(ckDish: .init(recordName: ""))
+                ]))
             .previewDisplayName("iPhone")
+            .previewDevice(.init(rawValue: "iPhone 14"))
 
         MenuView()
-            .previewDevice(.init(rawValue: "iPad Pro (12.9-inch) (6th generation)"))
+            .environmentObject(MenuViewModel(
+                restaurant: .init(),
+                dishes: [
+                    .init(ckDish: .init(recordName: ""))
+                ]))
             .previewDisplayName("iPad")
+            .previewDevice(.init(rawValue: "iPad Pro (12.6-inch) (6th generation)"))
     }
 }

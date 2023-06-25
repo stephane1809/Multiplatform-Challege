@@ -16,7 +16,7 @@ struct RestaurantModel: Identifiable, Equatable {
         }
         return false
     }
-    
+
     var id = UUID()
     var name: String? { get { ckRestaurant.fantasyName } }
     var image: String?
@@ -25,7 +25,8 @@ struct RestaurantModel: Identifiable, Equatable {
         let longitude = ckRestaurant.longitude ?? "0"
         return convertLatitudeLogitudeStringToCoordinate(latitude: latitude, longitude: longitude)
     }
-    
+    var recordName: String { get { ckRestaurant.recordName } }
+
     func convertLatitudeLogitudeStringToCoordinate(latitude: String, longitude: String) -> CLLocationCoordinate2D {
         var latitudeFloat: CGFloat = 0
         var longitudeFloat: CGFloat = 0
@@ -39,7 +40,7 @@ struct RestaurantModel: Identifiable, Equatable {
         }
         return .init(latitude: latitudeFloat, longitude: longitudeFloat)
     }
-    
+
     var location: String? {
         get {
             var address: String?
@@ -52,7 +53,7 @@ struct RestaurantModel: Identifiable, Equatable {
             return address
         }
     }
-    
+
     var operation: String? {
         get {
             var ckOperation: String?
@@ -62,34 +63,26 @@ struct RestaurantModel: Identifiable, Equatable {
             return ckOperation
         }
     }
-    
+
     var whatsapp: String? {
         get {
             var telephone: String?
-
             if let contact = ckRestaurant.whatsapp {
                 telephone = contact
             }
-            
             return telephone
         }
     }
-    
+
     var wifi: Bool { get { return ckRestaurant.airConditioned } }
-    
     var airConditioned: Bool { get { ckRestaurant.airConditioned } }
-    
     var petFrendly: Bool { get { ckRestaurant.petFriendly } }
-    
     var kidsArea: Bool { get { ckRestaurant.kids } }
-    
     var picture: CKAsset? { get { ckRestaurant.picture } }
-    
     var latitude: String? { get { ckRestaurant.latitude } }
-    
     var longitude: String? { get { ckRestaurant.longitude } }
-    
-    
+    var categorys: [CKRecord.Reference] { get { ckRestaurant.storeCategories } }
+
     var distance: Int?
     var tags: [RestaurantTag]?
     private var ckRestaurant: cloudkit
