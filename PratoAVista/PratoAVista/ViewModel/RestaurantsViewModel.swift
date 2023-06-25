@@ -33,7 +33,13 @@ class RestaurantsViewModel: ObservableObject {
     }
     
     // Current region on map
-    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
+    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(
+            latitude: -3.744126337359133,
+            longitude: -38.53577978383463
+        ),
+        span: MKCoordinateSpan(latitudeDelta: 0.01,
+                               longitudeDelta: 0.01))
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     // Show back button

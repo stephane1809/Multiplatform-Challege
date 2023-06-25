@@ -20,7 +20,7 @@ struct LocationsView: View {
         NavigationView {
             ZStack {
                 mapLayer
-                    .ignoresSafeArea()
+                    .ignoresSafeArea(.all, edges: .top)
                 
                 VStack(spacing: 0) {
                     Spacer()

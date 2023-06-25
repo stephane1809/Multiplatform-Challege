@@ -38,6 +38,7 @@ struct SearchView: View {
                     .refreshable {
                         Task {
                             await viewModel.fetch()
+                            restaurants = viewModel.restaurants
                         }
                     }
                 }
@@ -52,6 +53,14 @@ struct SearchView: View {
                         await viewModel.fetch()
                         restaurants = viewModel.restaurants
                     }
+                }
+                .alert(viewModel.localError?.localizedDescription ?? "Erro!",
+                       isPresented: .constant(viewModel.localError != nil)) {
+                    Button("OK") {
+                        viewModel.finishError()
+                    }
+                } message: {
+                    Text(viewModel.localError?.recoverySuggestion ?? "Tente novamente.")
                 }
             }
         }
@@ -76,13 +85,13 @@ extension SearchView {
                 .fill(.gray.opacity(0.2))
                 .frame(width: .none, height: 130)
                 .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                .animation(.easeInOut(duration: 0.2).repeatForever(), value: restaurants.isEmpty)
+                .animation(.easeInOut(duration: 1).repeatForever(), value: restaurants.isEmpty)
             
             RoundedRectangle(cornerRadius: 5)
                 .fill(.gray.opacity(0.2))
                 .frame(width: .none, height: 130)
                 .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                .animation(.easeInOut(duration: 0.2).repeatForever(), value: restaurants.isEmpty)
+                .animation(.easeInOut(duration: 1).repeatForever(), value: restaurants.isEmpty)
         }
         .padding(.horizontal, 20)
     }
