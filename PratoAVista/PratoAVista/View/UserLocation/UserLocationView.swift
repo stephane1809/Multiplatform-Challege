@@ -18,6 +18,7 @@ struct UserLocationView: View {
 
     var body: some View {
         VStack {
+        
             Text("Latitude: \(coordinates.lat)")
                 .font(.largeTitle)
             Text("Longitude: \(coordinates.lon)")
@@ -49,6 +50,8 @@ struct UserLocationView: View {
             }
             .store(in: &tokens)
     }
+
+    
 }
 
 struct UserLocationView_Previews: PreviewProvider {

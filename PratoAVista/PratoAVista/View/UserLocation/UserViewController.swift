@@ -10,14 +10,11 @@ import SwiftUI
 
 class ViewController: UIViewController {
 
-
     // - Outlets
     @IBOutlet weak var locationLabel: UILabel!
 
-
     // - Constants
     private let locationManager = DeviceLocationService()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
