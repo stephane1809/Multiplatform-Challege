@@ -10,8 +10,8 @@ import MapKit
 
 struct HeaderRestaurantView: View {
     
-    let currentLocation: Location
-    @EnvironmentObject private var viewModel: LocationsViewModel
+    let currentRestaurant: RestaurantModel
+    @EnvironmentObject private var viewModel: RestaurantsViewModel
     
     @State var profileRatio: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 160 : 125
     @State var mapHeight: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 325 : 260
@@ -20,10 +20,14 @@ struct HeaderRestaurantView: View {
     var body: some View {
         VStack(spacing: 0) {
             mapLayer
-            profileImage
-                .offset(y: -3*(profileRatio/4))
-                .padding(.horizontal, 30)
-                .padding(.bottom, -profileRatio)
+            if let ckAsset = currentRestaurant.picture {
+                if let uiImage = convertToUIImage(ckAsset: ckAsset) {
+                    profileImage(uiImage: uiImage)
+                        .offset(y: -3*(profileRatio/4))
+                        .padding(.horizontal, 30)
+                        .padding(.bottom, -profileRatio)
+                }
+            }
             
             Spacer()
             
@@ -56,10 +60,10 @@ extension HeaderRestaurantView {
         
         return(
             Map(coordinateRegion: .constant(MKCoordinateRegion(
-                center: currentLocation.coordinates,
+                center: viewModel.mapRestaurantCoordinate,
                 span: viewModel.mapSpan)),
-                annotationItems: [currentLocation]) { location in
-                    MapAnnotation(coordinate: location.coordinates) {
+                annotationItems: [currentRestaurant]) { _ in
+                    MapAnnotation(coordinate: viewModel.mapRestaurantCoordinate) {
                         LocationMapAnnotationView()
                     }
                 }
@@ -68,11 +72,11 @@ extension HeaderRestaurantView {
         )
     }
     
-    private var profileImage: some View {
+    private func profileImage(uiImage: UIImage) -> some View {
         return (
             HStack {
                 Spacer()
-                Image(currentLocation.imageNames.first!)
+                Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: profileRatio, height: profileRatio)
@@ -85,9 +89,10 @@ extension HeaderRestaurantView {
     }
 }
 
+
 struct HeaderRestaurantView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderRestaurantView(currentLocation: LocationsDataService.locations.first!)
-            .environmentObject(LocationsViewModel())
+        HeaderRestaurantView(currentRestaurant: RestaurantModel())
+            .environmentObject(RestaurantsViewModel())
     }
 }
