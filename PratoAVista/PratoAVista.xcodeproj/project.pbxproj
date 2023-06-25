@@ -365,6 +365,7 @@
 				FF2169FF2A431B56004AA343 /* Tags */,
 				FF8EBC5E2A40A5F1002825C6 /* Locations */,
 				FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */,
+				FF216A102A4470EA004AA343 /* OrientationDetector.swift */,
 				FF216A152A44F2F1004AA343 /* TestView.swift */,
 			);
 			path = View;
@@ -390,6 +391,7 @@
 				4B6638402A409C7400F3785C /* Sources */,
 				4B6638412A409C7400F3785C /* Frameworks */,
 				4B6638422A409C7400F3785C /* Resources */,
+				4BBE410E2A479ED100C555F3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -504,6 +506,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4BBE410E2A479ED100C555F3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4B6638402A409C7400F3785C /* Sources */ = {
