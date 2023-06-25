@@ -12,6 +12,7 @@ struct MenuView: View {
     @EnvironmentObject var viewModel: MenuViewModel
     @State var insertionAnimation: Edge = .trailing
     @State var removeAnimation: Edge = .leading
+    @State var imageOnSaveButton: String = "bookmark"
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -30,6 +31,26 @@ struct MenuView: View {
         .sheet(isPresented: $viewModel.showDish) {
             MenuItem()
         }
+        .toolbar {
+            Button {
+                saveAction()
+            } label: {
+                Image(systemName: imageOnSaveButton)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20)
+                    .foregroundColor(.restaurantTagBG)
+            }
+        }
+    }
+
+    func saveAction() {
+        if imageOnSaveButton == "bookmark.fill" {
+            imageOnSaveButton =  "bookmark"
+        } else {
+            imageOnSaveButton = "bookmark.fill"
+        }
+        // MARK: Aqui adiciona o código para salvar
     }
 
     func updateTransition(_ nextCategory: String) {
