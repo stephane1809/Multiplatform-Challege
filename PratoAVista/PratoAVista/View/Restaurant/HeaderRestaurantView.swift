@@ -51,7 +51,7 @@ extension HeaderRestaurantView {
     private var mapLayer: some View {
         var currentMapHeight = mapHeight
         if orientation.isLandscape {
-            currentMapHeight = currentMapHeight/1.5
+            currentMapHeight /= 1.5
         }
         
         return(

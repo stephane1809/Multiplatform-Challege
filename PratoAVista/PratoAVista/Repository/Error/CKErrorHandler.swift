@@ -45,6 +45,7 @@ class CKErrorHandler {
                     .accountTemporarilyUnavailable:
                 return ErrorDescription(
                     localizedDescription: "Ocorreu um problema interno com o acesso aos dados!",
+                    // swiftlint:disable: line_length
                     recoverySuggestion: "Reinicie o aplicativo, verifique se existe alguma atualização disponível e tente novamente. Se o problema persistir, entre em contato com o suporte em nossos canais de comunicação."
                 )
                 

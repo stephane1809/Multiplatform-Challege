@@ -13,6 +13,7 @@ struct DishModel {
 }
 
 extension DishModel {
+    // swiftlint:disable: type_name
     class cloudkit {
         static let identifier = "Dish"
         var recordName: String
