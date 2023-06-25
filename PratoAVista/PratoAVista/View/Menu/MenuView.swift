@@ -116,12 +116,12 @@ extension MenuView {
                         }
                 } label: {
                     FoodCard(dish: dish)
-                        .transition(
-                            .asymmetric(
-                                insertion: .move(edge: insertionAnimation),
-                                removal: .move(edge: removeAnimation)
-                            ))
                 }
+                .transition(
+                    .asymmetric(
+                        insertion: .move(edge: insertionAnimation),
+                        removal: .move(edge: removeAnimation)
+                    ))
             }
         }
         .gesture(
