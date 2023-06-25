@@ -13,15 +13,15 @@ struct IpadConfigurations {
 }
 
 struct LocationsView: View {
-    
+
     @EnvironmentObject private var viewModel: RestaurantsViewModel
-    
     var body: some View {
         NavigationView {
             ZStack {
                 mapLayer
                     .ignoresSafeArea(.all, edges: .top)
-                
+                    .ignoresSafeArea(.all, edges: .horizontal)
+
                 VStack(spacing: 0) {
                     Spacer()
                     locationPreview
@@ -53,7 +53,7 @@ struct LocationsView: View {
 }
 
 extension LocationsView {
-    
+
     private var mapLayer: some View {
         Map(coordinateRegion: $viewModel.mapRegion,
             annotationItems: viewModel.restaurants,
@@ -66,10 +66,9 @@ extension LocationsView {
                         viewModel.showNextRestaurant(newRestaurant: restaurant)
                     }
             }
-            
         })
     }
-    
+
     private var locationPreview: some View {
         ZStack {
             ForEach(viewModel.restaurants) { restaurant in
@@ -86,7 +85,7 @@ extension LocationsView {
             }
         }
     }
-    
+
 }
 
 struct LocationsView_Previews: PreviewProvider {
@@ -95,4 +94,3 @@ struct LocationsView_Previews: PreviewProvider {
             .environmentObject(RestaurantsViewModel())
     }
 }
-

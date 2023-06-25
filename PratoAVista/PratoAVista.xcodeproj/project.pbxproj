@@ -38,9 +38,9 @@
 		FF216A082A432803004AA343 /* DishTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A072A432803004AA343 /* DishTagView.swift */; };
 		FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A092A43287A004AA343 /* DishTags.swift */; };
 		FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A0E2A4386D2004AA343 /* HeaderRestaurantView.swift */; };
-		FF216A112A4470EA004AA343 /* OrientationDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A102A4470EA004AA343 /* OrientationDetector.swift */; };
 		FF216A142A44E160004AA343 /* CKErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A132A44E160004AA343 /* CKErrorHandler.swift */; };
 		FF216A162A44F2F1004AA343 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A152A44F2F1004AA343 /* TestView.swift */; };
+		FF443FDF2A47F10400F7510D /* OrientationDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF443FDE2A47F10400F7510D /* OrientationDetector.swift */; };
 		FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */; };
 		FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */; };
 		FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8EBC592A40A5B7002825C6 /* Location.swift */; };
@@ -107,9 +107,9 @@
 		FF216A072A432803004AA343 /* DishTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTagView.swift; sourceTree = "<group>"; };
 		FF216A092A43287A004AA343 /* DishTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTags.swift; sourceTree = "<group>"; };
 		FF216A0E2A4386D2004AA343 /* HeaderRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRestaurantView.swift; sourceTree = "<group>"; };
-		FF216A102A4470EA004AA343 /* OrientationDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationDetector.swift; sourceTree = "<group>"; };
 		FF216A132A44E160004AA343 /* CKErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKErrorHandler.swift; sourceTree = "<group>"; };
 		FF216A152A44F2F1004AA343 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		FF443FDE2A47F10400F7510D /* OrientationDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationDetector.swift; sourceTree = "<group>"; };
 		FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImage.swift; sourceTree = "<group>"; };
 		FF8EBC552A40A58D002825C6 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
 		FF8EBC592A40A5B7002825C6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -296,7 +296,6 @@
 		FF216A042A4324DE004AA343 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				FF216A102A4470EA004AA343 /* OrientationDetector.swift */,
 				FF216A052A4324ED004AA343 /* ColorExtension.swift */,
 				FF9D593F2A467E8B001F6864 /* ImageConversor.swift */,
 			);
@@ -365,7 +364,7 @@
 				FF2169FF2A431B56004AA343 /* Tags */,
 				FF8EBC5E2A40A5F1002825C6 /* Locations */,
 				FF46FA4D2A41D941008A3D28 /* ZoomImage.swift */,
-				FF216A102A4470EA004AA343 /* OrientationDetector.swift */,
+				FF443FDE2A47F10400F7510D /* OrientationDetector.swift */,
 				FF216A152A44F2F1004AA343 /* TestView.swift */,
 			);
 			path = View;
@@ -552,13 +551,13 @@
 				FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */,
 				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
 				FF9D59402A467E8B001F6864 /* ImageConversor.swift in Sources */,
-				FF216A112A4470EA004AA343 /* OrientationDetector.swift in Sources */,
 				FF216A082A432803004AA343 /* DishTagView.swift in Sources */,
 				FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */,
 				FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */,
 				FF216A142A44E160004AA343 /* CKErrorHandler.swift in Sources */,
 				FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */,
 				4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */,
+				FF443FDF2A47F10400F7510D /* OrientationDetector.swift in Sources */,
 				4BBE40FB2A4342F800C555F3 /* CardsFoodView.swift in Sources */,
 				0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */,
 				FF8EBC5C2A40A5CD002825C6 /* RestaurantsViewModel.swift in Sources */,
