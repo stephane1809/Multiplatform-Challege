@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ZoomImage: View {
-    
+
     let currentLocation: Location
     @State var scale = 0.0
     @EnvironmentObject var viewModel: LocationsViewModel
-    
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.7)
                 .ignoresSafeArea()
-            
-            VStack{
+
+            VStack {
                 imageSection
             }
         }
@@ -32,7 +32,7 @@ struct ZoomImage: View {
 }
 
 extension ZoomImage {
-    
+
     private var closeButton: some View {
         Button {
             withAnimation(.easeInOut(duration: 0.15)) {
@@ -48,7 +48,7 @@ extension ZoomImage {
                 .foregroundColor(.white)
         }
     }
-    
+
     private var imageSection: some View {
         TabView {
             ForEach(currentLocation.imageNames,
