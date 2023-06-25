@@ -32,6 +32,9 @@
 		4BBE41072A43C3F000C555F3 /* CardMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41062A43C3F000C555F3 /* CardMenuView.swift */; };
 		4BBE410A2A45231200C555F3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41092A45231200C555F3 /* SearchView.swift */; };
 		4BBE410D2A47649600C555F3 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE410C2A47649600C555F3 /* SavedView.swift */; };
+		4BBE41492A47B85100C555F3 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41482A47B85100C555F3 /* DeviceLocationService.swift */; };
+		4BBE414B2A47B87100C555F3 /* UserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE414A2A47B87100C555F3 /* UserLocationView.swift */; };
+		4BBE414D2A47BFF800C555F3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE414C2A47BFF800C555F3 /* UserViewController.swift */; };
 		B2F97C172A448EE3000756BE /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F97C152A448526000756BE /* MenuItem.swift */; };
 		FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A002A431B91004AA343 /* RestaurantTagView.swift */; };
 		FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A022A431C9C004AA343 /* RestaurantTags.swift */; };
@@ -102,6 +105,9 @@
 		4BBE41062A43C3F000C555F3 /* CardMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMenuView.swift; sourceTree = "<group>"; };
 		4BBE41092A45231200C555F3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		4BBE410C2A47649600C555F3 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
+		4BBE41482A47B85100C555F3 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+		4BBE414A2A47B87100C555F3 /* UserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationView.swift; sourceTree = "<group>"; };
+		4BBE414C2A47BFF800C555F3 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B2F97C152A448526000756BE /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		FF216A002A431B91004AA343 /* RestaurantTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTagView.swift; sourceTree = "<group>"; };
 		FF216A022A431C9C004AA343 /* RestaurantTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTags.swift; sourceTree = "<group>"; };
@@ -292,6 +298,16 @@
 			path = Saved;
 			sourceTree = "<group>";
 		};
+		4BBE41472A47B83700C555F3 /* UserLocation */ = {
+			isa = PBXGroup;
+			children = (
+				4BBE41482A47B85100C555F3 /* DeviceLocationService.swift */,
+				4BBE414A2A47B87100C555F3 /* UserLocationView.swift */,
+				4BBE414C2A47BFF800C555F3 /* UserViewController.swift */,
+			);
+			path = UserLocation;
+			sourceTree = "<group>";
+		};
 		FF2169FF2A431B56004AA343 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +376,7 @@
 		FF8EBC5D2A40A5DE002825C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BBE41472A47B83700C555F3 /* UserLocation */,
 				4BBE410B2A4763A100C555F3 /* Saved */,
 				4BBE41082A4522F500C555F3 /* SearchView */,
 				FF216A0D2A438549004AA343 /* Restaurant */,
@@ -564,8 +581,10 @@
 				FF8EBC682A40A6BF002825C6 /* LocationsListView.swift in Sources */,
 				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
 				FF216A112A4470EA004AA343 /* OrientationDetector.swift in Sources */,
+				4BBE414B2A47B87100C555F3 /* UserLocationView.swift in Sources */,
 				FF216A082A432803004AA343 /* DishTagView.swift in Sources */,
 				FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */,
+				4BBE414D2A47BFF800C555F3 /* UserViewController.swift in Sources */,
 				FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */,
 				FF216A142A44E160004AA343 /* CKErrorHandler.swift in Sources */,
 				FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */,
@@ -581,6 +600,7 @@
 				4BBE40EB2A43361D00C555F3 /* RestaurantModel.swift in Sources */,
 				4BBE40F92A43408A00C555F3 /* FoodMockup.swift in Sources */,
 				FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */,
+				4BBE41492A47B85100C555F3 /* DeviceLocationService.swift in Sources */,
 				FF216A162A44F2F1004AA343 /* TestView.swift in Sources */,
 				FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */,
 			);
@@ -745,6 +765,7 @@
 				DEVELOPMENT_TEAM = 826U5T47TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up with that location homie";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -776,6 +797,7 @@
 				DEVELOPMENT_TEAM = 826U5T47TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up with that location homie";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

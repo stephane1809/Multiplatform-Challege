@@ -41,7 +41,7 @@ struct SearchView: View {
         if searchText.isEmpty {
 
             restaurants = RestaurantMockup.getRestaurants()
-        }else {
+        } else {
             restaurants = RestaurantMockup.getRestaurants().filter({$0.name.localizedCaseInsensitiveContains(searchText)})
         }
     }
