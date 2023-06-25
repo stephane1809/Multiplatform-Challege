@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ZoomImage: View {
     
-    let currentLocation: Location
+    let currentRestaurant: RestaurantModel
     @State var scale = 0.0
-    @EnvironmentObject var viewModel: LocationsViewModel
+    @EnvironmentObject var viewModel: RestaurantsViewModel
     
     var body: some View {
         ZStack {
@@ -19,7 +19,11 @@ struct ZoomImage: View {
                 .ignoresSafeArea()
             
             VStack{
-                imageSection
+                if let ckAsset = currentRestaurant.picture {
+                    if let uiImage = convertToUIImage(ckAsset: ckAsset) {
+                        imageSection(uiImage: uiImage)
+                    }
+                }
             }
         }
         .overlay(closeButton, alignment: .topTrailing)
@@ -44,30 +48,30 @@ extension ZoomImage {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 25)
-                .padding()
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
                 .foregroundColor(.white)
         }
     }
     
-    private var imageSection: some View {
-        TabView {
-            ForEach(currentLocation.imageNames,
-                    id: \.self) { imageName in
-                Image(imageName)
+    private func imageSection(uiImage: UIImage) -> some View {
+        return(
+            TabView {
+                Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFill()
                     .clipped()
             }
-        }
-        .frame(height: UIDevice.current.userInterfaceIdiom == .pad ? nil : 500)
-        .padding([.vertical], 100)
-        .scaleEffect(scale)
-        .tabViewStyle(.page)
+                .frame(height: UIDevice.current.userInterfaceIdiom == .pad ? nil : 500)
+                .padding([.vertical], 100)
+                .scaleEffect(scale)
+                .tabViewStyle(.page)
+        )
     }
 }
 
 struct ZoomImage_Previews: PreviewProvider {
     static var previews: some View {
-        ZoomImage(currentLocation: LocationsDataService.locations.first!)
+        ZoomImage(currentRestaurant: RestaurantModel())
     }
 }

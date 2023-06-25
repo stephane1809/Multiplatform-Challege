@@ -9,13 +9,102 @@ import Foundation
 import CloudKit
 import SwiftUI
 
-struct RestaurantModel: Identifiable {
+struct RestaurantModel: Identifiable, Equatable {
+    static func == (lhs: RestaurantModel, rhs: RestaurantModel) -> Bool {
+        if lhs.ckRestaurant.recordName == rhs.ckRestaurant.recordName {
+            return lhs.id == rhs.id
+        }
+        return false
+    }
+    
     var id = UUID()
-    var name: String
-    var image: String
-    var location: String
-    var distance: Int
-    var tags: [RestaurantTag]
+    var name: String? { get { ckRestaurant.fantasyName } }
+    var image: String?
+    var coordinate: CLLocationCoordinate2D {
+        let latitude = ckRestaurant.latitude ?? "0"
+        let longitude = ckRestaurant.longitude ?? "0"
+        return convertLatitudeLogitudeStringToCoordinate(latitude: latitude, longitude: longitude)
+    }
+    
+    func convertLatitudeLogitudeStringToCoordinate(latitude: String, longitude: String) -> CLLocationCoordinate2D {
+        var latitudeFloat: CGFloat = 0
+        var longitudeFloat: CGFloat = 0
+        let formatter = NumberFormatter()
+        formatter.decimalSeparator = "."
+        if let number = formatter.number(from: latitude) {
+            latitudeFloat = CGFloat(truncating: number)
+        }
+        if let number = formatter.number(from: longitude) {
+            longitudeFloat = CGFloat(truncating: number)
+        }
+        return .init(latitude: latitudeFloat, longitude: longitudeFloat)
+    }
+    
+    var location: String? {
+        get {
+            var address: String?
+            if let street = ckRestaurant.streetName {
+                address = street
+                if let number = ckRestaurant.number {
+                    address = address! + ", " + number
+                }
+            }
+            return address
+        }
+    }
+    
+    var operation: String? {
+        get {
+            var ckOperation: String?
+            if let timeWork = ckRestaurant.operationDaysAndTime {
+                ckOperation = timeWork
+            }
+            return ckOperation
+        }
+    }
+    
+    var whatsapp: String? {
+        get {
+            var telephone: String?
+
+            if let contact = ckRestaurant.whatsapp {
+                telephone = contact
+            }
+            
+            return telephone
+        }
+    }
+    
+    var wifi: Bool { get { return ckRestaurant.airConditioned } }
+    
+    var airConditioned: Bool { get { ckRestaurant.airConditioned } }
+    
+    var petFrendly: Bool { get { ckRestaurant.petFriendly } }
+    
+    var kidsArea: Bool { get { ckRestaurant.kids } }
+    
+    var picture: CKAsset? { get { ckRestaurant.picture } }
+    
+    var latitude: String? { get { ckRestaurant.latitude } }
+    
+    var longitude: String? { get { ckRestaurant.longitude } }
+    
+    
+    var distance: Int?
+    var tags: [RestaurantTag]?
+    private var ckRestaurant: cloudkit
+    
+    func getCkRestaurant() -> cloudkit {
+        return ckRestaurant
+    }
+    
+    init(id: UUID = UUID(), image: String? = nil, distance: Int? = nil, tags: [RestaurantTag]? = nil, ckRestaurant: cloudkit = cloudkit(recordName: "")) {
+        self.id = id
+        self.image = image
+        self.distance = distance
+        self.tags = tags
+        self.ckRestaurant = ckRestaurant
+    }
 }
 
 extension RestaurantModel {

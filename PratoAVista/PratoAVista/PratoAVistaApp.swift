@@ -13,6 +13,7 @@ struct PratoAVistaApp: App {
         WindowGroup {
             TabView{
                 SearchView()
+                    .environmentObject(RestaurantsViewModel())
                     .tabItem {
                         Label("Pesquisar", systemImage: "magnifyingglass")
                     }
@@ -21,7 +22,7 @@ struct PratoAVistaApp: App {
                         Label("Salvos", systemImage: "bookmark")
                     }
                 LocationsView()
-                    .environmentObject(LocationsViewModel())
+                    .environmentObject(RestaurantsViewModel())
                     .tabItem {
                         Label("mapas", systemImage: "map")
                     }

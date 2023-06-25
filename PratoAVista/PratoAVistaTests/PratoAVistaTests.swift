@@ -10,21 +10,14 @@ import XCTest
 
 final class PratoAVistaTests: XCTestCase {
 
-    var application: LocationsViewModel!
+    var application: RestaurantsViewModel!
     
     override func setUpWithError() throws {
-        application = LocationsViewModel()
+        application = RestaurantsViewModel()
     }
 
     override func tearDownWithError() throws {
         application = nil
-    }
-    
-    func testToggleLocationsList() {
-        let initialBool = application.showLocationsList
-        application.toggleLocationsList()
-        let result = application.showLocationsList
-        XCTAssertNotEqual(initialBool, result)
     }
     
     func testShowSelectedImage() {
@@ -38,54 +31,61 @@ final class PratoAVistaTests: XCTestCase {
     }
 
     func testShowNextLocation() {
-        let nextLocation = Location(
-            name: "IFCE",
-            cityName: "Fortaleza",
-            coordinates: .init(
-                latitude: -3.744009076657496,
-                longitude: -38.5360111593857),
-            operation: "",
-            imageNames: [],
-            link: "https://ifce.edu.br",
-            address: "Av. Treze de Maio, 2081 - Benfica, Fortaleza - CE, 60040-531")
-        application.showNextLocation(location: nextLocation)
-        XCTAssertEqual(nextLocation, application.mapLocation)
+        let nextRestaurant = RestaurantModel()
+        application.showNextRestaurant(newRestaurant: nextRestaurant)
+        XCTAssertEqual(nextRestaurant, application.currentRestaurant)
     }
     
     func testNextButtonPressedWithNoError() {
-        let initialMapLocation = application.mapLocation
+        application.restaurants = [RestaurantModel(), RestaurantModel(), RestaurantModel()]
+        let initialRestaurant = application.currentRestaurant
         application.nextButtonPressed()
-        XCTAssertNotEqual(initialMapLocation, application.mapLocation)
+        XCTAssertNotEqual(initialRestaurant, application.currentRestaurant)
     }
     
     func testNextButtonPressedWithErrorIndexNotFound() {
-        let currentLocation = Location(
-            name: "IFCE",
-            cityName: "Fortaleza",
-            coordinates: .init(
-                latitude: -3.744009076657496,
-                longitude: -38.5360111593857),
-            operation: "",
-            imageNames: [],
-            link: "https://ifce.edu.br",
-            address: "Av. Treze de Maio, 2081 - Benfica, Fortaleza - CE, 60040-531")
-        application.mapLocation = currentLocation
+        application.restaurants = [RestaurantModel()]
+        let currentCKRestaurant = RestaurantModel.cloudkit(recordName: "1")
+        let restaurantModel = application.mapCKRestaurantsForRestaurantModel(ckRestaurants: [currentCKRestaurant])
+        let currentRestaurant = restaurantModel[0]
+        application.currentRestaurant = currentRestaurant
         application.nextButtonPressed()
-        XCTAssertEqual(currentLocation, application.mapLocation)
+        XCTAssertEqual(currentRestaurant, application.currentRestaurant)
     }
     
     func testNextButtonPressedReturnToFirstLocation() {
-        let firstLocationInList = application.locations.first!
-        application.mapLocation = application.locations.last!
+        application.restaurants = [RestaurantModel(), RestaurantModel(), RestaurantModel()]
+        let firstRestaurantList = application.restaurants.first!
+        application.currentRestaurant = application.restaurants.last!
         application.nextButtonPressed()
-        XCTAssertEqual(firstLocationInList, application.mapLocation)
+        XCTAssertEqual(firstRestaurantList, application.currentRestaurant)
     }
     
     func testNextButtonPressedWithEmptyLocationList() {
-        let lastLocation = application.mapLocation
-        application.locations = []
+        application.restaurants = []
+        let lastRestaurant = application.currentRestaurant
         application.nextButtonPressed()
-        XCTAssertEqual(lastLocation, application.mapLocation)
+        XCTAssertEqual(lastRestaurant, application.currentRestaurant)
+    }
+    
+    func testFinishError() {
+        application.localError = ErrorDescription(localizedDescription: "Test Error")
+        application.finishError()
+        XCTAssertNil(application.localError)
+    }
+    
+    func testMapCKRestaurantsForRestaurantModel() {
+        let initialCkRestaurants = [
+            RestaurantModel.cloudkit(recordName: "1"),
+            RestaurantModel.cloudkit(recordName: "2"),
+            RestaurantModel.cloudkit(recordName: "3"),
+            RestaurantModel.cloudkit(recordName: "4")
+        ]
+        let finalRestaurantsModel = application.mapCKRestaurantsForRestaurantModel(ckRestaurants: initialCkRestaurants)
+        
+        for (ckRestaurant, restaurantModel) in zip(initialCkRestaurants, finalRestaurantsModel) {
+            XCTAssertEqual(ckRestaurant.recordName, restaurantModel.getCkRestaurant().recordName)
+        }
     }
 
 }

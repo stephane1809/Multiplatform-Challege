@@ -10,8 +10,8 @@ import MapKit
 
 struct RestaurantView: View {
     
-    @EnvironmentObject private var viewModel: LocationsViewModel
-    let currentLocation: Location
+    @EnvironmentObject private var viewModel: RestaurantsViewModel
+    var currentRestaurant: RestaurantModel
     
     var body: some View {
         NavigationView {
@@ -23,7 +23,7 @@ struct RestaurantView: View {
             }
             .overlay {
                 if viewModel.selectedImage {
-                    ZoomImage(currentLocation: viewModel.mapLocation)
+                    ZoomImage(currentRestaurant: viewModel.currentRestaurant)
                 }
             }
             .ignoresSafeArea(.all, edges: .horizontal)
@@ -37,6 +37,9 @@ struct RestaurantView: View {
         .navigationBarBackButtonHidden(viewModel.hiddeBackButton)
         .navigationBarTitleDisplayMode(.inline)
         .navigationViewStyle(.stack)
+        .onAppear {
+            viewModel.showNextRestaurant(newRestaurant: currentRestaurant)
+        }
     }
 }
 
@@ -47,14 +50,14 @@ extension RestaurantView {
             Text("Cardápio")
                 .font(.title)
                 .fontWeight(.semibold)
-            // MARK: Add menu card here!
+            MenuCard(menu: MenuModel(name: "Pasto & Pizza", image: "pastoLogo"))
         }
         .padding()
     }
     
     private var restaurantDescriptionSection: some View {
         VStack {
-            HeaderRestaurantView(currentLocation: currentLocation)
+            HeaderRestaurantView(currentRestaurant: currentRestaurant)
             
             VStack(alignment: .leading, spacing: 9){
                 titleSection
@@ -73,49 +76,47 @@ extension RestaurantView {
     }
     
     private var titleSection: some View {
-        Text(currentLocation.name)
+        Text(currentRestaurant.name ?? "Restaurante")
             .font(.title)
             .fontWeight(.semibold)
     }
     
     private var descriptionSection: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(currentLocation.address)
-                .font(.subheadline)
-            Text("Horário de funcionamento: " + currentLocation.operation)
-                .font(.subheadline)
-            Text("Telefone: (85) 3257-1276")
-                .font(.subheadline)
+            if let location = currentRestaurant.location {
+                Text(location + ".")
+                    .font(.subheadline)
+            }
+            if let operation = currentRestaurant.operation {
+                Text(operation)
+                    .font(.subheadline)
+            }
+            if let telephone = currentRestaurant.whatsapp{
+                Text("Telefone: " +  telephone)
+                    .font(.subheadline)
+            }
             
         }
     }
     
     private var tagsSection: some View {
         HStack (alignment: .firstTextBaseline, spacing: 6) {
-            RestaurantTagView(tag: .freeWifi)
-            RestaurantTagView(tag: .petFrendly)
-            RestaurantTagView(tag: .withAirConditioning)
-        }
-    }
-    
-    private var mapLayer: some View {
-        Map(coordinateRegion: .constant(MKCoordinateRegion(
-            center: currentLocation.coordinates,
-            span: viewModel.mapSpan)),
-            annotationItems: [currentLocation]) { location in
-            MapAnnotation(coordinate: location.coordinates) {
-                LocationMapAnnotationView()
+            if currentRestaurant.airConditioned {
+                RestaurantTagView(tag: .withAirConditioning)
+            }
+            if currentRestaurant.petFrendly {
+                RestaurantTagView(tag: .petFrendly)
+            }
+            if currentRestaurant.wifi {
+                RestaurantTagView(tag: .freeWifi)
             }
         }
-            .aspectRatio(2, contentMode: .fit)
-            .cornerRadius(20)
-            .allowsHitTesting(false)
     }
 }
 
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantView(currentLocation: LocationsDataService.locations.first!)
-            .environmentObject(LocationsViewModel())
+        RestaurantView(currentRestaurant: RestaurantModel())
+            .environmentObject(RestaurantsViewModel())
     }
 }
