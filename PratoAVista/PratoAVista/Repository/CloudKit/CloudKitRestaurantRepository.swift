@@ -11,7 +11,7 @@ import CloudKit
 class CloudKitRestaurantRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
-    func getRestaurants() async -> [Restaurant.cloudkit]{
+    func getRestaurants() async -> [CKRestaurant]{
         let predicate = NSPredicate(value: true)
 
         do {
@@ -22,23 +22,29 @@ class CloudKitRestaurantRepository {
         }
     }
 
-    func getRestaurantBy(recordName: String) async -> [Restaurant.cloudkit]{
+    func getRestaurantBy(recordName: String) async -> CKRestaurant {
         let recordID = CKRecord.ID(recordName: recordName)
         let predicate = NSPredicate(format: "recordID == %@", recordID)
 
         do {
             let restaurants = try await getMatchingRecords(predicate: predicate)
-            return restaurants
+
+            if restaurants.count > 0 {
+                return restaurants[0]
+            } else {
+                //TODO: tratar erro
+                fatalError("No restaurant with the given record name found")
+            }
         } catch {
             fatalError()
         }
     }
     
-    private func getMatchingRecords(predicate: NSPredicate) async throws -> [Restaurant.cloudkit] {
+    private func getMatchingRecords(predicate: NSPredicate) async throws -> [CKRestaurant] {
 
-        let query = CKQuery(recordType: Restaurant.cloudkit.identifier, predicate: predicate)
+        let query = CKQuery(recordType: CKRestaurant.identifier, predicate: predicate)
 
-        var restaurants: [Restaurant.cloudkit] = []
+        var restaurants: [CKRestaurant] = []
         let records = try await publicDatabase.records(matching: query)
 
         for item in records.matchResults {
@@ -53,8 +59,8 @@ class CloudKitRestaurantRepository {
         return restaurants
     }
 
-    private func parseRecordToRestaurant(record: CKRecord) -> Restaurant.cloudkit {
-        let restaurant = Restaurant.cloudkit(
+    private func parseRecordToRestaurant(record: CKRecord) -> CKRestaurant {
+        let restaurant = CKRestaurant(
             recordName: record.recordID.recordName,
             fantasyName: record["fantasyName"],
             city: record["city"],

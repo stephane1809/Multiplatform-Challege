@@ -1,26 +1,27 @@
 //
-//  JSONRestaurantRepository.swift
+//  JSONManager.swift
 //  PratoAVista
 //
 //  Created by Lais Godinho on 22/06/23.
 //
 
 import Foundation
+import UIKit
 
-class JSONRestaurantRepository {
-    static let shared = JSONRestaurantRepository()
+class JSONManager {
+    static let shared = JSONManager()
 
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
-    private let folderURL: URL
-    private let fileURL: URL
-    private let picturesURL: URL
+    let folderURL: URL
+    let fileURL: URL
+//    let picturesURL: URL
 
     private init() {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         self.folderURL = documentsDirectory.appendingPathComponent(".pratoavista")
         self.fileURL = self.folderURL.appendingPathComponent("restaurants.json")
-        self.picturesURL = self.folderURL.appendingPathComponent("pictures")
+//        self.picturesURL = self.folderURL.appendingPathComponent("pictures")
 
         createFoldersIfNeeded()
     }
@@ -36,21 +37,29 @@ class JSONRestaurantRepository {
                 print("Error creating '.pratoavista' folder: \(error.localizedDescription)")
             }
         }
+
+//        if !fileManager.fileExists(atPath: picturesURL.path) {
+//            do {
+//                try fileManager.createDirectory(at: picturesURL, withIntermediateDirectories: true, attributes: nil)
+//                print("Folder 'pictures' created successfully.")
+//            } catch {
+//                print("Error creating 'pictures' folder: \(error.localizedDescription)")
+//            }
+//        }
     }
 
-    func saveRestaurants(_ restaurants: [Restaurant.JSON]) {
-            var modifiedRestaurants = restaurants
+    func saveRestaurants(_ restaurants: [JSONRestaurant]) {
 
-            do {
-                let data = try encoder.encode(modifiedRestaurants)
-                try data.write(to: fileURL)
-                print("Restaurants saved successfully.")
-            } catch {
-                print("Error saving restaurants: \(error.localizedDescription)")
-            }
+        do {
+            let data = try encoder.encode(restaurants)
+            try data.write(to: fileURL)
+            print("Restaurants saved successfully.")
+        } catch {
+            print("Error saving restaurants: \(error.localizedDescription)")
         }
+    }
 
-    func saveRestaurant(_ restaurant: Restaurant.JSON) {
+    func saveRestaurant(_ restaurant: JSONRestaurant) {
         var existingRestaurants = loadRestaurants()
         existingRestaurants.append(restaurant)
 
@@ -63,10 +72,20 @@ class JSONRestaurantRepository {
         }
     }
 
-    func loadRestaurants() -> [Restaurant.JSON] {
+    func fetchBy(recordName: String) -> JSONRestaurant? {
+        let savedRestaurantrs = loadRestaurants()
+
+        let restaurant = savedRestaurantrs.first { restaurant in
+            restaurant.recordName == recordName
+        }
+
+        return restaurant
+    }
+
+    func loadRestaurants() -> [JSONRestaurant] {
         do {
             let data = try Data(contentsOf: fileURL)
-            let restaurants = try decoder.decode([Restaurant.JSON].self, from: data)
+            let restaurants = try decoder.decode([JSONRestaurant].self, from: data)
             print("Restaurants loaded successfully.")
             return restaurants
         } catch {
@@ -82,6 +101,10 @@ class JSONRestaurantRepository {
             print("Restaurant with recordName '\(recordName)' not found.")
             return
         }
+
+//        if let picturePath = restaurants[index].picturePath {
+//            ImageManager.deleteImageFile(at: picturePath)
+//        }
 
         restaurants.remove(at: index)
         saveRestaurants(restaurants)

@@ -46,18 +46,18 @@ struct LocationsView: View {
 //                        print("\(dish.dishName)")
 //                    }
 
-//                    let restaurants = await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
+//                    let restaurant = await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
 //
-//                    for restaurant in restaurants {
-//                        let jsonRestaurant = Restaurant.JSON(recordName: restaurant.recordName, fantasyName: restaurant.fantasyName!)
-//                        JSONRestaurantRepository.shared.saveRestaurant(jsonRestaurant)
-////                        if restaurant.kids {
-//                            print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
-////                        }
-//                    }
+//                    let jsonRestaurant = JSONRestaurant(recordName: restaurant.recordName, fantasyName: restaurant.fantasyName!)
+//                    JSONManager.shared.saveRestaurant(jsonRestaurant)
+//                        if restaurant.kids {
+//                        print("\(restaurant.fantasyName!) \(restaurant.neighborhood!)")
+//                        }
 
-                let savedRestaurants = JSONRestaurantRepository.shared.loadRestaurants()
-
+//                JSONRestaurantRepository.shared.removeRestaurant(with: "7603F070-33F1-81AB-7462-E242F1B20A93")
+                let savedRestaurants = JSONManager.shared.loadRestaurants()
+//
+//
                 for restaurant in savedRestaurants {
                     print(restaurant.fantasyName)
                 }
