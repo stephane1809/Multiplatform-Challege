@@ -11,14 +11,22 @@ import SwiftUI
 struct PratoAVistaApp: App {
     var body: some Scene {
         WindowGroup {
-//            LocationsView()
-//                .environmentObject(RestaurantsViewModel())
-            
-            AllRestaurantsView()
-                .environmentObject(RestaurantsViewModel())
-            
-//            CardsFoodView()
-//            CardsMenuView()
+            TabView{
+                SearchView()
+                    .environmentObject(RestaurantsViewModel())
+                    .tabItem {
+                        Label("Pesquisar", systemImage: "magnifyingglass")
+                    }
+                SavedView()
+                    .tabItem {
+                        Label("Salvos", systemImage: "bookmark")
+                    }
+                LocationsView()
+                    .environmentObject(RestaurantsViewModel())
+                    .tabItem {
+                        Label("mapas", systemImage: "map")
+                    }
+            }
         }
     }
 }

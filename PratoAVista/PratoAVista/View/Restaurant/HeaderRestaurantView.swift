@@ -15,7 +15,7 @@ struct HeaderRestaurantView: View {
     
     @State var profileRatio: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 160 : 125
     @State var mapHeight: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 325 : 260
-    @State var orientation = UIDevice.current.orientation
+    @State private var orientation = UIDeviceOrientation.unknown
     
     var body: some View {
         VStack(spacing: 0) {
@@ -32,7 +32,9 @@ struct HeaderRestaurantView: View {
             Spacer()
             
         }
-        .detectOrientation($orientation)
+        .onRotate { newOrientation in
+            orientation = newOrientation
+        }
         .onAppear {
             if UIDevice.current.userInterfaceIdiom == .pad {
                 mapHeight = 300
