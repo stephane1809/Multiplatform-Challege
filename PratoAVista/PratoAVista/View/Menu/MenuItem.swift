@@ -67,13 +67,14 @@ extension MenuItem {
                     .padding(.bottom, 5)
 
                 Text(viewModel.selectedDish?.portion ?? "")
-                    .font(Font.custom("SF Pro", size: 12))
-                    .foregroundColor(.black)
+                    .font(.callout)
+                    .foregroundColor(.black.opacity(0.8))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 13)
+                    .padding(.bottom, 5)
 
                 Text(viewModel.selectedDish?.ingredients ?? "")
-                    .font(Font.custom("SF Pro", size: 12))
+                    .font(.caption)
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 13)

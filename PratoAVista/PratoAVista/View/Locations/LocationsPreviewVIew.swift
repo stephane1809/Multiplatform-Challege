@@ -9,15 +9,15 @@ import SwiftUI
 import CloudKit
 
 struct LocationPreviewView: View {
-    
+
     @EnvironmentObject private var viewModel: RestaurantsViewModel
     let currentRestaurant: RestaurantModel
-    
+
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 16) {
                 if let ckAsset =  currentRestaurant.picture {
-                    if let uiImage = convertToUIImage(ckAsset: ckAsset){
+                    if let uiImage = convertToUIImage(ckAsset: ckAsset) {
                         imageSection(uiImage: uiImage)
                     }
                 } else {
@@ -43,7 +43,7 @@ struct LocationPreviewView: View {
 }
 
 extension LocationPreviewView {
-    
+
     private func imageSection(uiImage: UIImage) -> some View {
         return (
             ZStack {
@@ -62,7 +62,7 @@ extension LocationPreviewView {
             .cornerRadius(10)
         )
     }
-    
+
     private var emptyImageSection: some View {
         ZStack {
             Image(systemName: "fork.knife.circle.fill")
@@ -79,7 +79,7 @@ extension LocationPreviewView {
         .background(Color.white)
         .cornerRadius(10)
     }
-    
+
     private var tittleSection: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(currentRestaurant.name ?? "")
@@ -90,7 +90,7 @@ extension LocationPreviewView {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
-    
+
     private var learnMoreButton: some View {
         NavigationLink {
             RestaurantView(currentRestaurant: viewModel.currentRestaurant)
@@ -99,11 +99,11 @@ extension LocationPreviewView {
                 .foregroundColor(.white)
                 .font(.headline)
                 .frame(width: 150, height: 50)
-                .background(Color.blue)
+                .background(Color.restaurantTagBG)
                 .cornerRadius(8)
         }
     }
-    
+
     private var nextButton: some View {
         Button {
             viewModel.nextButtonPressed()
@@ -111,6 +111,7 @@ extension LocationPreviewView {
             Text("Próximo")
                 .font(.headline)
                 .frame(width: 125, height: 35)
+                .foregroundColor(.restaurantTagBG)
         }
         .buttonStyle(.bordered)
     }
@@ -127,4 +128,3 @@ struct LocationPreviewView_Previews: PreviewProvider {
         .ignoresSafeArea()
     }
 }
-
