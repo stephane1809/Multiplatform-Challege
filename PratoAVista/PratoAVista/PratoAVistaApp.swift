@@ -11,7 +11,7 @@ import SwiftUI
 struct PratoAVistaApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView{
+            TabView {
                 SearchView()
                     .environmentObject(RestaurantsViewModel())
                     .tabItem {
@@ -27,6 +27,7 @@ struct PratoAVistaApp: App {
                         Label("mapas", systemImage: "map")
                     }
             }
+            .accentColor(.restaurantTagBG)
         }
     }
 }
