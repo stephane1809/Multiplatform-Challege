@@ -117,7 +117,8 @@ class CKRestaurant: BaseRestaurant {
     }
 }
 
-class JSONRestaurant: Codable {
+class JSONRestaurant: Codable, Identifiable {
+    var id = UUID()
     var recordName: String
     var fantasyName: String?
     var picturePath: String?

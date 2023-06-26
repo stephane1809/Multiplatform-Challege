@@ -11,37 +11,55 @@ import UIKit
 
 class RestaurantManager {
     private var cloudKitRestaurantRepository = CloudKitRestaurantRepository()
+    private var dishManager = DishManager()
     private var jsonManager = JSONManager.shared
 
 //    func getRestaurants() {
 //
 //    }
 
-    func getRestaurant(recordName: String) -> Restaurant {
-        guard let restaurant = getRestaurantFromDevice(recordName: recordName) else {
-            //TODO: pegar do cloudkit caso n esteja salvo no aparelho
-            fatalError()
-        }
+//    func getRestaurant(recordName: String) -> Restaurant {
+//        guard let restaurant = getRestaurantFromDevice(recordName: recordName) else {
+//            //TODO: pegar do cloudkit caso n esteja salvo no aparelho
+//            fatalError()
+//        }
+//
+//        return restaurant
+//    }
+
+    func getRestaurantFromCloudKit(recordName: String) async -> CKRestaurant {
+        let restaurant = await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
 
         return restaurant
     }
 
-    func getRestaurantFromCloudKit(recordName: String) {
-
-    }
-
-    func getRestaurantFromDevice(recordName: String) -> Restaurant? {
+    func getRestaurantFromDevice(recordName: String) -> JSONRestaurant {
         guard let jsonRestaurant = jsonManager.fetchBy(recordName: recordName) else {
             print("There are no restaurants with the provided record name saved on device")
-            return nil
+            fatalError()
         }
 
-        return parseToRestaurant(jsonRestaurant: jsonRestaurant)
+        return jsonRestaurant
+    }
+
+    func getRestaurantsFromDevice() -> [JSONRestaurant] {
+        let jsonRestaurants = jsonManager.loadRestaurants()
+
+        return jsonRestaurants
     }
 
     func saveRestaurant(recordName: String) async {
         let cloudKitRestaurant = await cloudKitRestaurantRepository.getRestaurantBy(recordName: recordName)
-        let jsonRestaurant = parseToJSONRestaurant(cloudKitRestaurant: cloudKitRestaurant)
+        let dishes = await dishManager.getDishesBy(restaurantRecordName: recordName)
+        print(dishes.count)
+
+        var jsonDishes: [JSONDish] = []
+
+        for dish in dishes {
+            jsonDishes.append(JSONDish(dish: dish))
+        }
+
+        let jsonRestaurant = parseToJSONRestaurant(cloudKitRestaurant: cloudKitRestaurant, dishes: jsonDishes)
 
         jsonManager.saveRestaurant(jsonRestaurant)
     }
@@ -64,12 +82,16 @@ class RestaurantManager {
 //
 //    }
 
-    func parseToJSONRestaurant(cloudKitRestaurant cloudKitObject: CKRestaurant) -> JSONRestaurant {
+    func parseToJSONRestaurant(cloudKitRestaurant cloudKitObject: CKRestaurant, dishes: [JSONDish]) -> JSONRestaurant {
 //        let picturePath = saveRestaurantPicture(restaurant: cloudKitObject)
-        let jsonRestaurant = JSONRestaurant(recordName: cloudKitObject.recordName, fantasyName: cloudKitObject.fantasyName, city: cloudKitObject.city, latitude: cloudKitObject.latitude, longitude: cloudKitObject.longitude, neighborhood: cloudKitObject.neighborhood, number: cloudKitObject.number, state: cloudKitObject.state, streetName: cloudKitObject.streetName, operationDaysAndTime: cloudKitObject.operationDaysAndTime, instagram: cloudKitObject.instagram, whatsapp: cloudKitObject.whatsapp, website: cloudKitObject.website, kids: cloudKitObject.kids, petFriendly: cloudKitObject.petFriendly, airConditioned: cloudKitObject.airConditioned)
+        let jsonRestaurant = JSONRestaurant(recordName: cloudKitObject.recordName, fantasyName: cloudKitObject.fantasyName, city: cloudKitObject.city, latitude: cloudKitObject.latitude, longitude: cloudKitObject.longitude, neighborhood: cloudKitObject.neighborhood, number: cloudKitObject.number, state: cloudKitObject.state, streetName: cloudKitObject.streetName, operationDaysAndTime: cloudKitObject.operationDaysAndTime, instagram: cloudKitObject.instagram, whatsapp: cloudKitObject.whatsapp, website: cloudKitObject.website, kids: cloudKitObject.kids, petFriendly: cloudKitObject.petFriendly, airConditioned: cloudKitObject.airConditioned, dishes: dishes)
 
         return jsonRestaurant
     }
+
+//    func parseToRestaurant(ckRestaurant: CKRestaurant) -> Restaurant {
+//        let restaurant = Restaurant(recordName: <#T##String#>, fantasyName: <#T##String?#>, city: <#T##String?#>, latitude: <#T##String?#>, longitude: <#T##String?#>, neighborhood: <#T##String?#>, number: <#T##String?#>, state: <#T##String?#>, streetName: <#T##String?#>, operationDaysAndTime: <#T##String?#>, instagram: <#T##String?#>, whatsapp: <#T##String?#>, website: <#T##String?#>, kids: <#T##Bool#>, petFriendly: <#T##Bool#>, airConditioned: <#T##Bool#>, picture: <#T##UIImage?#>)
+//    }
 
     func parseToRestaurant(jsonRestaurant: JSONRestaurant) -> Restaurant {
 //        guard let picturePath = jsonRestaurant.picturePath else {
@@ -107,9 +129,6 @@ class ImageManager {
     }
 
     static func getImageData(fileURL: URL) -> Data {
-        print("-------------")
-        print(fileURL.path)
-        print("-------------")
         guard let imageData = try? Data(contentsOf: fileURL) else {
             // Handle error if the image data cannot be loaded
             fatalError("Error loading contents from fileURL to data")
