@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import Combine
 import SwiftUI
+import CoreLocation
 import MapKit
 
 struct SearchView: View {
 
+    @State var address: String = ""
+    @State var tokens: Set<AnyCancellable> = []
+    @State var coordinates: (lat: Double, lon: Double) = (0, 0)
+    @StateObject var deviceLocationService = DeviceLocationService.shared
     @State var searchText = ""
     @State private var restaurants = RestaurantMockup.getRestaurants()
 
@@ -19,7 +25,7 @@ struct SearchView: View {
                 NavigationView {
                     VStack {
                         HStack {
-                            Label("rua bonita - passare CE".capitalized, systemImage: "location")
+                            Label(address.capitalized, systemImage: "location")
                                 .font(.system(size: 19))
                             Spacer()
                         }
@@ -37,6 +43,20 @@ struct SearchView: View {
                         }
                     }
                     .searchable(text: $searchText)
+                    .onAppear {
+                        observeCoordinateUpdates()
+                        observeDeniedLocationAccess()
+                        deviceLocationService.requestLocationUpdates()
+
+                    }
+                    .onChange(of: CLLocation(latitude: coordinates.lat, longitude: coordinates.lon)) { location in
+                        Task {
+                            let geocoder = CLGeocoder()
+                            let placemarks = try await geocoder.reverseGeocodeLocation(location)
+                            self.address = placemarks.first?.thoroughfare ?? ""
+                        }
+
+                    }
 
                 }
 
@@ -54,6 +74,27 @@ struct SearchView: View {
         } else {
             restaurants = RestaurantMockup.getRestaurants().filter({$0.name.localizedCaseInsensitiveContains(searchText)})
         }
+    }
+
+    func observeCoordinateUpdates() {
+        deviceLocationService.coordinatesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("Handle \(completion) for error and finished subscription.")
+            } receiveValue: { coordinates in
+                self.coordinates = (coordinates.latitude, coordinates.longitude)
+
+            }
+            .store(in: &tokens)
+    }
+
+    func observeDeniedLocationAccess() {
+        deviceLocationService.deniedLocationAccessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {
+                print("Handle access denied event, possibly with an alert.")
+            }
+            .store(in: &tokens)
     }
 }
 

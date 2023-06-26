@@ -13,7 +13,6 @@ import CoreLocation
 struct UserLocationView: View {
 
     @StateObject var deviceLocationService = DeviceLocationService.shared
-    @State private var output = "Our location is:"
 
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
