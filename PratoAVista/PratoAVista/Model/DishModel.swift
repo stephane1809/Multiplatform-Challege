@@ -24,7 +24,7 @@ struct DishModel: Hashable, Identifiable, Equatable {
 
     var name: String? { get { return  ckDish.dishName } }
     var category: String? { get { return ckDish.category } }
-    var ingredients: String? { get { return ckDish.ingredients } }
+    var ingredients: String? { get { return ckDish.ingredients?.joined(separator: "\n") } }
     var portion: String? { get { return ckDish.portion } }
     var price: Double? { get { return ckDish.price } }
     var restaurants: [CKRecord.Reference]? { get { return ckDish.restaurants } }
@@ -44,7 +44,7 @@ extension DishModel {
         var recordName: String
         var category: String?
         var dishName: String?
-        var ingredients: String?
+        var ingredients: [String]?
         var portion: String?
         var price: Double?
         var restaurants: [CKRecord.Reference]
@@ -53,7 +53,7 @@ extension DishModel {
             recordName: String,
             category: String? = nil,
             dishName: String? = nil,
-            ingredients: String? = nil,
+            ingredients: [String]? = nil,
             portion: String? = nil,
             price: Double? = nil,
             restaurants: [CKRecord.Reference] = []) {
