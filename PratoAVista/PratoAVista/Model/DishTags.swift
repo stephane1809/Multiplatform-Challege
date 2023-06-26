@@ -18,7 +18,7 @@ enum DishTag {
     case celery
     case soya
     case castanha
-    
+
     var label: String {
         switch self {
         case .wheat:

@@ -36,7 +36,7 @@ struct ZoomImage: View {
 }
 
 extension ZoomImage {
-    
+
     private var closeButton: some View {
         Button {
             withAnimation(.easeInOut(duration: 0.15)) {

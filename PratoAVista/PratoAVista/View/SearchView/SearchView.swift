@@ -10,10 +10,11 @@ import SwiftUI
 import MapKit
 
 struct SearchView: View {
-    
+
     @EnvironmentObject private var viewModel: RestaurantsViewModel
     @State var searchText = ""
     @State private var restaurants: [RestaurantModel] = []
+    @State var title: String = "Restaurantes"
 
         var body: some View {
             VStack {
@@ -29,11 +30,10 @@ struct SearchView: View {
                                     } label: {
                                         RestaurantCard(restaurant: restaurant)
                                     }
-                                    
                                 }
                             }
                             .padding(.horizontal)
-                            .navigationTitle("Restaurantes")
+                            .navigationTitle(title)
                         }
                     }
                     .refreshable {
@@ -69,7 +69,7 @@ struct SearchView: View {
     func filterRecipes() {
         if searchText.isEmpty {
             restaurants = viewModel.restaurants
-        }else {
+        } else {
             if viewModel.restaurants.filter({$0.name!.localizedCaseInsensitiveContains(searchText)}).isEmpty {
                 restaurants = viewModel.restaurants.filter({$0.location!.localizedCaseInsensitiveContains(searchText)})
             } else {

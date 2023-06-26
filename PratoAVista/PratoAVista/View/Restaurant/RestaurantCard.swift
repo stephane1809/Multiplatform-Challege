@@ -45,7 +45,7 @@ struct RestaurantCard: View {
             }
             .foregroundColor(.black)
             Spacer()
-            
+
             if let ckAsset = restaurant.picture {
                 if let uiImage = convertToUIImage(ckAsset: ckAsset) {
                     Image(uiImage: uiImage)
