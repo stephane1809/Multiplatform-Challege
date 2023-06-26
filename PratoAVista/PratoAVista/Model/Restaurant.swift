@@ -135,9 +135,9 @@ class JSONRestaurant: Codable {
     var kids: Bool
     var petFriendly: Bool
     var airConditioned: Bool
+    var dishes: [JSONDish]
 
-
-    init(recordName: String, fantasyName: String? = nil, picturePath: String? = nil, city: String? = nil, latitude: String? = nil, longitude: String? = nil, neighborhood: String? = nil, number: String? = nil, state: String? = nil, streetName: String? = nil, operationDaysAndTime: String? = nil, instagram: String? = nil, whatsapp: String? = nil, website: String? = nil, kids: Bool = false, petFriendly: Bool = false, airConditioned: Bool = false) {
+    init(recordName: String, fantasyName: String? = nil, picturePath: String? = nil, city: String? = nil, latitude: String? = nil, longitude: String? = nil, neighborhood: String? = nil, number: String? = nil, state: String? = nil, streetName: String? = nil, operationDaysAndTime: String? = nil, instagram: String? = nil, whatsapp: String? = nil, website: String? = nil, kids: Bool = false, petFriendly: Bool = false, airConditioned: Bool = false, dishes: [JSONDish] = []) {
         self.recordName = recordName
         self.fantasyName = fantasyName
         self.picturePath = picturePath
@@ -155,6 +155,7 @@ class JSONRestaurant: Codable {
         self.kids = kids
         self.petFriendly = petFriendly
         self.airConditioned = airConditioned
+        self.dishes = dishes
     }
     
 }
