@@ -16,7 +16,7 @@ struct PratoAVistaApp: App {
                     .tabItem {
                         Label("Pesquisar", systemImage: "magnifyingglass")
                     }
-                UserLocationView()
+                SavedView()
                     .tabItem {
                         Label("Salvos", systemImage: "bookmark")
                     }
