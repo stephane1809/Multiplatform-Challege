@@ -123,9 +123,7 @@ extension MenuView {
                         removal: .move(edge: removeAnimation)
                     ))
             }
-        }
-        .gesture(
-            DragGesture(minimumDistance: -3, coordinateSpace: .local)
+            .simultaneousGesture(DragGesture(minimumDistance: -3, coordinateSpace: .local)
                 .onEnded { drag in
                     if drag.startLocation.x > drag.location.x {
                         let nextCategory = viewModel.returnNextCategory()
@@ -142,6 +140,7 @@ extension MenuView {
                         }
                     }
                 })
+        }
     }
 }
 
