@@ -19,10 +19,12 @@ struct SearchView: View {
         var body: some View {
             VStack {
                 NavigationView {
-                    ScrollView {
-                        if restaurants.isEmpty {
-                            emptyState
-                        } else {
+                    if restaurants.isEmpty {
+                        emptyState
+                            .navigationTitle(title)
+
+                    } else {
+                        ScrollView {
                             LazyVStack(spacing: 16) {
                                 ForEach(restaurants) { restaurant in
                                     NavigationLink {
@@ -32,14 +34,15 @@ struct SearchView: View {
                                     }
                                 }
                             }
-                            .padding(.horizontal)
                             .navigationTitle(title)
+
+                            .padding(.horizontal)
                         }
-                    }
-                    .refreshable {
-                        Task {
-                            await viewModel.fetch()
-                            restaurants = viewModel.restaurants
+                        .refreshable {
+                            Task {
+                                await viewModel.fetch()
+                                restaurants = viewModel.restaurants
+                            }
                         }
                     }
                 }
@@ -81,18 +84,16 @@ struct SearchView: View {
 
 extension SearchView {
     private var emptyState: some View {
-        VStack {
-            RoundedRectangle(cornerRadius: 5)
-                .fill(.gray.opacity(0.2))
-                .frame(width: .none, height: 130)
-                .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                .animation(.easeInOut(duration: 1).repeatForever(), value: restaurants.isEmpty)
-            
-            RoundedRectangle(cornerRadius: 5)
-                .fill(.gray.opacity(0.2))
-                .frame(width: .none, height: 130)
-                .shadow(color: .gray, radius: 3, x: 4, y: 4)
-                .animation(.easeInOut(duration: 1).repeatForever(), value: restaurants.isEmpty)
+        VStack(alignment: .center, spacing: 15) {
+            Image(systemName: "x.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+                .foregroundColor(.gray)
+            Text("Nenhum restaurante encontrado")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
         }
         .padding(.horizontal, 20)
     }
