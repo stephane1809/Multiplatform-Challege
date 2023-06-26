@@ -20,13 +20,11 @@ struct RestaurantCard: View {
                     .font(.system(size: 17))
                     .bold()
 
-
                 Text(restaurant.location)
                     .font(.system(size: 13))
 
                 Label("\(restaurant.distance.formatted()) km de distância", systemImage: "location.north.fill")
                     .font(.system(size: 13))
-
 
                 ScrollView(.horizontal) {
                     HStack {

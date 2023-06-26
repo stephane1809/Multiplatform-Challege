@@ -8,26 +8,39 @@
 import Foundation
 import Combine
 import SwiftUI
+import CoreLocation
 
 struct UserLocationView: View {
 
     @StateObject var deviceLocationService = DeviceLocationService.shared
+    @State private var output = "Our location is:"
 
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
 
+    @State var address: String = ""
+
     var body: some View {
         VStack {
-        
-            Text("Latitude: \(coordinates.lat)")
-                .font(.largeTitle)
-            Text("Longitude: \(coordinates.lon)")
-                .font(.largeTitle)
+            Text(address)
+//            Text("Latitude: \(coordinates.lat)")
+//                .font(.largeTitle)
+//            Text("Longitude: \(coordinates.lon)")
+//                .font(.largeTitle)
         }
         .onAppear {
             observeCoordinateUpdates()
             observeDeniedLocationAccess()
             deviceLocationService.requestLocationUpdates()
+
+        }
+        .onChange(of: CLLocation(latitude: coordinates.lat, longitude: coordinates.lon)) { location in
+            Task {
+                let geocoder = CLGeocoder()
+                let placemarks = try await geocoder.reverseGeocodeLocation(location)
+                self.address = placemarks.first?.thoroughfare ?? ""
+            }
+
         }
     }
 
@@ -38,6 +51,7 @@ struct UserLocationView: View {
                 print("Handle \(completion) for error and finished subscription.")
             } receiveValue: { coordinates in
                 self.coordinates = (coordinates.latitude, coordinates.longitude)
+
             }
             .store(in: &tokens)
     }
@@ -51,7 +65,6 @@ struct UserLocationView: View {
             .store(in: &tokens)
     }
 
-    
 }
 
 struct UserLocationView_Previews: PreviewProvider {

@@ -34,7 +34,6 @@
 		4BBE410D2A47649600C555F3 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE410C2A47649600C555F3 /* SavedView.swift */; };
 		4BBE41492A47B85100C555F3 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE41482A47B85100C555F3 /* DeviceLocationService.swift */; };
 		4BBE414B2A47B87100C555F3 /* UserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE414A2A47B87100C555F3 /* UserLocationView.swift */; };
-		4BBE414D2A47BFF800C555F3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE414C2A47BFF800C555F3 /* UserViewController.swift */; };
 		B2F97C172A448EE3000756BE /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F97C152A448526000756BE /* MenuItem.swift */; };
 		FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A002A431B91004AA343 /* RestaurantTagView.swift */; };
 		FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF216A022A431C9C004AA343 /* RestaurantTags.swift */; };
@@ -107,7 +106,6 @@
 		4BBE410C2A47649600C555F3 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		4BBE41482A47B85100C555F3 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
 		4BBE414A2A47B87100C555F3 /* UserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationView.swift; sourceTree = "<group>"; };
-		4BBE414C2A47BFF800C555F3 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B2F97C152A448526000756BE /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		FF216A002A431B91004AA343 /* RestaurantTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTagView.swift; sourceTree = "<group>"; };
 		FF216A022A431C9C004AA343 /* RestaurantTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTags.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 			children = (
 				4BBE41482A47B85100C555F3 /* DeviceLocationService.swift */,
 				4BBE414A2A47B87100C555F3 /* UserLocationView.swift */,
-				4BBE414C2A47BFF800C555F3 /* UserViewController.swift */,
 			);
 			path = UserLocation;
 			sourceTree = "<group>";
@@ -584,7 +581,6 @@
 				4BBE414B2A47B87100C555F3 /* UserLocationView.swift in Sources */,
 				FF216A082A432803004AA343 /* DishTagView.swift in Sources */,
 				FF9D593B2A46178E001F6864 /* ErrorDescription.swift in Sources */,
-				4BBE414D2A47BFF800C555F3 /* UserViewController.swift in Sources */,
 				FF8EBC622A40A633002825C6 /* LocationsPreviewVIew.swift in Sources */,
 				FF216A142A44E160004AA343 /* CKErrorHandler.swift in Sources */,
 				FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */,

@@ -15,26 +15,36 @@ struct SearchView: View {
     @State private var restaurants = RestaurantMockup.getRestaurants()
 
         var body: some View {
-            VStack {
-                NavigationView {
-                    ScrollView {
-                        LazyVStack(spacing: 16) {
-                            ForEach(restaurants) { restaurant in
-                                RestaurantCard(restaurant: restaurant)
-                            }
-                        }
 
-                        .padding(.horizontal)
-                        .navigationTitle("Restaurantes")
+                NavigationView {
+                    VStack {
+                        HStack {
+                            Label("rua bonita - passare CE".capitalized, systemImage: "location")
+                                .font(.system(size: 19))
+                            Spacer()
+                        }
+                        .padding([.leading], 20)
+
+                        ScrollView {
+                            LazyVStack(spacing: 16) {
+                                ForEach(restaurants) { restaurant in
+                                    RestaurantCard(restaurant: restaurant)
+                                }
+                            }
+
+                            .padding(.horizontal)
+                            .navigationTitle("Restaurantes")
+                        }
                     }
+                    .searchable(text: $searchText)
+
                 }
-                .searchable(text: $searchText)
+
                 .navigationViewStyle(.stack)
                 .navigationBarBackButtonHidden()
                 .onChange(of: searchText, perform: { _ in
                     filterRecipes()
                 })
-            }
         }
 
     func filterRecipes() {

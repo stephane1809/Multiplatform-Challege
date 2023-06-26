@@ -11,7 +11,7 @@ import SwiftUI
 struct PratoAVistaApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView{
+            TabView {
                 SearchView()
                     .tabItem {
                         Label("Pesquisar", systemImage: "magnifyingglass")
