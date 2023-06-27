@@ -8,37 +8,43 @@
 import Foundation
 import CloudKit
 
-class CloudKitRestaurantRepository {
+class CKRestaurantRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
-    func getRestaurants() async throws -> [RestaurantModel.cloudkit] {
+    func getRestaurants() async -> [CKRestaurant]{
         let predicate = NSPredicate(value: true)
 
         do {
             let restaurants = try await getMatchingRecords(predicate: predicate)
             return restaurants
         } catch {
-            throw error
+            fatalError()
         }
     }
 
-    func getRestaurantBy(recordName: String) async throws -> [RestaurantModel.cloudkit]{
+    func getRestaurantBy(recordName: String) async -> CKRestaurant {
         let recordID = CKRecord.ID(recordName: recordName)
         let predicate = NSPredicate(format: "recordID == %@", recordID)
 
         do {
             let restaurants = try await getMatchingRecords(predicate: predicate)
-            return restaurants
+
+            if restaurants.count > 0 {
+                return restaurants[0]
+            } else {
+                //TODO: tratar erro
+                fatalError("No restaurant with the given record name found")
+            }
         } catch {
-            throw error
+            fatalError()
         }
     }
 
-    private func getMatchingRecords(predicate: NSPredicate) async throws -> [RestaurantModel.cloudkit] {
+    private func getMatchingRecords(predicate: NSPredicate) async throws -> [CKRestaurant] {
 
-        let query = CKQuery(recordType: RestaurantModel.cloudkit.identifier, predicate: predicate)
+        let query = CKQuery(recordType: CKRestaurant.identifier, predicate: predicate)
 
-        var restaurants: [RestaurantModel.cloudkit] = []
+        var restaurants: [CKRestaurant] = []
         let records = try await publicDatabase.records(matching: query)
 
         for item in records.matchResults {
@@ -47,14 +53,14 @@ class CloudKitRestaurantRepository {
                 let restaurant = parseRecordToRestaurant(record: value)
                 restaurants.append(restaurant)
             case .failure(let error):
-                throw error
+                print(error)
             }
         }
         return restaurants
     }
 
-    private func parseRecordToRestaurant(record: CKRecord) -> RestaurantModel.cloudkit {
-        let restaurant = RestaurantModel.cloudkit(
+    private func parseRecordToRestaurant(record: CKRecord) -> CKRestaurant {
+        let restaurant = CKRestaurant(
             recordName: record.recordID.recordName,
             fantasyName: record["fantasyName"],
             city: record["city"],

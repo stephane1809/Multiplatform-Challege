@@ -86,11 +86,11 @@ struct RestaurantModel: Identifiable, Equatable {
     var distance: Int?
     var tags: [RestaurantTag]?
     private var ckRestaurant: cloudkit
-    
+
     func getCkRestaurant() -> cloudkit {
         return ckRestaurant
     }
-    
+
     init(id: UUID = UUID(), image: String? = nil, distance: Int? = nil, tags: [RestaurantTag]? = nil, ckRestaurant: cloudkit = cloudkit(recordName: "")) {
         self.id = id
         self.image = image
