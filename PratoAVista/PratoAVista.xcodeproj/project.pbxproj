@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B7427BC2A43276300394AA3 /* CKRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427BB2A43276300394AA3 /* CKRestaurantRepository.swift */; };
 		0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C02A432D0B00394AA3 /* CKManager.swift */; };
-		0B7427C52A433EC500394AA3 /* CKDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C42A433EC500394AA3 /* CKDishRepository.swift */; };
 		0B7427CC2A44874E00394AA3 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427CB2A44874E00394AA3 /* JSONManager.swift */; };
 		0B9D4A142A479DF500219D33 /* RestaurantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A132A479DF500219D33 /* RestaurantManager.swift */; };
 		0B9D4A162A49118300219D33 /* DishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A152A49118300219D33 /* DishManager.swift */; };
 		0B9D4A282A4A701C00219D33 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A272A4A701C00219D33 /* Restaurant.swift */; };
 		0B9D4A2A2A4A703600219D33 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A292A4A703600219D33 /* Dish.swift */; };
+		0B9D4A2C2A4A717F00219D33 /* CKRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A2B2A4A717F00219D33 /* CKRestaurantRepository.swift */; };
+		0B9D4A2E2A4A719C00219D33 /* CKDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A2D2A4A719C00219D33 /* CKDishRepository.swift */; };
 		4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638472A409C7400F3785C /* PratoAVistaApp.swift */; };
 		4B66384A2A409C7400F3785C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638492A409C7400F3785C /* ContentView.swift */; };
 		4B66384C2A409C7500F3785C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384B2A409C7500F3785C /* Assets.xcassets */; };
@@ -57,14 +57,14 @@
 
 /* Begin PBXFileReference section */
 		0B7427B92A40B84600394AA3 /* PratoAVista.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PratoAVista.entitlements; sourceTree = "<group>"; };
-		0B7427BB2A43276300394AA3 /* CKRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRestaurantRepository.swift; sourceTree = "<group>"; };
 		0B7427C02A432D0B00394AA3 /* CKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKManager.swift; sourceTree = "<group>"; };
-		0B7427C42A433EC500394AA3 /* CKDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKDishRepository.swift; sourceTree = "<group>"; };
 		0B7427CB2A44874E00394AA3 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		0B9D4A132A479DF500219D33 /* RestaurantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantManager.swift; sourceTree = "<group>"; };
 		0B9D4A152A49118300219D33 /* DishManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishManager.swift; sourceTree = "<group>"; };
 		0B9D4A272A4A701C00219D33 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		0B9D4A292A4A703600219D33 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		0B9D4A2B2A4A717F00219D33 /* CKRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRestaurantRepository.swift; sourceTree = "<group>"; };
+		0B9D4A2D2A4A719C00219D33 /* CKDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKDishRepository.swift; sourceTree = "<group>"; };
 		4B6638442A409C7400F3785C /* PratoAVista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PratoAVista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638472A409C7400F3785C /* PratoAVistaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaApp.swift; sourceTree = "<group>"; };
 		4B6638492A409C7400F3785C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,9 +131,9 @@
 		0B7427BF2A432CFE00394AA3 /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
-				0B7427BB2A43276300394AA3 /* CKRestaurantRepository.swift */,
 				0B7427C02A432D0B00394AA3 /* CKManager.swift */,
-				0B7427C42A433EC500394AA3 /* CKDishRepository.swift */,
+				0B9D4A2B2A4A717F00219D33 /* CKRestaurantRepository.swift */,
+				0B9D4A2D2A4A719C00219D33 /* CKDishRepository.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -411,8 +411,6 @@
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
 				0B9D4A142A479DF500219D33 /* RestaurantManager.swift in Sources */,
 				0B7427CC2A44874E00394AA3 /* JSONManager.swift in Sources */,
-				0B7427C52A433EC500394AA3 /* CKDishRepository.swift in Sources */,
-				0B7427BC2A43276300394AA3 /* CKRestaurantRepository.swift in Sources */,
 				FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */,
 				FF8EBC662A40A669002825C6 /* LocationDetailView.swift in Sources */,
 				FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */,
@@ -430,7 +428,9 @@
 				FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */,
 				0B9D4A2A2A4A703600219D33 /* Dish.swift in Sources */,
 				FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */,
+				0B9D4A2C2A4A717F00219D33 /* CKRestaurantRepository.swift in Sources */,
 				0B9D4A162A49118300219D33 /* DishManager.swift in Sources */,
+				0B9D4A2E2A4A719C00219D33 /* CKDishRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

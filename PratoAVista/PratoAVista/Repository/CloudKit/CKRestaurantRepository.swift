@@ -39,7 +39,7 @@ class CKRestaurantRepository {
             fatalError()
         }
     }
-    
+
     private func getMatchingRecords(predicate: NSPredicate) async throws -> [CKRestaurant] {
 
         let query = CKQuery(recordType: CKRestaurant.identifier, predicate: predicate)
