@@ -7,18 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427BB2A43276300394AA3 /* CloudKitRestaurantRepository.swift */; };
+		0B7427BC2A43276300394AA3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C02A432D0B00394AA3 /* CKManager.swift */; };
-		0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */; };
-		0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427C82A4344D800394AA3 /* DishModel.swift */; };
-		0B7427CC2A44874E00394AA3 /* JSONRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427CB2A44874E00394AA3 /* JSONRestaurantRepository.swift */; };
+		0B7427CC2A44874E00394AA3 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7427CB2A44874E00394AA3 /* JSONManager.swift */; };
+		0B9D4A142A479DF500219D33 /* RestaurantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A132A479DF500219D33 /* RestaurantManager.swift */; };
+		0B9D4A162A49118300219D33 /* DishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A152A49118300219D33 /* DishManager.swift */; };
+		0B9D4A282A4A701C00219D33 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A272A4A701C00219D33 /* Restaurant.swift */; };
+		0B9D4A2A2A4A703600219D33 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A292A4A703600219D33 /* Dish.swift */; };
+		0B9D4A2C2A4A717F00219D33 /* CKRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A2B2A4A717F00219D33 /* CKRestaurantRepository.swift */; };
+		0B9D4A2E2A4A719C00219D33 /* CKDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A2D2A4A719C00219D33 /* CKDishRepository.swift */; };
+		0B9D4A302A4A736A00219D33 /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A2F2A4A736A00219D33 /* DishModel.swift */; };
+		0B9D4A322A4A737700219D33 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A312A4A737700219D33 /* RestaurantModel.swift */; };
+		0B9D4A342A4A741200219D33 /* CloudKitDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A332A4A741200219D33 /* CloudKitDishRepository.swift */; };
+		0B9D4A362A4A742900219D33 /* CloudKitRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A352A4A742900219D33 /* CloudKitRestaurantRepository.swift */; };
 		4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638472A409C7400F3785C /* PratoAVistaApp.swift */; };
 		4B66384C2A409C7500F3785C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384B2A409C7500F3785C /* Assets.xcassets */; };
 		4B66384F2A409C7500F3785C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384E2A409C7500F3785C /* Preview Assets.xcassets */; };
 		4B6638592A409C7500F3785C /* PratoAVistaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638582A409C7500F3785C /* PratoAVistaTests.swift */; };
 		4B6638632A409C7500F3785C /* PratoAVistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */; };
 		4B6638652A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */; };
-		4BBE40EB2A43361D00C555F3 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */; };
 		4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */; };
 		4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */; };
 		4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40F42A43406500C555F3 /* FoodModel.swift */; };
@@ -73,12 +80,18 @@
 
 /* Begin PBXFileReference section */
 		0B7427B92A40B84600394AA3 /* PratoAVista.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PratoAVista.entitlements; sourceTree = "<group>"; };
-		0B7427BB2A43276300394AA3 /* CloudKitRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRestaurantRepository.swift; sourceTree = "<group>"; };
-		0B7427BD2A43285500394AA3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		0B7427C02A432D0B00394AA3 /* CKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKManager.swift; sourceTree = "<group>"; };
-		0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDishRepository.swift; sourceTree = "<group>"; };
-		0B7427C82A4344D800394AA3 /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
-		0B7427CB2A44874E00394AA3 /* JSONRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRestaurantRepository.swift; sourceTree = "<group>"; };
+		0B7427CB2A44874E00394AA3 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		0B9D4A132A479DF500219D33 /* RestaurantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantManager.swift; sourceTree = "<group>"; };
+		0B9D4A152A49118300219D33 /* DishManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishManager.swift; sourceTree = "<group>"; };
+		0B9D4A272A4A701C00219D33 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		0B9D4A292A4A703600219D33 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		0B9D4A2B2A4A717F00219D33 /* CKRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRestaurantRepository.swift; sourceTree = "<group>"; };
+		0B9D4A2D2A4A719C00219D33 /* CKDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKDishRepository.swift; sourceTree = "<group>"; };
+		0B9D4A2F2A4A736A00219D33 /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
+		0B9D4A312A4A737700219D33 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		0B9D4A332A4A741200219D33 /* CloudKitDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDishRepository.swift; sourceTree = "<group>"; };
+		0B9D4A352A4A742900219D33 /* CloudKitRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRestaurantRepository.swift; sourceTree = "<group>"; };
 		4B6638442A409C7400F3785C /* PratoAVista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PratoAVista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638472A409C7400F3785C /* PratoAVistaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaApp.swift; sourceTree = "<group>"; };
 		4B66384B2A409C7500F3785C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +101,6 @@
 		4B66385E2A409C7500F3785C /* PratoAVistaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PratoAVistaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITests.swift; sourceTree = "<group>"; };
 		4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
 		4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMockup.swift; sourceTree = "<group>"; };
 		4BBE40F42A43406500C555F3 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
@@ -156,6 +168,8 @@
 				FF216A122A44E107004AA343 /* Error */,
 				0B7427CA2A44872900394AA3 /* JSON */,
 				0B7427BF2A432CFE00394AA3 /* CloudKit */,
+				0B9D4A132A479DF500219D33 /* RestaurantManager.swift */,
+				0B9D4A152A49118300219D33 /* DishManager.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -163,9 +177,11 @@
 		0B7427BF2A432CFE00394AA3 /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
-				0B7427BB2A43276300394AA3 /* CloudKitRestaurantRepository.swift */,
 				0B7427C02A432D0B00394AA3 /* CKManager.swift */,
-				0B7427C42A433EC500394AA3 /* CloudKitDishRepository.swift */,
+				0B9D4A2B2A4A717F00219D33 /* CKRestaurantRepository.swift */,
+				0B9D4A2D2A4A719C00219D33 /* CKDishRepository.swift */,
+				0B9D4A332A4A741200219D33 /* CloudKitDishRepository.swift */,
+				0B9D4A352A4A742900219D33 /* CloudKitRestaurantRepository.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -173,7 +189,7 @@
 		0B7427CA2A44872900394AA3 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				0B7427CB2A44874E00394AA3 /* JSONRestaurantRepository.swift */,
+				0B7427CB2A44874E00394AA3 /* JSONManager.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -253,7 +269,6 @@
 		4BBE40FD2A435E5F00C555F3 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				0B7427BD2A43285500394AA3 /* RestaurantModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -345,12 +360,14 @@
 			isa = PBXGroup;
 			children = (
 				FF8EBC592A40A5B7002825C6 /* Location.swift */,
-				4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */,
 				4BBE40F42A43406500C555F3 /* FoodModel.swift */,
 				FF216A022A431C9C004AA343 /* RestaurantTags.swift */,
 				FF216A092A43287A004AA343 /* DishTags.swift */,
 				4BBE41002A43C23E00C555F3 /* MenuModel.swift */,
-				0B7427C82A4344D800394AA3 /* DishModel.swift */,
+				0B9D4A272A4A701C00219D33 /* Restaurant.swift */,
+				0B9D4A292A4A703600219D33 /* Dish.swift */,
+				0B9D4A2F2A4A736A00219D33 /* DishModel.swift */,
+				0B9D4A312A4A737700219D33 /* RestaurantModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -536,13 +553,15 @@
 			files = (
 				B2F97C172A448EE3000756BE /* MenuItem.swift in Sources */,
 				4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */,
+				0B9D4A302A4A736A00219D33 /* DishModel.swift in Sources */,
 				4BBE41012A43C23E00C555F3 /* MenuModel.swift in Sources */,
 				4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */,
-				0B7427C92A4344D800394AA3 /* DishModel.swift in Sources */,
-				0B7427CC2A44874E00394AA3 /* JSONRestaurantRepository.swift in Sources */,
-				0B7427C52A433EC500394AA3 /* CloudKitDishRepository.swift in Sources */,
+				0B7427CC2A44874E00394AA3 /* JSONManager.swift in Sources */,
 				FF90DFAC2A47FCDF00A9A7AC /* MenuView.swift in Sources */,
-				0B7427BC2A43276300394AA3 /* CloudKitRestaurantRepository.swift in Sources */,
+				0B7427BC2A43276300394AA3 /* (null) in Sources */,
+				0B9D4A142A479DF500219D33 /* RestaurantManager.swift in Sources */,
+				0B7427CC2A44874E00394AA3 /* JSONManager.swift in Sources */,
+				0B9D4A362A4A742900219D33 /* CloudKitRestaurantRepository.swift in Sources */,
 				FF216A0A2A43287A004AA343 /* DishTags.swift in Sources */,
 				FF8EBC662A40A669002825C6 /* RestaurantView.swift in Sources */,
 				4BBE410D2A47649600C555F3 /* SavedView.swift in Sources */,
@@ -551,6 +570,7 @@
 				4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */,
 				FF216A012A431B91004AA343 /* RestaurantTagView.swift in Sources */,
 				FF8EBC5A2A40A5B7002825C6 /* Location.swift in Sources */,
+				0B9D4A322A4A737700219D33 /* RestaurantModel.swift in Sources */,
 				FF8EBC602A40A60B002825C6 /* LocationsView.swift in Sources */,
 				FF216A032A431C9C004AA343 /* RestaurantTags.swift in Sources */,
 				FF9D59402A467E8B001F6864 /* ImageConversor.swift in Sources */,
@@ -562,6 +582,7 @@
 				FF216A0F2A4386D2004AA343 /* HeaderRestaurantView.swift in Sources */,
 				4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */,
 				FF443FDF2A47F10400F7510D /* OrientationDetector.swift in Sources */,
+				0B9D4A342A4A741200219D33 /* CloudKitDishRepository.swift in Sources */,
 				0B7427C12A432D0B00394AA3 /* CKManager.swift in Sources */,
 				FF8EBC5C2A40A5CD002825C6 /* RestaurantsViewModel.swift in Sources */,
 				4BBE41052A43C29900C555F3 /* MenuMockup.swift in Sources */,
@@ -569,12 +590,16 @@
 				4BBE40F72A43407B00C555F3 /* FoodCard.swift in Sources */,
 				FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */,
 				FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */,
-				4BBE40EB2A43361D00C555F3 /* RestaurantModel.swift in Sources */,
 				4BBE40F92A43408A00C555F3 /* FoodMockup.swift in Sources */,
 				FF90DFB02A4811FB00A9A7AC /* StringExtension.swift in Sources */,
 				FF8EBC642A40A653002825C6 /* LocationMapAnnotationView.swift in Sources */,
 				FF216A162A44F2F1004AA343 /* TestView.swift in Sources */,
+				0B9D4A282A4A701C00219D33 /* Restaurant.swift in Sources */,
+				0B9D4A2A2A4A703600219D33 /* Dish.swift in Sources */,
 				FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */,
+				0B9D4A2C2A4A717F00219D33 /* CKRestaurantRepository.swift in Sources */,
+				0B9D4A162A49118300219D33 /* DishManager.swift in Sources */,
+				0B9D4A2E2A4A719C00219D33 /* CKDishRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
