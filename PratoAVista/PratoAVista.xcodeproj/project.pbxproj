@@ -27,7 +27,6 @@
 		4B6638632A409C7500F3785C /* PratoAVistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */; };
 		4B6638652A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */; };
 		4BB864CE2A4A705400EF3F21 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */; };
-		4BBE40EB2A43361D00C555F3 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */; };
 		4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */; };
 		4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */; };
 		4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40F42A43406500C555F3 /* FoodModel.swift */; };
@@ -104,7 +103,6 @@
 		4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITests.swift; sourceTree = "<group>"; };
 		4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
-		4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
 		4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMockup.swift; sourceTree = "<group>"; };
 		4BBE40F42A43406500C555F3 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
@@ -780,6 +778,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -790,6 +789,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.stephanegirao.PratoAVista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -812,6 +814,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -822,6 +825,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.stephanegirao.PratoAVista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

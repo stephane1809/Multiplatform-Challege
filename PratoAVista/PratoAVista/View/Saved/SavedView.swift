@@ -10,21 +10,44 @@ import SwiftUI
 
 struct SavedView: View {
 
-    private var menus = MenuMockup.getMenu()
+//    private var menus = MenuMockup.getMenu()
+    private var menus: [MenuModel] = []
 
         var body: some View {
             NavigationView {
-                ScrollView {
-                    LazyVStack(spacing: 16) {
-                        ForEach(menus) { menu in
-                            MenuCard(menu: menu)
+                if menus.isEmpty {
+                    emptyState
+
+                } else {
+                    ScrollView {
+                        LazyVStack(spacing: 16) {
+                            ForEach(menus) { menu in
+                                MenuCard(menu: menu)
+                            }
+                            .navigationTitle("Salvos")
                         }
-                        .navigationTitle("Salvos")
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
                 }
             }
             .navigationViewStyle(.stack)
             .navigationBarBackButtonHidden()
         }
+}
+
+extension SavedView {
+    private var emptyState: some View {
+        VStack(alignment: .center, spacing: 15) {
+            Image(systemName: "x.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+                .foregroundColor(.gray)
+            Text("Nenhum cardápio salvo.")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+        }
+        .padding(.horizontal, 20)
+    }
 }

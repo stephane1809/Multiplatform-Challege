@@ -81,7 +81,13 @@ class CKDishRepository {
     }
 
     func parseCKDishToDish(ckDish: CKDish, alergenics: [String]) -> Dish {
-        let dish = Dish(recordName: ckDish.recordName, category: ckDish.category, dishName: ckDish.dishName, ingredients: ckDish.ingredients, portion: ckDish.portion, price: ckDish.price, alergenics: alergenics)
+        let dish = Dish(recordName: ckDish.recordName,
+                        category: ckDish.category,
+                        dishName: ckDish.dishName,
+                        ingredients: ckDish.ingredients,
+                        portion: ckDish.portion,
+                        price: ckDish.price,
+                        alergenics: alergenics)
 
         return dish
     }

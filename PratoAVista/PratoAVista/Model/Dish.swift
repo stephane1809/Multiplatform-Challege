@@ -29,9 +29,19 @@ class BaseDish {
 class Dish: BaseDish {
     var alergenics: [String]
 
-    init(recordName: String, category: String? = nil, dishName: String? = nil, ingredients: [String] = [], portion: String? = nil, price: Double? = nil, alergenics: [String] = []) {
+    init(recordName: String,
+         category: String? = nil,
+         dishName: String? = nil,
+         ingredients: [String] = [],
+         portion: String? = nil,
+         price: Double? = nil,
+         alergenics: [String] = []) {
         self.alergenics = alergenics
-        super.init(recordName: recordName, category: category, dishName: dishName, ingredients: ingredients, portion: portion, price: price)
+        super.init(recordName: recordName,
+                   category: category,
+                   dishName: dishName,
+                   ingredients: ingredients,
+                   portion: portion, price: price)
     }
 }
 
@@ -40,7 +50,14 @@ class CKDish: BaseDish {
     var alergenics: [CKRecord.Reference]
     var restaurants: [CKRecord.Reference]
 
-    init(recordName: String, category: String? = nil, dishName: String? = nil, ingredients: [String] = [], portion: String? = nil, price: Double? = nil, alergenics: [CKRecord.Reference] = [], restaurants: [CKRecord.Reference] = []) {
+    init(recordName: String,
+         category: String? = nil,
+         dishName: String? = nil,
+         ingredients: [String] = [],
+         portion: String? = nil,
+         price: Double? = nil,
+         alergenics: [CKRecord.Reference] = [],
+         restaurants: [CKRecord.Reference] = []) {
         self.alergenics = alergenics
         self.restaurants = restaurants
         super.init(recordName: recordName, category: category, dishName: dishName, ingredients: ingredients, portion: portion, price: price)

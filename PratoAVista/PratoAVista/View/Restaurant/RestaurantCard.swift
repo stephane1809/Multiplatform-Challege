@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 
 struct RestaurantCard: View {
 
@@ -19,12 +20,13 @@ struct RestaurantCard: View {
                     .font(.system(size: 17))
                     .bold()
 
-
                 Text(restaurant.location ?? "")
                     .font(.system(size: 13))
 
-                Label("200 km de distância", systemImage: "location.north.fill")
-                    .font(.system(size: 13))
+                if let distance = calculateDistanceFrom(restaurant.coordinate) {
+                    Label("\(Int(distance)) m de distância", systemImage: "location.north.fill")
+                        .font(.system(size: 13))
+                }
 
                 if restaurant.wifi || restaurant.airConditioned || restaurant.petFrendly {
                     ScrollView(.horizontal) {
@@ -62,5 +64,14 @@ struct RestaurantCard: View {
         .background(Color(red: 242/255, green: 242/255, blue: 247/255))
         .cornerRadius(5)
         .shadow(color: .gray, radius: 3, x: 4, y: 4)
+    }
+
+    func calculateDistanceFrom(_ coordinate: CLLocationCoordinate2D) -> CLLocationDistance? {
+        if let userLocation = CLLocationManager().location?.coordinate {
+            let location1 = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            let location2 = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+            return location2.distance(from: location1)
+        }
+        return nil
     }
 }

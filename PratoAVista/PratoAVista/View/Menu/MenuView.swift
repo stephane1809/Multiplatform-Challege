@@ -24,6 +24,7 @@ struct MenuView: View {
         .onAppear {
             viewModel.getAllCategorys()
         }
+        .preferredColorScheme(.light)
         .navigationTitle(viewModel.restaurant.name!)
         .navigationBarTitleDisplayMode(.inline)
         .navigationViewStyle(.stack)
@@ -42,15 +43,32 @@ struct MenuView: View {
                     .foregroundColor(.restaurantTagBG)
             }
         }
+        .alert("Em breve!",
+               isPresented: $viewModel.saveAlert) {
+            Button("OK") {
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    imageOnSaveButton = "bookmark"
+                }
+            }
+        } message: {
+            Text("""
+                 Em breve, você poderá salvar o cardápio dos restaurantes para acessá-lo sem estar conectado à internet.
+                 Agradecemos por demonstrar interesse nessa funcionalidade!
+                 """)
+        }
     }
 
     func saveAction() {
-        if imageOnSaveButton == "bookmark.fill" {
-            imageOnSaveButton =  "bookmark"
-        } else {
+        withAnimation(.easeInOut(duration: 0.5)) {
             imageOnSaveButton = "bookmark.fill"
         }
-        // MARK: Aqui adiciona o código para salvar
+        viewModel.saveAlert = true
+//        if imageOnSaveButton == "bookmark.fill" {
+//            imageOnSaveButton =  "bookmark"
+//        } else {
+//            imageOnSaveButton = "bookmark.fill"
+//        }
+        // MARK: Aqui adicionar a função de save!
     }
 
     func updateTransition(_ nextCategory: String) {
