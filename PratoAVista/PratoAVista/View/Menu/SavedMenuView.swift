@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct SavedMenuView: View {
 
     @EnvironmentObject var viewModel: MenuViewModel
     @State var insertionAnimation: Edge = .trailing
@@ -74,7 +74,7 @@ struct MenuView: View {
     }
 }
 
-extension MenuView {
+extension SavedMenuView {
 
     private var filterCategorySection: some View {
         ScrollView(.horizontal, showsIndicators: false) {

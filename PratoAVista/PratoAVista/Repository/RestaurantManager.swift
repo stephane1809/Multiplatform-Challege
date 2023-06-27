@@ -50,6 +50,7 @@ class RestaurantManager {
 
     func saveRestaurant(recordName: String) async {
         let cloudKitRestaurant = await cloudKitRestaurantRepository.getRestaurantBy(recordName: recordName)
+        print(cloudKitRestaurant.fantasyName)
         let dishes = await dishManager.getDishesBy(restaurantRecordName: recordName)
         print(dishes.count)
 

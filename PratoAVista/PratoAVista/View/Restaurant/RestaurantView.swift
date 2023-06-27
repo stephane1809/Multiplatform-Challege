@@ -50,7 +50,7 @@ extension RestaurantView {
                 .fontWeight(.semibold)
             NavigationLink {
                 if let currentDishes = viewModel.currentRestaurantDishes {
-                    MenuView()
+                    MenuView(restaurantRecordName: currentRestaurant.recordName)
                         .environmentObject(MenuViewModel(
                             restaurant: viewModel.currentRestaurant,
                             dishes: currentDishes))

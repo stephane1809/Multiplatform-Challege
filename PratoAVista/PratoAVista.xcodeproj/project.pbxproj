@@ -20,6 +20,7 @@
 		0B9D4A322A4A737700219D33 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A312A4A737700219D33 /* RestaurantModel.swift */; };
 		0B9D4A342A4A741200219D33 /* CloudKitDishRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A332A4A741200219D33 /* CloudKitDishRepository.swift */; };
 		0B9D4A362A4A742900219D33 /* CloudKitRestaurantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A352A4A742900219D33 /* CloudKitRestaurantRepository.swift */; };
+		0B9D4A382A4A7F9100219D33 /* SavedMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D4A372A4A7F9100219D33 /* SavedMenuView.swift */; };
 		4B6638482A409C7400F3785C /* PratoAVistaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638472A409C7400F3785C /* PratoAVistaApp.swift */; };
 		4B66384C2A409C7500F3785C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384B2A409C7500F3785C /* Assets.xcassets */; };
 		4B66384F2A409C7500F3785C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B66384E2A409C7500F3785C /* Preview Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		4B6638632A409C7500F3785C /* PratoAVistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */; };
 		4B6638652A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */; };
 		4BB864CE2A4A705400EF3F21 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */; };
-		4BBE40EB2A43361D00C555F3 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */; };
 		4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */; };
 		4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */; };
 		4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40F42A43406500C555F3 /* FoodModel.swift */; };
@@ -94,6 +94,7 @@
 		0B9D4A312A4A737700219D33 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		0B9D4A332A4A741200219D33 /* CloudKitDishRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDishRepository.swift; sourceTree = "<group>"; };
 		0B9D4A352A4A742900219D33 /* CloudKitRestaurantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRestaurantRepository.swift; sourceTree = "<group>"; };
+		0B9D4A372A4A7F9100219D33 /* SavedMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMenuView.swift; sourceTree = "<group>"; };
 		4B6638442A409C7400F3785C /* PratoAVista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PratoAVista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638472A409C7400F3785C /* PratoAVistaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaApp.swift; sourceTree = "<group>"; };
 		4B66384B2A409C7500F3785C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITests.swift; sourceTree = "<group>"; };
 		4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
-		4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
 		4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMockup.swift; sourceTree = "<group>"; };
 		4BBE40F42A43406500C555F3 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
@@ -292,6 +292,7 @@
 				4BBE41022A43C25800C555F3 /* MenuCard.swift */,
 				4BBE41042A43C29900C555F3 /* MenuMockup.swift */,
 				FF90DFAB2A47FCDF00A9A7AC /* MenuView.swift */,
+				0B9D4A372A4A7F9100219D33 /* SavedMenuView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -612,6 +613,7 @@
 				0B9D4A2A2A4A703600219D33 /* Dish.swift in Sources */,
 				FF216A062A4324ED004AA343 /* ColorExtension.swift in Sources */,
 				0B9D4A2C2A4A717F00219D33 /* CKRestaurantRepository.swift in Sources */,
+				0B9D4A382A4A7F9100219D33 /* SavedMenuView.swift in Sources */,
 				0B9D4A162A49118300219D33 /* DishManager.swift in Sources */,
 				0B9D4A2E2A4A719C00219D33 /* CKDishRepository.swift in Sources */,
 			);
