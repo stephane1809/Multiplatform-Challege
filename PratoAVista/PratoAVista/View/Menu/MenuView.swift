@@ -24,6 +24,7 @@ struct MenuView: View {
         .onAppear {
             viewModel.getAllCategorys()
         }
+        .preferredColorScheme(.light)
         .navigationTitle(viewModel.restaurant.name!)
         .navigationBarTitleDisplayMode(.inline)
         .navigationViewStyle(.stack)

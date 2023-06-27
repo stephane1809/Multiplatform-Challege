@@ -24,7 +24,7 @@ struct RestaurantCard: View {
                     .font(.system(size: 13))
 
                 if let distance = calculateDistanceFrom(restaurant.coordinate) {
-                    Label("\(Int(distance)) km de distância", systemImage: "location.north.fill")
+                    Label("\(Int(distance)) m de distância", systemImage: "location.north.fill")
                         .font(.system(size: 13))
                 }
 
@@ -70,7 +70,7 @@ struct RestaurantCard: View {
         if let userLocation = CLLocationManager().location?.coordinate {
             let location1 = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
             let location2 = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
-            return location2.distance(from: location1) * 0.001
+            return location2.distance(from: location1)
         }
         return nil
     }

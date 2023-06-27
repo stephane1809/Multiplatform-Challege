@@ -74,8 +74,8 @@ struct SearchView: View {
                     self.address = placemarks.first?.thoroughfare ?? ""
                 }
             }
-
         }
+        .preferredColorScheme(.light)
         .searchable(text: $searchText)
         .navigationViewStyle(.stack)
         .navigationBarBackButtonHidden()
@@ -96,6 +96,7 @@ struct SearchView: View {
         } message: {
             Text(viewModel.localError?.recoverySuggestion ?? "Tente novamente.")
         }
+        .background(Color.white)
 
     }
 
