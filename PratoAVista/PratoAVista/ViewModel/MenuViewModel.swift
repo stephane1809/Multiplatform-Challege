@@ -26,6 +26,7 @@ class MenuViewModel: ObservableObject {
     @Published var currentDishes: [DishModel] = []
     @Published var selectedDish: DishModel?
     @Published var showDish = false
+    @Published var saveAlert: Bool = false
 
     init(restaurant: RestaurantModel, dishes: [DishModel]) {
         self.restaurant = restaurant
