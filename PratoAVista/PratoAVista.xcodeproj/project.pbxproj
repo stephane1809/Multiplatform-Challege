@@ -26,6 +26,8 @@
 		4B6638592A409C7500F3785C /* PratoAVistaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638582A409C7500F3785C /* PratoAVistaTests.swift */; };
 		4B6638632A409C7500F3785C /* PratoAVistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */; };
 		4B6638652A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */; };
+		4BB864CE2A4A705400EF3F21 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */; };
+		4BBE40EB2A43361D00C555F3 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */; };
 		4BBE40EE2A43365100C555F3 /* RestaurantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */; };
 		4BBE40F22A433E9300C555F3 /* RestaurantMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */; };
 		4BBE40F52A43406500C555F3 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE40F42A43406500C555F3 /* FoodModel.swift */; };
@@ -101,6 +103,8 @@
 		4B66385E2A409C7500F3785C /* PratoAVistaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PratoAVistaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B6638622A409C7500F3785C /* PratoAVistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITests.swift; sourceTree = "<group>"; };
 		4B6638642A409C7500F3785C /* PratoAVistaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratoAVistaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+		4BBE40EA2A43361D00C555F3 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		4BBE40ED2A43365100C555F3 /* RestaurantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCard.swift; sourceTree = "<group>"; };
 		4BBE40EF2A4336A100C555F3 /* RestaurantMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMockup.swift; sourceTree = "<group>"; };
 		4BBE40F42A43406500C555F3 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
@@ -257,6 +261,14 @@
 			path = PratoAVistaUITests;
 			sourceTree = "<group>";
 		};
+		4BB864CC2A4A702900EF3F21 /* UserLocation */ = {
+			isa = PBXGroup;
+			children = (
+				4BB864CD2A4A705400EF3F21 /* DeviceLocationService.swift */,
+			);
+			path = UserLocation;
+			sourceTree = "<group>";
+		};
 		4BBE40F32A43404900C555F3 /* Foods */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +387,7 @@
 		FF8EBC5D2A40A5DE002825C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BB864CC2A4A702900EF3F21 /* UserLocation */,
 				4BBE410B2A4763A100C555F3 /* Saved */,
 				4BBE41082A4522F500C555F3 /* SearchView */,
 				FF216A0D2A438549004AA343 /* Restaurant */,
@@ -587,6 +600,7 @@
 				FF8EBC5C2A40A5CD002825C6 /* RestaurantsViewModel.swift in Sources */,
 				4BBE41052A43C29900C555F3 /* MenuMockup.swift in Sources */,
 				4BBE41032A43C25800C555F3 /* MenuCard.swift in Sources */,
+				4BB864CE2A4A705400EF3F21 /* DeviceLocationService.swift in Sources */,
 				4BBE40F72A43407B00C555F3 /* FoodCard.swift in Sources */,
 				FF46FA4E2A41D941008A3D28 /* ZoomImage.swift in Sources */,
 				FF8EBC562A40A58D002825C6 /* LocationsDataService.swift in Sources */,
@@ -762,6 +776,7 @@
 				DEVELOPMENT_TEAM = 826U5T47TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up with that location homie";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -793,6 +808,7 @@
 				DEVELOPMENT_TEAM = 826U5T47TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up with that location homie";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
