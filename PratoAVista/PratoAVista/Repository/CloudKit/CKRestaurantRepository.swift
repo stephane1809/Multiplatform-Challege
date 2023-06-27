@@ -8,7 +8,7 @@
 import Foundation
 import CloudKit
 
-class CloudKitRestaurantRepository {
+class CKRestaurantRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
     func getRestaurants() async -> [CKRestaurant]{

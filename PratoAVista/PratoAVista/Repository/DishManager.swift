@@ -9,7 +9,7 @@ import Foundation
 import CloudKit
 
 class DishManager {
-    let ckDishRepository = CloudKitDishRepository()
+    let ckDishRepository = CKDishRepository()
     let ckAlergenicRepository = CloudKitAlergenicRepository()
 
     func getDishesBy(restaurantRecordName: String) async -> [Dish] {

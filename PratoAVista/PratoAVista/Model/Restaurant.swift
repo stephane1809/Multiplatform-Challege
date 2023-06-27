@@ -158,6 +158,6 @@ class JSONRestaurant: Codable, Identifiable {
         self.airConditioned = airConditioned
         self.dishes = dishes
     }
-    
+
 }
 

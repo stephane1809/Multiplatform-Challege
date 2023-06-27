@@ -10,7 +10,7 @@ import CloudKit
 import UIKit
 
 class RestaurantManager {
-    private var cloudKitRestaurantRepository = CloudKitRestaurantRepository()
+    private var cloudKitRestaurantRepository = CKRestaurantRepository()
     private var dishManager = DishManager()
     private var jsonManager = JSONManager.shared
 
@@ -28,7 +28,7 @@ class RestaurantManager {
 //    }
 
     func getRestaurantFromCloudKit(recordName: String) async -> CKRestaurant {
-        let restaurant = await CloudKitRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
+        let restaurant = await CKRestaurantRepository().getRestaurantBy(recordName: "7603F070-33F1-81AB-7462-E242F1B20A93")
 
         return restaurant
     }

@@ -8,7 +8,7 @@
 import Foundation
 import CloudKit
 
-class CloudKitDishRepository {
+class CKDishRepository {
     let publicDatabase = CKManager.shared.publicDatabase
 
     func getDishBy(recordName: String) async -> [CKDish] {
