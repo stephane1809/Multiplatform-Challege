@@ -84,13 +84,45 @@ class RestaurantManager {
 
     func parseToJSONRestaurant(cloudKitRestaurant cloudKitObject: CKRestaurant, dishes: [JSONDish]) -> JSONRestaurant {
 //        let picturePath = saveRestaurantPicture(restaurant: cloudKitObject)
-        let jsonRestaurant = JSONRestaurant(recordName: cloudKitObject.recordName, fantasyName: cloudKitObject.fantasyName, city: cloudKitObject.city, latitude: cloudKitObject.latitude, longitude: cloudKitObject.longitude, neighborhood: cloudKitObject.neighborhood, number: cloudKitObject.number, state: cloudKitObject.state, streetName: cloudKitObject.streetName, operationDaysAndTime: cloudKitObject.operationDaysAndTime, instagram: cloudKitObject.instagram, whatsapp: cloudKitObject.whatsapp, website: cloudKitObject.website, kids: cloudKitObject.kids, petFriendly: cloudKitObject.petFriendly, airConditioned: cloudKitObject.airConditioned, dishes: dishes)
+        let jsonRestaurant = JSONRestaurant(recordName: cloudKitObject.recordName,
+                                            fantasyName: cloudKitObject.fantasyName,
+                                            city: cloudKitObject.city,
+                                            latitude: cloudKitObject.latitude,
+                                            longitude: cloudKitObject.longitude,
+                                            neighborhood: cloudKitObject.neighborhood,
+                                            number: cloudKitObject.number,
+                                            state: cloudKitObject.state,
+                                            streetName: cloudKitObject.streetName,
+                                            operationDaysAndTime: cloudKitObject.operationDaysAndTime,
+                                            instagram: cloudKitObject.instagram,
+                                            whatsapp: cloudKitObject.whatsapp,
+                                            website: cloudKitObject.website,
+                                            kids: cloudKitObject.kids,
+                                            petFriendly: cloudKitObject.petFriendly,
+                                            airConditioned: cloudKitObject.airConditioned,
+                                            dishes: dishes)
 
         return jsonRestaurant
     }
 
 //    func parseToRestaurant(ckRestaurant: CKRestaurant) -> Restaurant {
-//        let restaurant = Restaurant(recordName: <#T##String#>, fantasyName: <#T##String?#>, city: <#T##String?#>, latitude: <#T##String?#>, longitude: <#T##String?#>, neighborhood: <#T##String?#>, number: <#T##String?#>, state: <#T##String?#>, streetName: <#T##String?#>, operationDaysAndTime: <#T##String?#>, instagram: <#T##String?#>, whatsapp: <#T##String?#>, website: <#T##String?#>, kids: <#T##Bool#>, petFriendly: <#T##Bool#>, airConditioned: <#T##Bool#>, picture: <#T##UIImage?#>)
+//        let restaurant = Restaurant(recordName: <#T##String#>,
+//                                    fantasyName: <#T##String?#>,
+//                                    city: <#T##String?#>,
+//                                    latitude: <#T##String?#>,
+//                                    longitude: <#T##String?#>,
+//                                    neighborhood: <#T##String?#>,
+//                                    number: <#T##String?#>,
+//                                    state: <#T##String?#>,
+//                                    streetName: <#T##String?#>,
+//                                    operationDaysAndTime: <#T##String?#>,
+//                                    instagram: <#T##String?#>,
+//                                    whatsapp: <#T##String?#>,
+//                                    website: <#T##String?#>,
+//                                    kids: <#T##Bool#>,
+//                                    petFriendly: <#T##Bool#>,
+//                                    airConditioned: <#T##Bool#>,
+//                                    picture: <#T##UIImage?#>)
 //    }
 
     func parseToRestaurant(jsonRestaurant: JSONRestaurant) -> Restaurant {
@@ -108,7 +140,22 @@ class RestaurantManager {
 
 //        let uiImage = ImageManager.parseDataToUIImage(data: pictureData)
 
-        let restaurant = Restaurant(recordName: jsonRestaurant.recordName, fantasyName: jsonRestaurant.fantasyName, city: jsonRestaurant.city, latitude: jsonRestaurant.latitude, longitude: jsonRestaurant.longitude, neighborhood: jsonRestaurant.neighborhood, number: jsonRestaurant.number, state: jsonRestaurant.state, streetName: jsonRestaurant.streetName, operationDaysAndTime: jsonRestaurant.operationDaysAndTime, instagram: jsonRestaurant.instagram, whatsapp: jsonRestaurant.whatsapp, website: jsonRestaurant.website, kids: jsonRestaurant.kids, petFriendly: jsonRestaurant.petFriendly, airConditioned: jsonRestaurant.airConditioned)
+        let restaurant = Restaurant(recordName: jsonRestaurant.recordName,
+                                    fantasyName: jsonRestaurant.fantasyName,
+                                    city: jsonRestaurant.city,
+                                    latitude: jsonRestaurant.latitude,
+                                    longitude: jsonRestaurant.longitude,
+                                    neighborhood: jsonRestaurant.neighborhood,
+                                    number: jsonRestaurant.number,
+                                    state: jsonRestaurant.state,
+                                    streetName: jsonRestaurant.streetName,
+                                    operationDaysAndTime: jsonRestaurant.operationDaysAndTime,
+                                    instagram: jsonRestaurant.instagram,
+                                    whatsapp: jsonRestaurant.whatsapp,
+                                    website: jsonRestaurant.website,
+                                    kids: jsonRestaurant.kids,
+                                    petFriendly: jsonRestaurant.petFriendly,
+                                    airConditioned: jsonRestaurant.airConditioned)
 
         return restaurant
     }
