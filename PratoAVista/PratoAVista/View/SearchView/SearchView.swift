@@ -27,16 +27,17 @@ struct SearchView: View {
     var body: some View {
 
         NavigationView {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     Label(address.capitalized, systemImage: "location")
                         .font(.system(size: 19))
-                    Spacer()
                 }
                 .padding([.leading], 20)
+                Spacer()
                 if restaurants.isEmpty {
                     emptyState
                         .navigationTitle(title)
+                    Spacer()
 
                 } else {
                     ScrollView {
